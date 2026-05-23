@@ -1,0 +1,25 @@
+{
+  "sistema": {
+    "id": "poderes_zero",
+    "nome": "Poderes Zero",
+    "sourceBook": "Atlas: Alta Fantasia",
+    "sourcePage": 124,
+    "descricao": "Essa é provavelmente a regra mais “explosiva” do livro: poderes zero permitem que cada personagem manifeste efeitos incríveis se estiverem encurralados — muito além de qualquer outra coisa no jogo. Alguns destes poderes permitem que você faça uma enxurrada de ataques, cure seus aliados ou lance magias poderosas sem custo. Esta opção facilita que seus heróis vençam a maioria dos conflitos — é excelente em uma campanha com estilo mais super-heroico ou para jogos mais casuais."
+  },
+  "variantes": [
+    {
+      "id": "poder_desperto",
+      "nome": "Poder Desperto",
+      "nomeRaw": "PODER DESPERTO",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "descricao": "Esta variação é ideal para histórias épicas nas quais um herói manifesta um poder novo e inesperado, isso normalmente acontece quando estão frente a frente com um desastre ou quando algo muda sua visão de mundo. Se usar esta opção, você escolhe o efeito do seu Poder Zero durante a criação do personagem, mas não o seu estopim. Você não tem acesso a esse poder até despertar de uma das formas a seguir: Quando seu PJ chegar a 0 PV em um conflito, você pode despertar seu poder em vez de se render ou de se sacrificar. Quando seu personagem enfrenta uma verdade terrível, um evento ou memória que causa grande felicidade ou dor, ou quando tem acesso a uma fonte de poder crucial para a história — como um artefato — você pode despertar seu poder. Quando um personagem desperta seu poder, ele imediatamente recupera PV até ficar em crise e tem acesso a seu Poder Zero. Ele também deve escolher um estopim zero que combine com o evento que libertou seu potencial oculto. Se o despertar acontecer durante um conflito, o Relógio Zero é imediatamente preenchido. Um PJ pode usar esta regra apenas uma vez por campanha. E é seu jogador quem escolhe quando o despertar acontece — apenas garanta que o momento seja o mais apropriado! “Hoje vamos enfrentá-lo juntos — e não será como da última vez!”"
+    },
+    {
+      "id": "poderes_combinados",
+      "nome": "Poderes Combinados",
+      "nomeRaw": "PODERES COMBINADOS",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "descricao": "Esta opção conecta os Poderes Zero aos vínculos entre os membros do grupo, em vez de conectá-los a apenas um personagem. Caso escolha essa opção, use estas regras: Cada PJ recebe um estopim zero normalmente, de acordo com as regras, e um Relógio Zero com 4 seções em vez de 6. Cada PJ recebe um efeito zero para cada outro PJ — decidam esse efeito em conjunto. Cada dupla possível de personagens recebe um efeito zero. Você pode usar o efeito zero apenas quando os relógios de ambos os jogadores estiverem completamente preenchidos. Apenas um personagem precisa usar a ação Poder, isso apaga ambos os relógios por completo. Exemplo: em um grupo com quatro PJs, há quatro estopins zero individuais e seis efeitos zero no total. O pistoleiro e o samurai compartilham o efeito Flagelo Zero, que nomearam como “Fatiador de Balas”. Quando ambos os Relógios Zero estiverem preenchidos por completo, qualquer um dos dois pode usar a ação Poder para usar Fatiador de Balas em seu turno. Os efeitos dos Poderes Zero são resolvidos apenas uma vez, como se o personagem tivesse usado um Poder Zero comum. Você deve usar esta opção mais complexa apenas se houver no máximo quatro personagens do jogador no grupo. Lembre-se de atualizar as combinações possíveis a cada mudança no grupo — e é por isso que, nesse caso, não há problemas se houver mais de uma versão do mesmo efeito zero por grupo. Apesar disso, todos os estopins devem ser diferentes. Se combinar esta opção com os Poderes Despertos, apenas inverta um pouco as coisas: escolha seus estopins na criação do personagem e decida o efeito de cada combinação quando um dos personagens despertar seu poder.Além disso, cada PJ pode despertar uma vez para cada outro PJ na campanha com quem criar um poder em conjunto."
+    }
+  ]
+}

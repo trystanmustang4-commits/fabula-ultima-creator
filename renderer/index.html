@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabula Ultima — Criador de Personagens</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- TELA INICIAL -->
+<div id="tela-inicio" class="tela ativa">
+  <div class="inicio-bg"></div>
+  <div class="inicio-conteudo">
+    <div class="logo-area">
+      <div class="logo-ornamento">✦ ✦ ✦</div>
+      <h1 class="logo-titulo">FABULA ULTIMA</h1>
+      <p class="logo-subtitulo">Criador de Personagens</p>
+      <div class="logo-ornamento">✦ ✦ ✦</div>
+    </div>
+    <!-- Conteúdo dinâmico: botões, rascunho, recentes — gerado por App.renderizarHomeScreen() -->
+    <div id="home-dinamico"></div>
+    <p class="inicio-dica">Baseado no Livro Básico de Fabula Ultima (pt-BR)</p>
+  </div>
+</div>
+
+<!-- WIZARD DE CRIAÇÃO -->
+<div id="tela-wizard" class="tela">
+
+  <!-- Barra de progresso e navegação -->
+  <header class="wizard-header">
+    <button class="btn-voltar-inicio" onclick="App.voltarInicio()" title="Voltar ao início">⟵ Início</button>
+    <div class="progresso-container">
+      <div class="passos-lista" id="passos-lista"></div>
+      <div class="barra-progresso">
+        <div class="barra-preenchida" id="barra-preenchida"></div>
+      </div>
+    </div>
+    <div class="header-acoes">
+      <button class="btn-mini" onclick="App.mostrarFichaRapida()" title="Ver ficha atual" id="btn-ver-ficha">📋</button>
+      <button class="btn-mini" onclick="App.salvarPersonagem()" title="Salvar">💾</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo do passo atual -->
+  <main class="wizard-main" id="wizard-main">
+    <!-- Preenchido dinamicamente -->
+  </main>
+
+  <!-- Painel de stats ao vivo -->
+  <div id="stats-vivo" class="stats-vivo-painel" style="display:none">
+    <div class="sv-titulo">Stats</div>
+    <div class="sv-grid">
+      <div class="sv-item"><span id="sv-pv" class="sv-val sv-pv">—</span><span class="sv-label">PV</span></div>
+      <div class="sv-item"><span id="sv-pm" class="sv-val sv-pm">—</span><span class="sv-label">PM</span></div>
+      <div class="sv-item"><span id="sv-pi" class="sv-val sv-pi">—</span><span class="sv-label">PI</span></div>
+      <div class="sv-item"><span id="sv-def" class="sv-val sv-def">—</span><span class="sv-label">DEF</span></div>
+      <div class="sv-item"><span id="sv-defm" class="sv-val sv-defm">—</span><span class="sv-label">DefM</span></div>
+      <div class="sv-item"><span id="sv-ini" class="sv-val sv-ini">—</span><span class="sv-label">Init</span></div>
+    </div>
+  </div>
+
+  <!-- Rodapé com navegação -->
+  <footer class="wizard-footer">
+    <button class="btn-secundario" id="btn-anterior" onclick="App.passoAnterior()">← Anterior</button>
+    <div class="passo-info" id="passo-info"></div>
+    <button class="btn-primario" id="btn-proximo" onclick="App.proximoPasso()">Próximo →</button>
+  </footer>
+
+</div>
+
+<!-- FICHA FINAL -->
+<div id="tela-ficha" class="tela">
+  <header class="ficha-header">
+    <button class="btn-voltar-inicio" onclick="App.voltarWizard()">⟵ Editar</button>
+    <h2>Ficha do Personagem</h2>
+    <div class="ficha-acoes">
+      <button class="btn-mini" onclick="App.copiarStats()" title="Copiar stats para área de transferência">📋 Copiar</button>
+      <button class="btn-secundario" onclick="App.mostrarSessao()" title="Modo Sessão">🎯 Sessão</button>
+      <button class="btn-secundario" onclick="App.salvarPersonagem()">💾 Salvar</button>
+      <button id="btn-exportar-pdf" class="btn-secundario" onclick="App.exportarPDF()">📄 PDF</button>
+      <button class="btn-primario" onclick="App.novoCriacao()">+ Novo</button>
+    </div>
+  </header>
+  <div class="ficha-conteudo" id="ficha-conteudo">
+    <!-- Gerado dinamicamente -->
+  </div>
+</div>
+
+<!-- MODAL DE CONFIRMAÇÃO -->
+<div id="modal-overlay" class="modal-overlay" onclick="App.fecharModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <h3 id="modal-titulo">Confirmação</h3>
+    <p id="modal-texto"></p>
+    <div class="modal-botoes">
+      <button class="btn-secundario" onclick="App.fecharModal()">Cancelar</button>
+      <button class="btn-primario" id="modal-confirmar">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL GRANDE — Personagens de Exemplo -->
+<div id="modal-exemplos-overlay" class="modal-overlay" onclick="App.fecharExemplos()">
+  <div class="modal-grande" onclick="event.stopPropagation()">
+    <div class="modal-grande-header">
+      <h3>Personagens de Exemplo</h3>
+      <p>Escolha um template para começar. Você ainda poderá editar todos os detalhes.</p>
+      <button class="btn-fechar-modal" onclick="App.fecharExemplos()">✕</button>
+    </div>
+    <div class="modal-grande-corpo" id="exemplos-lista">
+      <!-- Gerado dinamicamente -->
+    </div>
+  </div>
+</div>
+
+<!-- MODAL GRANDE — Ficha Rápida (preview no wizard) -->
+<div id="modal-ficha-rapida-overlay" class="modal-overlay" onclick="App.fecharFichaRapida()">
+  <div class="modal-grande modal-ficha-rapida" onclick="event.stopPropagation()">
+    <div class="modal-grande-header">
+      <h3>Ficha Atual</h3>
+      <p>Prévia do personagem em construção</p>
+      <button class="btn-fechar-modal" onclick="App.fecharFichaRapida()">✕</button>
+    </div>
+    <div class="modal-grande-corpo" id="ficha-rapida-conteudo">
+      <!-- Gerado dinamicamente -->
+    </div>
+  </div>
+</div>
+
+<!-- MODAL — Personagem (Fase 5.5) -->
+<div id="modal-personagem" class="modal-overlay" onclick="ModalPersonagem.fechar()">
+  <div class="modal-personagem-conteudo" onclick="event.stopPropagation()">
+    <div class="modal-personagem-header">
+      <div class="mpj-header-info">
+        <h2 id="mpj-nome">—</h2>
+        <span id="mpj-arq" class="mpj-arq-badge">—</span>
+      </div>
+      <button class="btn-fechar-modal" onclick="ModalPersonagem.fechar()">✕</button>
+    </div>
+    <div class="modal-personagem-body">
+      <div class="mpj-meta-row">
+        <span class="mpj-meta-item"><span class="mpj-label">Franquia:</span> <span id="mpj-franquia">—</span></span>
+        <span class="mpj-meta-sep">·</span>
+        <span class="mpj-meta-item"><span class="mpj-label">Categoria:</span> <span id="mpj-categoria">—</span></span>
+      </div>
+      <div class="mpj-meta-row">
+        <span class="mpj-meta-item"><span class="mpj-label">Tema:</span> <span id="mpj-tema">—</span></span>
+        <span class="mpj-meta-sep">·</span>
+        <span class="mpj-meta-item"><span class="mpj-label">Origem:</span> <span id="mpj-origem">—</span></span>
+      </div>
+      <p id="mpj-desc" class="mpj-desc"></p>
+      <div class="mpj-secao">
+        <div class="mpj-secao-titulo">Atributos</div>
+        <div id="mpj-atribs" class="mpj-atribs-row"></div>
+      </div>
+      <div class="mpj-secao">
+        <div class="mpj-secao-titulo">Laços</div>
+        <div id="mpj-lacos"></div>
+      </div>
+      <div class="mpj-secao">
+        <div class="mpj-secao-titulo">Traços-chave</div>
+        <div id="mpj-traits" class="mpj-traits-row"></div>
+      </div>
+    </div>
+    <div class="modal-personagem-footer">
+      <button class="btn-secundario" onclick="ModalPersonagem.fechar()">Fechar</button>
+      <button class="btn-primario" onclick="ModalPersonagem.gerarDeste()">✨ Gerar PJ inspirado neste</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL — Arquetipos (Fase 5.4) -->
+<div id="modal-arquetipos" class="modal-overlay" onclick="ModalArquetipos.fechar()">
+  <div class="modal-arquetipos-conteudo" onclick="event.stopPropagation()">
+    <div class="modal-arquetipos-header">
+      <h2>Escolha um arquétipo</h2>
+      <button class="btn-fechar-modal" onclick="ModalArquetipos.fechar()">✕</button>
+    </div>
+    <div class="modal-arquetipos-body">
+      <p class="modal-arquetipos-subtitulo">Selecione o conceito que melhor representa seu personagem:</p>
+      <div class="modal-arq-busca">
+        <input type="text" id="modal-arq-filtro" class="modal-arq-filtro-input" placeholder="Filtrar arquétipos…" />
+      </div>
+      <div id="modal-arq-grid" class="arquetipos-grid"></div>
+    </div>
+    <div class="modal-arquetipos-footer">
+      <button class="btn-secundario" onclick="ModalArquetipos.fechar()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL — Desambiguação (Fase 5.3) -->
+<div id="modal-desambiguacao" class="modal-overlay" onclick="ModalDesambiguacao.cancelar()">
+  <div class="modal-desambiguacao-conteudo" onclick="event.stopPropagation()">
+    <div class="modal-desambiguacao-header">
+      <h2 id="modal-desamb-titulo">Qual deles?</h2>
+      <button class="btn-fechar-modal" onclick="ModalDesambiguacao.cancelar()">✕</button>
+    </div>
+    <div class="modal-desambiguacao-body">
+      <p id="modal-desamb-subtitulo" class="modal-desambiguacao-subtitulo"></p>
+      <div id="modal-desamb-candidatos" class="candidatos-grid"></div>
+    </div>
+    <div class="modal-desambiguacao-footer">
+      <button class="btn-secundario" onclick="ModalDesambiguacao.cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TELA DE SESSÃO -->
+<div id="tela-sessao" class="tela">
+  <header class="sessao-header">
+    <button class="btn-voltar-inicio" onclick="App.fecharSessao()">⟵ Ficha</button>
+    <h2>🎯 Modo Sessão</h2>
+    <div class="ficha-acoes">
+      <button class="btn-mini" onclick="App.resetarSessao()" title="Resetar para máximo">⟳ Reset</button>
+    </div>
+  </header>
+  <div class="sessao-conteudo" id="sessao-conteudo">
+    <!-- Gerado dinamicamente por App.renderSessao() -->
+  </div>
+</div>
+
+<!-- TELA DO GERADOR DE NPC -->
+<div id="tela-npc" class="tela">
+  <header class="sessao-header">
+    <button class="btn-voltar-inicio" onclick="App.fecharNPC()">⟵ Início</button>
+    <div class="npc-tabs">
+      <button class="npc-tab ativo" id="tab-gerador" onclick="App.switchNPCTab('gerador')">🎲 Gerador</button>
+      <button class="npc-tab" id="tab-encontro" onclick="App.switchNPCTab('encontro')">⚔ Encontro</button>
+    </div>
+    <div class="ficha-acoes" id="npc-header-acoes"></div>
+  </header>
+  <div class="npc-conteudo" id="npc-conteudo">
+    <!-- Gerado dinamicamente por App.renderNPCGenerator() / App.renderEncontro() -->
+  </div>
+</div>
+
+<!-- TELA DO GERADOR DE PJ -->
+<div id="tela-gerador-pj" class="tela">
+  <header class="sessao-header">
+    <button class="btn-voltar-inicio" onclick="App.fecharGeradorPJ()">⟵ Início</button>
+    <h2>⚡ Gerador de Personagem</h2>
+    <div class="ficha-acoes" id="gpj-header-acoes"></div>
+  </header>
+  <div class="gpj-wrapper" id="gpj-conteudo">
+    <!-- Gerado dinamicamente por GeradorPJ.renderizar() -->
+  </div>
+</div>
+
+<!-- TOOLTIP DE COMPARAÇÃO DE EQUIPAMENTOS -->
+<div id="comparacao-popup" class="comparacao-popup" style="display:none"></div>
+
+<!-- TOAST de notificação -->
+<div id="toast" class="toast"></div>
+
+<script src="data/gamedata.js"></script>
+<script src="data/archetypes.js"></script>
+<script src="data/nomes-sugeridos.js"></script>
+<script src="data/character-kb.js"></script>
+<script src="data/character-kb/lol-champions.js"></script>
+<script src="data/character-kb/ff/ff1.js"></script>
+<script src="data/character-kb/ff/ff2.js"></script>
+<script src="data/character-kb/ff/ff3.js"></script>
+<script src="data/character-kb/ff/ff4.js"></script>
+<script src="data/character-kb/ff/ff5.js"></script>
+<script src="data/character-kb/ff/ff6.js"></script>
+<script src="data/character-kb/ff/ff7.js"></script>
+<script src="data/character-kb/ff/ff8.js"></script>
+<script src="data/character-kb/ff/ff9.js"></script>
+<script src="data/character-kb/ff/ff10.js"></script>
+<script src="data/character-kb/ff/ff10-2.js"></script>
+<script src="data/character-kb/ff/ff11.js"></script>
+<script src="data/character-kb/ff/ff12.js"></script>
+<script src="data/character-kb/ff/ff13.js"></script>
+<script src="data/character-kb/ff/ff14.js"></script>
+<script src="data/character-kb/ff/ff15.js"></script>
+<script src="data/character-kb/ff/ff16.js"></script>
+<script src="data/character-kb/ff/fft.js"></script>
+<script src="data/character-kb/ff/crisis-core.js"></script>
+<script src="data/character-kb/heroes/marvel.js"></script>
+<script src="data/character-kb/heroes/dc.js"></script>
+<script src="data/character-kb/heroes/indie.js"></script>
+<script src="data/character-kb/tales/tales-symphonia.js"></script>
+<script src="data/character-kb/tales/tales-phantasia.js"></script>
+<script src="data/character-kb/tales/tales-destiny.js"></script>
+<script src="data/character-kb/tales/tales-eternia.js"></script>
+<script src="data/character-kb/tales/tales-rebirth.js"></script>
+<script src="data/character-kb/tales/tales-legendia.js"></script>
+<script src="data/character-kb/tales/tales-abyss.js"></script>
+<script src="data/character-kb/tales/tales-innocence.js"></script>
+<script src="data/character-kb/tales/tales-hearts.js"></script>
+<script src="data/character-kb/tales/tales-vesperia.js"></script>
+<script src="data/character-kb/tales/tales-graces.js"></script>
+<script src="data/character-kb/tales/tales-xillia.js"></script>
+<script src="data/character-kb/tales/tales-zestiria.js"></script>
+<script src="data/character-kb/tales/tales-berseria.js"></script>
+<script src="data/character-kb/tales/tales-arise.js"></script>
+<script src="data/character-kb/games/zelda.js"></script>
+<script src="data/character-kb/games/mario.js"></script>
+<script src="data/character-kb/games/sonic.js"></script>
+<script src="data/character-kb/games/halo.js"></script>
+<script src="data/character-kb/games/metroid.js"></script>
+<script src="data/character-kb/games/mgs.js"></script>
+<script src="data/character-kb/games/resident-evil.js"></script>
+<script src="data/character-kb/games/souls.js"></script>
+<script src="data/character-kb/games/witcher-extras.js"></script>
+<script src="data/character-kb/games/cyberpunk.js"></script>
+<script src="data/character-kb/games/mass-effect.js"></script>
+<script src="data/character-kb/games/kingdom-hearts.js"></script>
+<script src="data/character-kb/games/nier.js"></script>
+<script src="data/character-kb/games/persona.js"></script>
+<script src="data/character-kb/games/dmc-extras.js"></script>
+<script src="data/character-kb/games/bayonetta-extras.js"></script>
+<script src="data/character-kb/games/yakuza.js"></script>
+<script src="data/character-kb/games/xenoblade.js"></script>
+<script src="data/character-kb/games/fire-emblem.js"></script>
+<script src="data/character-kb/games/dragon-quest.js"></script>
+<script src="data/character-kb/games/chrono-trigger.js"></script>
+<script src="data/character-kb/games/mega-man.js"></script>
+<script src="data/character-kb/games/castlevania.js"></script>
+<script src="data/character-kb/games/monster-hunter.js"></script>
+<script src="data/character-kb/games/pokemon.js"></script>
+<script src="data/character-kb/games/street-fighter.js"></script>
+<script src="data/character-kb/games/tekken.js"></script>
+<script src="data/character-kb/games/mortal-kombat.js"></script>
+<script src="data/character-kb/games/uncharted.js"></script>
+<script src="data/character-kb/games/extras-tlou.js"></script>
+<script src="data/character-kb/games/extras-gow.js"></script>
+<script src="data/character-kb/games/hollow-knight.js"></script>
+<script src="data/character-kb/games/hades.js"></script>
+<script src="data/character-kb/games/baldurs-gate.js"></script>
+<script src="data/character-kb/games/undertale.js"></script>
+<script src="data/character-kb/games/disco-elysium.js"></script>
+<script src="data/character-kb/games/doom-halflife.js"></script>
+<script src="data/character-kb/games/platformers.js"></script>
+<script src="lib/fuse-browser.js"></script>
+<script src="matcher/fuzzy.js"></script>
+<script src="matcher/fallbacks.js"></script>
+<script src="matcher/matcher.js"></script>
+<script src="modais/modal-personagem.js"></script>
+<script src="modais/modal-arquetipos.js"></script>
+<script src="modais/modal-desambiguacao.js"></script>
+<script src="gerador-pj.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+// Final Fantasy Tactics — personagens curados (Fase 3.3, Batch 7)
+
+const FFT_CHARACTERS = [
+
+  { id: 'fft-ramza',
+    nome: 'Ramza Beoulve', aliases: ['ramza', 'ramza ff tactics', 'ramza beoulve', 'ramza heretic', 'ramza fft'], arquetipo: 'tatico-erudito',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'A história que não foi contada porque era verdade', origem: 'Beoulve/Herege',
+    atributos: { des: 'd8', vig: 'd8', ast: 'd10', von: 'd10' },
+    lacos: [{ alvo: 'Delita', emocoes: ['amizade que o mundo destruiu'] }, { alvo: 'Alma', emocoes: ['amor de irmão'] }, { alvo: 'Verdade', emocoes: ['custo da honra'] }],
+    descricao: 'Salvou o mundo e foi declarado herege pela Igreja que ele salvou — a história oficial de Ivalice não tem lugar para Ramza porque a verdade não cabe em hagiografia.',
+    keyTraits: ['tático do campo de batalha', 'declarado herege', 'salvou o mundo sem reconhecimento', 'irmão de Alma'],
+    suggestedQuirks: ['glorioso_destino', 'teimoso_cetico'],
+    bondHints: ['a honestidade de Ramza foi mais cara do que qualquer espada', 'Delita escolheu o poder, Ramza escolheu a verdade — e ambos pagaram por isso'] },
+
+  { id: 'fft-delita',
+    nome: 'Delita Heiral', aliases: ['delita', 'delita fft', 'delita heiral', 'king delita ff tactics', 'delita ovelia'], arquetipo: 'espadachim-sombrio',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'Manipulou um reino para vingança e não encontrou paz', origem: 'Camponês/Rei',
+    atributos: { des: 'd10', vig: 'd8', ast: 'd10', von: 'd6' },
+    lacos: [{ alvo: 'Tietra', emocoes: ['luto que moveu tudo'] }, { alvo: 'Ramza', emocoes: ['amizade e separação de caminhos'] }, { alvo: 'Ovelia', emocoes: ['peão e pessoa'] }],
+    descricao: 'Nasceu camponês, manipulou nobres, reis e deuses para chegar ao trono, e no fim perguntou a Ramza se ele foi feliz — a resposta de Delita para si mesmo era não.',
+    keyTraits: ['manipulador político supremo', 'luto por Tietra', 'virou rei de Ivalice', 'perguntou se foi feliz'],
+    suggestedQuirks: ['monarca_destronado', 'portador_da_ruina'],
+    bondHints: ['conquistou tudo que jurou conquistar e ainda não encontrou Tietra no outro lado', 'a pergunta ao fim do jogo é a mais honesta coisa que Delita disse em toda a história'] },
+
+  { id: 'fft-agrias',
+    nome: 'Agrias Oaks', aliases: ['agrias', 'agrias fft', 'agrias oaks', 'holy knight agrias', 'agrias ff tactics'], arquetipo: 'guerreiro-escudo',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'O escudo que não negocia com poder corrupto', origem: 'Cavaleira Santa/Guarda de Ovelia',
+    atributos: { des: 'd8', vig: 'd10', ast: 'd8', von: 'd10' },
+    lacos: [{ alvo: 'Ovelia', emocoes: ['dever e proteção genuína'] }, { alvo: 'Ramza', emocoes: ['aliança de honra'] }, { alvo: 'Cavalaria', emocoes: ['código que não cede'] }],
+    descricao: 'A Cavaleira Santa que não dobra para nenhum nobre corrupto — Holy Sword é mais do que magia, é declaração de que não há poder suficiente para comprar sua lealdade.',
+    keyTraits: ['Holy Sword', 'Cavaleira de Ovelia', 'código que não negocia', 'aliança com Ramza'],
+    suggestedQuirks: ['oficial_arrependido', 'heranca'],
+    bondHints: ['a corrupção do trono nunca a alcançou porque ela nunca quis o que o trono oferecia', 'protegeu Ovelia quando a Igreja já tinha desistido dela'] },
+
+  { id: 'fft-orlandeau',
+    nome: 'Cidolfus Orlandeau', aliases: ['orlandeau', 'orlandeau fft', 'thunder god cid', 'cidolfus orlandeau ff tactics', 'thunder god fft'], arquetipo: 'guerreiro-arcano',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'Poder que foi construído servindo e serve construindo', origem: 'Cavaleiro do Sul/Cid Trovejante',
+    atributos: { des: 'd8', vig: 'd10', ast: 'd10', von: 'd8' },
+    lacos: [{ alvo: 'Ramza', emocoes: ['aliança de veteranos'] }, { alvo: 'Sul de Ivalice', emocoes: ['lealdade ao povo'] }, { alvo: 'Poder', emocoes: ['ferramenta, nunca fim'] }],
+    descricao: 'O Thunder God Cid é o personagem mais poderoso de FFT por design — e é justamente por isso que sua lealdade a Ramza importa tanto: ele escolheu o lado certo com todo esse poder.',
+    keyTraits: ['Knight of the Southern Sky', 'Thunder God', 'Holy Sword + Magic Sword', 'mais forte por design'],
+    suggestedQuirks: ['heranca', 'glorioso_destino'],
+    bondHints: ['tem mais poder que o jogo pede e usa exatamente o suficiente para o que é certo', 'a lealdade a Ramza é a escolha mais cara que fez — e nunca lamentou'] },
+
+  { id: 'fft-wiegraf',
+    nome: 'Wiegraf Folles', aliases: ['wiegraf', 'wiegraf fft', 'wiegraf follies', 'wilfrid wiegraf ff tactics', 'velius wiegraf'], arquetipo: 'furioso-guerreiro',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'O revolucionário que tornou-se o monstro que combatia', origem: 'Leão do Norte/Velius',
+    atributos: { des: 'd10', vig: 'd10', ast: 'd8', von: 'd6' },
+    lacos: [{ alvo: 'Miluda', emocoes: ['luto por irmã'] }, { alvo: 'Morte de Miluda', emocoes: ['ponto de virada'] }, { alvo: 'Lucavi', emocoes: ['corrupted purpose'] }],
+    descricao: 'Liderou a Ordem do Leão do Norte pelos pobres de Ivalice — quando Miluda morreu, o líder revolucionário desapareceu e Velius tomou o lugar.',
+    keyTraits: ['líder dos Leões do Norte', 'perdeu Miluda', 'virou Velius', 'ideal que se corrompeu'],
+    suggestedQuirks: ['portador_da_ruina', 'amaldicoado_af'],
+    bondHints: ['o ideal era genuíno e o fim foi o mais trágico de FFT porque a causa era justa', 'Ramza matou o homem que teria sido aliado num mundo diferente'] },
+
+  { id: 'fft-ovelia',
+    nome: 'Ovelia Atkascha', aliases: ['ovelia', 'ovelia fft', 'ovelia ff tactics', 'princess ovelia', 'ovelia delita'], arquetipo: 'curandeiro',
+    source: { franchise: 'Final Fantasy', work: 'Final Fantasy Tactics', category: 'video-game' },
+    tema: 'Peão que descobriu que era pessoa', origem: 'Princesa/Órfã Real',
+    atributos: { des: 'd6', vig: 'd6', ast: 'd10', von: 'd12' },
+    lacos: [{ alvo: 'Agrias', emocoes: ['proteção genuína'] }, { alvo: 'Delita', emocoes: ['peão e companheiro'] }, { alvo: 'Coroa', emocoes: ['fardo que nunca pediu'] }],
+    descricao: 'Todos a usaram como ferramenta política — e no fim foi ela quem virou o tabuleiro, com a única ação autônoma que ninguém previu.',
+    keyTraits: ['princesa como peão', 'White Magic', 'agência final inesperada', 'herança que não pediu'],
+    suggestedQuirks: ['monarca_destronado', 'heranca'],
+    bondHints: ['foi usada por todos e encontrou agência onde menos esperavam', 'a única ação que Ovelia tomou por conta própria mudou o fim da história'] },
+
+];
+
+if (typeof module !== 'undefined') module.exports = FFT_CHARACTERS;

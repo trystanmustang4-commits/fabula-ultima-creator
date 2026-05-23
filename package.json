@@ -1,0 +1,63 @@
+{
+  "name": "fabula-ultima-creator",
+  "version": "1.0.0",
+  "description": "Criador de Personagens de Fabula Ultima",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "pack": "electron-builder --dir",
+    "extract-pdfs": "node tools/extract-rulebooks/extract.js",
+    "parse-classes": "node tools/extract-rulebooks/parse-classes.js",
+    "parse-quirks": "node tools/extract-rulebooks/parse-quirks.js",
+    "parse-zero-powers": "node tools/extract-rulebooks/parse-zero-powers.js",
+    "sync-gamedata": "node tools/extract-rulebooks/sync-gamedata-classes.js && node tools/extract-rulebooks/generate-gamedata-quirks-zero.js",
+    "extract-rulebooks": "npm run extract-pdfs && npm run parse-classes && npm run parse-quirks && npm run parse-zero-powers && npm run sync-gamedata",
+    "validate": "node tools/validate-data.js"
+  },
+  "build": {
+    "appId": "com.danyel.fabula-ultima-creator",
+    "productName": "Fabula Ultima Creator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "assets/ficha-template.pdf",
+      "assets/icon.png",
+      "node_modules/**/*",
+      "!node_modules/**/*.{md,txt,map}",
+      "!node_modules/**/test{s,}/**",
+      "!node_modules/**/*.test.js",
+      "!tools/**",
+      "!docs/**",
+      "!data/**",
+      "!*.md"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Fabula Ultima Creator"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^26.8.1",
+    "playwright-core": "^1.60.0"
+  },
+  "author": "Danyel",
+  "license": "ISC",
+  "dependencies": {
+    "fuse.js": "^7.3.0",
+    "pdf-lib": "^1.17.1"
+  }
+}

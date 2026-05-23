@@ -1,0 +1,6 @@
+node_modules/
+tools/pdf-extracts/
+tools/test-output/
+dist/
+assets/diagnostico.pdf
+assets/teste-preenchido*.pdf

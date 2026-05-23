@@ -1,0 +1,887 @@
+{
+  "classes": [
+    {
+      "id": "comandante",
+      "nome": "Comandante",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "sourcePage": 136,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV máximos em 5.",
+        "Você pode equipar armas corpo a corpo e armas à distância marciais."
+      ],
+      "poderes": [
+        {
+          "id": "carga_de_cavalaria",
+          "nome": "CARGA DE CAVALARIA",
+          "custo": "(ç5)",
+          "descricao": "Em um conflito, você pode usar uma ação e gastar 10 PM para escolher um aliado que possa ouvi-lo. O aliado pode fazer imediatamente um ataque livre com uma arma equipada (ou um ataque básico, se for um NPC). Ele recebe um bônus no teste de Precisão igual ao seu (NP), mas considera sua RA como 0 ao calcular o dano causado por este ataque.",
+          "repeticoes": 1
+        },
+        {
+          "id": "carruagem_devastadora",
+          "nome": "CARRUAGEM DEVASTADORA",
+          "custo": null,
+          "descricao": "Após usar Decreto do Bispo, Carga de Cavalaria ou Roque do Rei, você pode escolher outro PJ que possa ouvi-lo e ainda não teve seu turno nesta rodada. O turno deste personagem acontece imediatamente após o seu nesta rodada.",
+          "repeticoes": 1
+        },
+        {
+          "id": "decreto_do_bispo",
+          "nome": "DECRETO DO BISPO",
+          "custo": "(ç5)",
+          "descricao": "Em um conflito, você pode usar uma ação e gastar 10 PM para escolher um: todos os custos em PM são dobrados; ou todas as fontes de dano causam (NP x 3) de dano adicional. 3 CAPÍTULO",
+          "repeticoes": 1
+        },
+        {
+          "id": "gambito_da_dama",
+          "nome": "GAMBITO DA DAMA",
+          "custo": "(ç6)",
+          "descricao": "Em um conflito, você pode usar uma ação para fazer um ataque livre com uma arma equipada, considerando sua RA como 0 ao calcular o dano. Após o ataque ser resolvido, escolha um: você usa imediatamente um poder que possui entre Decreto do Bispo, Carga de Cavalaria ou Roque do Rei sem precisar usar uma ação (mas gasta a quantidade apropriada de PM); ou um aliado que possa ouvir você recupera (5 + (NP × 5)) PV.",
+          "repeticoes": 1
+        },
+        {
+          "id": "roque_do_rei",
+          "nome": "ROQUE DO REI",
+          "custo": "(ç4)",
+          "descricao": "Em um conflito, você pode usar uma ação e gastar 10 PM para escolher um: nenhuma criatura pode recuperar PV ou PM; ou todos os efeitos que restauram PM restauram (NP × 5) PM adicionais. O efeito escolhido dura até o início de seu próximo turno.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "dancarino",
+      "nome": "Dançarino",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "sourcePage": 138,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV ou PM máximos em 5 (à sua escolha)."
+      ],
+      "poderes": [
+        {
+          "id": "danca",
+          "nome": "DANÇA",
+          "custo": null,
+          "descricao": "(ç10) Sempre que adquirir esse poder, aprenda uma dança (pp. 140-141). Em seu turno numa cena de conflito, se não tiver uma armadura marcial equipada, você pode gastar 10 PM para apresentar uma das danças que aprendeu. Isso não exige uso de ação, mas a dança só pode ser apresentada antes ou depois da sua ação e apenas uma vez por turno. Se já apresentou uma dança diferente em seu turno anterior na mesma cena, o custo da nova dança é reduzido em 5 PM. Algumas danças têm efeito instantâneo, sendo resolvidas imediatamente; outras têm efeitos que duram até o final do seu próximo turno. 3 CAPÍTULO",
+          "repeticoes": 1
+        },
+        {
+          "id": "dancarino_de_guerra",
+          "nome": "DANÇARINO DE GUERRA",
+          "custo": "(ç5)",
+          "descricao": "Após apresentar uma dança, seus ataques feitos com armas das categorias adaga, O arremesso, luta, e malho causam (NP) pontos de dano adicional até o início de seu próximo turno. Se tiver uma arma arcana equipada, feitiços ofensivos ( ) que você lançar também causam (NP) pontos de dano adicional até o início de seu próximo turno.",
+          "repeticoes": 1
+        },
+        {
+          "id": "me_acompanhe",
+          "nome": "ME ACOMPANHE",
+          "custo": null,
+          "descricao": "Ao apresentar uma dança com uma duração de “até o início de seu próximo turno”, você pode gastar 10 PM. Se fizer isso, escolha um personagem com quem você tem um Laço de afeto: o aliado também recebe os benefícios da dança como se fosse você (e tais benefícios duram até o início do seu próximo turno).",
+          "repeticoes": 1
+        },
+        {
+          "id": "sapateado_frenetico",
+          "nome": "SAPATEADO FRENÉTICO",
+          "custo": "(ç2)",
+          "descricao": "Ao apresentar uma dança com uma duração de “até o início de seu próximo turno”, todos os testes opostos que dependam de acrobacia, coordenação ou velocidade recebem um bônus igual a (NP × 2) até o início de seu próximo turno.",
+          "repeticoes": 1
+        },
+        {
+          "id": "troca_de_figurino",
+          "nome": "TROCA DE FIGURINO",
+          "custo": null,
+          "descricao": "Após apresentar uma dança, você pode fazer a ação Equipamento sem usar ações.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "simbolista",
+      "nome": "Simbolista",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "sourcePage": 142,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PI máximos em 2."
+      ],
+      "poderes": [
+        {
+          "id": "conexao_simbolica",
+          "nome": "CONEXÃO SIMBÓLICA",
+          "custo": null,
+          "descricao": "Você sempre sabe a direção exata de qualquer criatura que esteja com um de seus símbolos, desde que ela esteja a até 2 dias de viagem de sua posição.",
+          "repeticoes": 1
+        },
+        {
+          "id": "miragem",
+          "nome": "MIRAGEM",
+          "custo": null,
+          "descricao": "Você pode fazer rituais da disciplina ritualismo; além disso, também pode usar ritualismo para criar ilusões visuais.",
+          "repeticoes": 1
+        },
+        {
+          "id": "simbolismo",
+          "nome": "SIMBOLISMO",
+          "custo": "(ç5)",
+          "descricao": "Sempre que adquirir este poder, aprenda dois símbolos (pp. 144-147). Você pode ter até (NP + 1) símbolos ativos ao mesmo tempo; se criar mais símbolos além desse limite, antes deve escolher um de seus símbolos ativos para destruir. Você pode fazer a ação Inventário e gastar 2 PI para criar um dos símbolos que aprendeu e escolher um: aplicar esse símbolo em si mesmo; ou aplicar esse símbolo num aliado que você consegue ver; ou fazer um ataque livre usando uma arma equipada. Esse ataque não causa dano, mas você aplica uma cópia do símbolo escolhido a cada inimigo que atingir (cada cópia conta como um símbolo individual para seu limite de (NP + 1) símbolos ativos).",
+          "repeticoes": 1
+        },
+        {
+          "id": "simbolos_magicos",
+          "nome": "SÍMBOLOS MÁGICOS",
+          "custo": "(ç3)",
+          "descricao": "Se um aliado estiver com um de seus símbolos, ele pode fazer a ação Feitiço para destruir o símbolo e lançar um único feitiço entre aqueles que você conhece. Para isso, o custo total em PM do feitiço deve ser igual ou menor a (NP × 10) (e o aliado ainda deve pagar o custo de PM).",
+          "repeticoes": 1
+        },
+        {
+          "id": "toque_pessoal",
+          "nome": "TOQUE PESSOAL",
+          "custo": "(ç5)",
+          "descricao": "Quando uma criatura que você possa ver e que esteja com um de seus símbolos sofrer dano ou recuperar PV e/ou PM, você pode fazer a criatura sofrer (NP) de dando adicional ou recuperar (NP) PV e/ou PM, respectivamente. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "virtuoso",
+      "nome": "Virtuoso",
+      "sourceBook": "Atlas: Alta Fantasia",
+      "sourcePage": 148,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PM máximos em 5."
+      ],
+      "poderes": [
+        {
+          "id": "barreira_sonora",
+          "nome": "BARREIRA SONORA",
+          "custo": "(ç5)",
+          "descricao": "Após cantar um verso em um volume médio ou forte, qualquer quantidade de dano físico que você sofrer até o início do seu próximo turno é reduzido em (NP) (antes de aplicar quaisquer Afinidades a dano).",
+          "repeticoes": 1
+        },
+        {
+          "id": "canto_da_sereia",
+          "nome": "CANTO DA SEREIA",
+          "custo": null,
+          "descricao": "Você pode fazer rituais da disciplina ritualismo; além disso, também pode usar ritualismo para criar ilusões sonoras.",
+          "repeticoes": 1
+        },
+        {
+          "id": "harmonia",
+          "nome": "HARMONIA",
+          "custo": "(ç3)",
+          "descricao": "Após afetar um ou mais inimigos com um verso, se tiver uma arma arcana equipada, você pode escolher um: até o início do seu próximo turno, seus aliados causam (NP) de dano adicional a estes inimigos; ou até o início de seu próximo turno, você recupera (NP) Pontos de Mana cada vez que estes inimigos sofrerem dano (se a mesma fonte causar dano a dois ou mais inimigos ao mesmo tempo, você recupera (NP) PM para cada inimigo que sofreu esse dano).",
+          "repeticoes": 1
+        },
+        {
+          "id": "magicanto",
+          "nome": "MAGICANTO",
+          "custo": null,
+          "descricao": "(ç10) Em seu turno durante uma cena de conflito, você pode usar uma ação e gastar uma quantidade variável de PM para tecer sua voz e música num efeito mágico conhecido como verso. Você só pode cantar um verso por turno, mesmo se puder fazer mais de uma ação. Regras detalhadas para versos estão descritas nas pp. 150-151. Quando você adquire esse poder, você aprende todos os três volumes, além de uma escala e um tom. Sempre que adquiri-lo novamente, você pode aprender mais uma escala ou um tom (a sua escolha).",
+          "repeticoes": 1
+        },
+        {
+          "id": "vibrato",
+          "nome": "VIBRATO",
+          "custo": null,
+          "descricao": "Após cantar um verso em volume fraco ou médio, você pode fazer um ataque livre com uma arma equipada, considerando sua RA como 0 ao calcular o dano. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "floralista",
+      "nome": "Floralista",
+      "sourceBook": "Atlas: Fantasia Natural",
+      "sourcePage": 138,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV ou PM máximos em 5 (à sua escolha)."
+      ],
+      "poderes": [
+        {
+          "id": "arvore_da_vida",
+          "nome": "ÁRVORE DA VIDA",
+          "custo": "(ç5)",
+          "descricao": "Ao remover uma magissemente de seu jardim, você pode escolher uma criatura que você possa ver: se o alvo estiver em crise, ele recupera (5 + (NP × 5)) PV.",
+          "repeticoes": 1
+        },
+        {
+          "id": "cloromancia",
+          "nome": "CLOROMANCIA",
+          "custo": null,
+          "descricao": "(ç10) Sempre que adquirir este poder, você conhece um tipo diferente de magissemente da lista nas próximas páginas. Durante um conflito, se não houver magissementes em seu jardim, você pode usar uma ação e gastar 20 PM para plantar uma magissemente de um tipo que conheça. As regras de jardim e magissementes estão nas próximas páginas.",
+          "repeticoes": 1
+        },
+        {
+          "id": "enxerto",
+          "nome": "ENXERTO",
+          "custo": null,
+          "descricao": "Enquanto houver uma magissemente em seu jardim e 1 ou mais seções de seu relógio de germinação estiverem preenchidas, você pode usar uma ação para remover essa magissemente de seu jardim: se fizer isso, plante uma magissemente diferente, desde que seja uma das que você conhece (isso não altera as sessões preenchidas de seu relógio de germinação). 3 CAPÍTULO",
+          "repeticoes": 1
+        },
+        {
+          "id": "influencia_verdejante",
+          "nome": "INFLUÊNCIA VERDEJANTE",
+          "custo": null,
+          "descricao": "Você pode fazer rituais da disciplina ritualismo. Além disso, pode usar ritualismo para criar, animar e/ou controlar vegetação, pólen, esporos e toxinas (mas não pode criar nem controlar NPCs da espécie planta dessa forma).",
+          "repeticoes": 1
+        },
+        {
+          "id": "jardinagem_marcial",
+          "nome": "JARDINAGEM MARCIAL",
+          "custo": "(ç3)",
+          "descricao": "Após plantar uma magissemente usando Cloromancia (mas não Enxerto), você pode escolher um: fazer um ataque livre com uma arma equipada; ou fazer a ação Feitiço sem usar uma ação, lançando um feitiço com custo total de PM igual ou inferior a (5 + (NP × 5)) (você ainda precisa pagar seu custo em PM). Sua RA no teste de Precisão ou de Magia é considerada como 0 para calcular o dano causado por este ataque ou magia.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "gourmet",
+      "nome": "Gourmet",
+      "sourceBook": "Atlas: Fantasia Natural",
+      "sourcePage": 148,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus Pontos de Inventário em 2.",
+        "Você pode iniciar projetos para criar comidas e bebidas únicas: são sempre consumíveis com área baseada no número e tipo de criatura que precisa alimentar."
+      ],
+      "poderes": [
+        {
+          "id": "cozinheiro_viajante",
+          "nome": "COZINHEIRO VIAJANTE",
+          "custo": "(ç3)",
+          "descricao": "Após cada rolagem de viagem, se tiver o poder Culinária, você recebe (NP × 2) ingredientes.",
+          "repeticoes": 1
+        },
+        {
+          "id": "culinaria",
+          "nome": "CULINÁRIA",
+          "custo": "(ç5)",
+          "descricao": "Ao descansar em um assentamento, você recebe (NP) ingredientes. Você pode usar uma ação e combinar 2 ou 3 ingredientes para preparar uma iguaria (veja a próxima página) e escolher um: aplicar os efeitos em você e num aliado que você possa ver; ou fazer um ataque livre com uma arma equipada. Esse ataque não causa dano, mas você aplica os efeitos da iguaria a cada inimigo atingido pelo ataque. Você pode carregar consigo até 10 + (NP × 5) ingredientes e eles nunca estragam até que você os use. Se adquirir este poder na criação de personagem, você pode começar o jogo com dez ingredientes com sabores aleatórios.",
+          "repeticoes": 1
+        },
+        {
+          "id": "feito_com_amor",
+          "nome": "FEITO COM AMOR",
+          "custo": "(ç3)",
+          "descricao": "Quando usa Culinária e aplica os efeitos da iguaria em você ou num aliado que você possa ver, você pode gastar até (NP × 10) PM. Para cada 10 PM gastos dessa forma, aplique os efeitos da iguaria num aliado adicional que você possa ver.",
+          "repeticoes": 1
+        },
+        {
+          "id": "garfo_e_faca",
+          "nome": "GARFO E FACA",
+          "custo": null,
+          "descricao": "Quando usa Culinária para fazer um ataque livre, se você combinou apenas um 2 ingredientes, você também pode fazer o ataque causar dano normalmente. Se fizer isso, sua RA é considerada como 0 ao calcular o dano causado por este ataque. 3 CAPÍTULO",
+          "repeticoes": 1
+        },
+        {
+          "id": "sal_e_pimenta",
+          "nome": "SAL E PIMENTA",
+          "custo": null,
+          "descricao": "Ao preparar uma iguaria, você pode gastar 2 Pontos de Inventário. Se o fizer, mude o sabor de um ingrediente para outro sabor à sua escolha.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "invocador",
+      "nome": "Invocador",
+      "sourceBook": "Atlas: Fantasia Natural",
+      "sourcePage": 154,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV ou PM máximos em 5 (à sua escolha)."
+      ],
+      "poderes": [
+        {
+          "id": "cascata",
+          "nome": "CASCATA",
+          "custo": "(ç5)",
+          "descricao": "Após um inimigo que você possa ver perder PV graças ao dano causado por um de seus aliados, se o aliado causou dano adicional graças a uma de suas invocações do tipo “Praga”, você pode fazer um ataque livre com uma arma equipada. Esse ataque pode ter apenas o mesmo inimigo como alvo e você recebe um bônus no teste de Precisão igual a (NP). Se o atingir, todo dano causado pelo seu ataque é do mesmo tipo causado pelo aliado, e todas as invocações do tipo “Praga” que estão no alvo se dissipam após o ataque ser resolvido. Se dois ou mais inimigos engatilharem esse poder ao mesmo tempo, você pode fazer um ataque livre contra cada um deles, na ordem você que preferir.",
+          "repeticoes": 1
+        },
+        {
+          "id": "expandir_manancial",
+          "nome": "EXPANDIR MANANCIAL",
+          "custo": "(ç5)",
+          "descricao": "Enquanto você estiver equipado com um arco, arma arcana, arma arremessável, arma de luta, espada ou mangual, suas invocações de tipo “explosão” causam (NP) pontos de dano adicional e o dano adicional concedido por suas invocações do tipo “praga” aumenta em (NP).",
+          "repeticoes": 1
+        },
+        {
+          "id": "harmonia_elemental",
+          "nome": "HARMONIA ELEMENTAL",
+          "custo": "(ç2)",
+          "descricao": "Você consegue se comunicar verbalmente com criaturas elementais. Ao restaurar os PV de uma criatura com uma invocação ou feitiço, se houver um elemental presente na cena, o efeito restaura (NP × 5) PV adicionais. 3 CAPÍTULO",
+          "repeticoes": 1
+        },
+        {
+          "id": "invocacao",
+          "nome": "INVOCAÇÃO",
+          "custo": "(ç3)",
+          "descricao": "Você pode usar uma ação e gastar 5 PM para fazer uma invocação acessando a energia de um dos mananciais presentes na cena (veja a próxima página). Seu (NP) determina a quais invocações você tem acesso.",
+          "repeticoes": 1
+        },
+        {
+          "id": "invocacoes_conectadas",
+          "nome": "INVOCAÇÕES CONECTADAS",
+          "custo": "(ç3)",
+          "descricao": "Ao fazer uma invocação, você pode gastar até (NP × 10) PM adicionais. A cada 10 PM gastos desta forma, a invocação pode ter uma criatura adicional que você possa ver como alvo.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "mercador",
+      "nome": "Mercador",
+      "sourceBook": "Atlas: Fantasia Natural",
+      "sourcePage": 158,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PI máximos em 2."
+      ],
+      "poderes": [
+        {
+          "id": "data_de_validade",
+          "nome": "DATA DE VALIDADE",
+          "custo": "(ç3)",
+          "descricao": "Quando uma poção ou iguaria (página 151) que você criou não causar dano, mas fizer uma ou mais criaturas recuperarem PV, você pode fazê-la, em vez de recuperar PV, causar dano de veneno igual à (metade do seu nível + (NP × 10)) a cada uma dessas criaturas (esse tipo não pode mudar). Esse dano é dividido à metade se for causado a duas ou mais criaturas.",
+          "repeticoes": 1
+        },
+        {
+          "id": "estoque_pessoal",
+          "nome": "ESTOQUE PESSOAL",
+          "custo": "(ç3)",
+          "descricao": "Quando você ou outro PJ for gastar (NP + 2) ou menos Pontos de Inventário, você pode gastar 1 Ponto de Comércio para o alvo ignorar esse custo.",
+          "repeticoes": 1
+        },
+        {
+          "id": "ja_ouvi_falar",
+          "nome": "JÁ OUVI FALAR",
+          "custo": "(ç3)",
+          "descricao": "Quando você ou um aliado que puder ouvir e entender você fizer um teste para examinar uma criatura, item ou local, você pode gastar 1 Ponto de Comércio para conferir um bônus igual a (NP + 2) ao resultado do teste.",
+          "repeticoes": 1
+        },
+        {
+          "id": "ventos_do_comercio",
+          "nome": "VENTOS DO COMÉRCIO",
+          "custo": "(ç3)",
+          "descricao": "Após descansar numa área onde pode fazer comércio, você recebe (NP + 1) Pontos de Comércio. Você nunca pode ter mais que (NP + 3) Pontos de Comércio. Se adquirir este poder na criação de personagem, você começa o jogo com 2 Pontos de Comércio. Numa cena sem conflito, você pode gastar 2 Pontos de Comércio para escolher um: você cria um item raro ou um material, aprovado pelo mestre, cujo valor em zênites seja igual ou inferior a (seu nível × 30z); ou crie um NPC que mora por perto, explique seu ofício e a forma como vocês se conheceram, para o mestre dizer o que ele deseja em troca de seus serviços.",
+          "repeticoes": 1
+        },
+        {
+          "id": "verdadeiro_tesouro",
+          "nome": "VERDADEIRO TESOURO",
+          "custo": "(ç3)",
+          "descricao": "Uma vez por sessão, quando você ajudar um NPC ou uma comunidade a superar ganância e corrupção, melhorar a qualidade de vida ou coexistir com outras criaturas, se tiver Ventos do Comércio, você recebe (NP + 1) Pontos de Comércio. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "esper",
+      "nome": "Esper",
+      "sourceBook": "Atlas: Tecno-Fantasia",
+      "sourcePage": 150,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PM máximos em 5."
+      ],
+      "poderes": [
+        {
+          "id": "dons_psiquicos",
+          "nome": "DONS PSÍQUICOS",
+          "custo": "(ç5)",
+          "descricao": "Sempre que adquirir este poder, você recebe um dom. As regras para dons e para o Relógio Mental são apresentadas na próxima página.",
+          "repeticoes": 1
+        },
+        {
+          "id": "foco_cognitivo",
+          "nome": "FOCO COGNITIVO",
+          "custo": "(ç5)",
+          "descricao": "No início do seu turno durante um conflito, você pode escolher um aliado que possa ouvir você ou um inimigo que você possa ver e esteja abalado, atordoado e/ou enfurecido. Até o início do próximo turno, esta criatura será seu foco. Você recebe um bônus igual a (NP) em testes feitos para examinar seu foco, assim como em testes de Precisão e Magia para ataques e feitiços ofensivos (O) que têm seu foco entre os alvos. Quando você faz seu foco recuperar Pontos de Vida e/ou Mana, ele recupera (NP × 2) PV e/ou PM adicionais, respectivamente.",
+          "repeticoes": 1
+        },
+        {
+          "id": "hipercognicao",
+          "nome": "HIPERCOGNIÇÃO",
+          "custo": "(ç5)",
+          "descricao": "O custo total em PM de seus feitiços e versos (Atlas: High Fantasy, página 150) que têm seu foco entre os alvos é reduzido em (NP); ou em (NP × 2) se seu foco for o único alvo (mínimo de 0 PM).",
+          "repeticoes": 1
+        },
+        {
+          "id": "navegador",
+          "nome": "NAVEGADOR",
+          "custo": null,
+          "descricao": "Você pode se comunicar telepaticamente com qualquer aliado consciente que esteja a 1 dia de viagem; para poderes e condições, vocês podem ouvir um ao outro. Você pode fazer rituais da disciplina ritualismo. Além disso, você pode usar ritualismo para transportar criaturas para dentro e fora da rede de almas, para reunir informações e rastrear entidades enquanto estiverem na rede.",
+          "repeticoes": 1
+        },
+        {
+          "id": "psicocinese",
+          "nome": "PSICOCINESE",
+          "custo": null,
+          "descricao": "Quando faz um teste de Precisão, você pode substituir um dos dados de atributo por Vontade (como (DES + VON) para um arco curto).Além disso, seus ataques corpo a corpo com espadas ou armas arcanas podem atingir criaturas voadoras. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "mutante",
+      "nome": "Mutante",
+      "sourceBook": "Atlas: Tecno-Fantasia",
+      "sourcePage": 154,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV máximos em 5."
+      ],
+      "poderes": [
+        {
+          "id": "acromorfose",
+          "nome": "ACROMORFOSE",
+          "custo": "(ç3)",
+          "descricao": "Seus testes de Precisão para ataques desarmados recebem um bônus igual ao seu (NP) e estes ataques causam (6 + (NP × 2)) pontos de dano adicional. No início do seu turno durante um conflito, você pode escolher uma categoria de arma que não seja luta. Se o fizer, seus ataques desarmados agora pertencem à categoria escolhida. Se escolher arco, arma de fogo ou arremesso, eles se tornam armas à distância, em vez de corpo a corpo. Se escolher adaga ou espada, eles não podem ser usados com Corte Triplo (Atlas: High Fantasy, página 154). Essas mudanças duram até o início do seu próximo turno.",
+          "repeticoes": 1
+        },
+        {
+          "id": "biofagia",
+          "nome": "BIOFAGIA",
+          "custo": "(ç4)",
+          "descricao": "Se estiver em crise, você pode recuperar (NP × 5) PV depois que um dos seus ataques ou feitiços ofensivos (O) fizer um ou mais inimigos perderem PV.",
+          "repeticoes": 1
+        },
+        {
+          "id": "ecdise",
+          "nome": "ECDISE",
+          "custo": null,
+          "descricao": "Após perder PV ao sofrer dano, se este dano for de um tipo que não seja físico, você pode gastar 10 PV para receber Resistência ao tipo do dano sofrido até que use este poder novamente.",
+          "repeticoes": 1
+        },
+        {
+          "id": "genoclepse",
+          "nome": "GENOCLEPSE",
+          "custo": "(ç2)",
+          "descricao": "Quando causar dano a um ou mais NPCs, você pode descobrir sua espécie. Além disso, o mestre deve escolher (NP) terioformas que reflitam esses NPCs (veja na próxima página): se você tiver Teriomorfose, pode pagar imediatamente o custo em PV deste poder para usá-lo ao manifestar essas terioformas (mesmo que não estejam entre as que você aprendeu).",
+          "repeticoes": 1
+        },
+        {
+          "id": "teriomorfose",
+          "nome": "TERIOMORFOSE",
+          "custo": "(ç6)",
+          "descricao": "Sempre que adquirir este poder, você aprende uma terioforma. Você pode usar uma ação e gastar um terço dos seus PV atuais (arredondados para baixo) para manifestar os efeitos de até duas terioformas dentre as que aprendeu. Detalhes da transformação e de terioformas estão na próxima página. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "piloto",
+      "nome": "Piloto",
+      "sourceBook": "Atlas: Tecno-Fantasia",
+      "sourcePage": 158,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV máximos em 5.",
+        "Você pode equipar armas corpo a corpo e à distância marciais."
+      ],
+      "poderes": [
+        {
+          "id": "compressao_tecnologica",
+          "nome": "COMPRESSÃO TECNOLÓGICA",
+          "custo": null,
+          "descricao": "Quando não tiver ninguém a bordo do seu veículo pessoal, você pode fazê-lo desaparecer do mundo de jogo a qualquer momento. O que permite isso? Se seu veículo pessoal não estiver presente no mundo de jogo e você estiver em um espaço grande o bastante para ele, você pode usar a ação Inventário e gastar 2 PI para fazê-lo aparecer perto de você, e pode embarcar sem custos.",
+          "repeticoes": 1
+        },
+        {
+          "id": "configuracao_flexivel",
+          "nome": "CONFIGURAÇÃO FLEXÍVEL",
+          "custo": "(ç4)",
+          "descricao": "Ao usar a ação Equipamento ou Guarda enquanto estiver pilotando seu veículo pessoal, você pode escolher até (NP) dos seus módulos ativos e desativá-los. Se o fizer, escolha uma quandidade de até (NP) de módulos inativos e os ative.",
+          "repeticoes": 1
+        },
+        {
+          "id": "coracao_no_motor",
+          "nome": "CORAÇÃO NO MOTOR",
+          "custo": "(ç3)",
+          "descricao": "No início do seu turno durante um conflito, se estiver pilotando seu veículo pessoal, você pode gastar 10 PM. Se o fizer, escolha um: na próxima vez que causar dano nesse turno, cause (NP × 2) pontos de dano adicional; ou, na próxima vez que sofrer dano antes do início do seu próximo turno, esse dano é reduzido em (NP × 2) (antes de aplicar quaisquer Afinidades a dano); ou você se recupera da condição lento ou fraco (à sua escolha).",
+          "repeticoes": 1
+        },
+        {
+          "id": "pulso_firme",
+          "nome": "PULSO FIRME",
+          "custo": null,
+          "descricao": "Ao fazer um teste de Precisão com um módulo de arma, você pode substituir um de seus atributos por Vigor (como (VIG + VON) para um módulo arcano).",
+          "repeticoes": 1
+        },
+        {
+          "id": "veiculo_pessoal",
+          "nome": "VEÍCULO PESSOAL",
+          "custo": "(ç5)",
+          "descricao": "Ao adquirir este poder, você recebe um veículo pessoal com uma estrutura à sua escolha e três módulos diferentes à sua escolha (próxima página). Sempre que adquirir este poder novamente, você adquire dois módulos adicionais à sua escolha. 3 CAPÍTULO",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "astrologo",
+      "nome": "Astrólogo",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 40,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PM máximos em 5."
+      ],
+      "poderes": [
+        {
+          "id": "constelacao_do_boitata",
+          "nome": "CONSTELAÇÃO DO BOITATÁ",
+          "custo": "(ç3)",
+          "descricao": "Você pode usar uma ação e gastar 5 PM para fazer um teste de (AST + VON) contra a Def.M de um inimigo que você possa ver, causando (NP × 10) pontos de dano de fogo a ele se o atingir. Se você consumir uma carga celeste, uma criatura que você possa ver torna-se Resistente a fogo até o fim da cena. Você também gera (NP) cargas solares que duram até o fim da cena.",
+          "repeticoes": 1
+        },
+        {
+          "id": "constelacao_do_boto",
+          "nome": "CONSTELAÇÃO DO BOTO",
+          "custo": "(ç3)",
+          "descricao": "Você pode usar uma ação e gastar 5 PM para alinhar os astros de um aliado que você possa ver. Até o fim da cena, o alvo pode trocar um atributo de um teste por AST ou VON. Se você consumir uma carga solar, o alvo recebe +1 no teste. Você também gera (NP) cargas estelares que duram até o fim da cena.",
+          "repeticoes": 1
+        },
+        {
+          "id": "constelacao_do_cao_dourado",
+          "nome": "CONSTELAÇÃO DO CÃO DOURADO",
+          "custo": "(ç3)",
+          "descricao": "Você pode usar uma ação e gastar 10 PM para amaldiçoar um inimigo que você possa ver. Até o início do seu próximo turno, todas as fontes que causarem dano de luz ao alvo causam (NP) pontos de dano adicional. Se você consumir uma carga estelar, todo dano de luz causado ao alvo ignora Imunidades e Resistências. Você também gera (NP) cargas meteóricas que duram até o fim da cena.",
+          "repeticoes": 1
+        },
+        {
+          "id": "constelacao_da_rasga_mortalha",
+          "nome": "CONSTELAÇÃO DA RASGA-MORTALHA",
+          "custo": null,
+          "descricao": "Você pode fazer rituais da disciplina ritualismo; além disso, também pode usar ritualismo para consultar as estrelas sobre possíveis eventos futuros, obter conhecimento de lendas e até realizar pequenos desejos.",
+          "repeticoes": 1
+        },
+        {
+          "id": "constelacao_do_saci",
+          "nome": "CONSTELAÇÃO DO SACI",
+          "custo": "(ç3)",
+          "descricao": "Você pode usar uma ação e gastar 10 PM para acelerar um aliado que você possa ver. No próximo turno do alvo, ele pode fazer uma ação Equipamento, Guarda, Estudo ou Objetivo sem usar uma ação. Se você consumir uma carga meteórica, ele também pode fazer um ataque livre, mas a RA do teste de Precisão desse ataque é considerada como 0 para calcular o dano causado. Você também gera (NP) cargas celestes que duram até o fim da cena.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "bandoleiro",
+      "nome": "Bandoleiro",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 42,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PI máximos em 2.",
+        "Você pode equipar armas corpo a corpo e armas à distância marciais."
+      ],
+      "poderes": [
+        {
+          "id": "cabra_da_peste",
+          "nome": "CABRA DA PESTE",
+          "custo": "(ç5)",
+          "descricao": "Uma vez por cena, se estiver em crise, você pode usar uma ação e gastar 1 Ponto de Fabula para se recuperar de todas as condições e recuperar PV igual a (NP × 10). Se você gastar 1 Ponto de Ultima em vez do Ponto de Fabula para usar este poder, também recupera PM igual a (NP × 10).",
+          "repeticoes": 1
+        },
+        {
+          "id": "lider_de_bando",
+          "nome": "LÍDER DE BANDO",
+          "custo": null,
+          "descricao": "Quando for o líder de um teste em grupo, e se um ou mais personagens apoiadores tiver um Laço com você, some as duas forças mais altas dentre esses Laços (em vez de apenas a força mais alta).",
+          "repeticoes": 1
+        },
+        {
+          "id": "redistribuir_riquezas",
+          "nome": "REDISTRIBUIR RIQUEZAS",
+          "custo": "(ç3)",
+          "descricao": "No fim de uma cena de conflito na qual um vilão foi reduzido a 0 PV, você recebe (1d6 × NP) PI para distribuir entre os PJs. Além disso, se o vilão tiver mais do que 1 Ponto de Ultima no fim do conflito, você “rouba” 1 Ponto de Ultima dele. Anote-o em sua ficha (você só pode ter 1 Ponto de Ultima por vez).",
+          "repeticoes": 1
+        },
+        {
+          "id": "sertanejo",
+          "nome": "SERTANEJO",
+          "custo": null,
+          "descricao": "Você possui uma conexão com uma região de terras áridas e desafiadoras, afastada da costa e distante dos costumes da assim chamada civilização. Ao adquirir este poder, descreva esse lugar e como desenvolveu essa co- nexão e defina com o grupo o conceito de sertanejo no seu mundo de jogo. Essa região conta como uma segunda Origem para você. Se usar um Ponto de Fabula para evocá-la, você pode gastar 1 Ponto de Ultima em vez disso.",
+          "repeticoes": 1
+        },
+        {
+          "id": "valhacouto",
+          "nome": "VALHACOUTO",
+          "custo": "(ç3)",
+          "descricao": "No fim de um descanso, você pode gastar 1 Ponto de Fabula para seu bando trazer (NP + 1) Suprimentos, que duram até você usar este poder novamente. Quando faz um teste de Viagem, você pode gastar 1 Suprimento para rolar o dado novamente. Além disso, você pode gastar 1 Suprimento para criar uma barraca mágica. Se gastar 1 Ponto de Ultima ao usar este poder, o número de suprimentos trazidos aumenta em +2.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "carteador",
+      "nome": "Carteador",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 44,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV ou PM máximos em 5 (à sua escolha)."
+      ],
+      "poderes": [
+        {
+          "id": "altos_e_baixos",
+          "nome": "ALTOS E BAIXOS",
+          "custo": null,
+          "descricao": "Quando rola um sucesso crítico ou uma falha crítica, você pode comprar uma carta do seu baralho. Se fizer isso, descarte uma carta da sua mão.",
+          "repeticoes": 1
+        },
+        {
+          "id": "carta_armadilha",
+          "nome": "CARTA ARMADILHA",
+          "custo": "(ç4)",
+          "descricao": "Após um inimigo que você possa ver fazer uma ação num conflito, você pode declarar um naipe do seu baralho (após resolver a ação). Então ponha na pilha de descarte, com face para cima, a primeira carta do fundo do baralho. Se for um curinga ou se o naipe for o mesmo que declarou, você pode usar a ação Feitiço sem custo de ação, lançando um feitiço com custo total em PM igual ou menor que (NP × 5) (você ainda deve pagar esse custo de PM).",
+          "repeticoes": 1
+        },
+        {
+          "id": "cartas_magicas",
+          "nome": "CARTAS MÁGICAS",
+          "custo": "(ç3)",
+          "descricao": "Você recebe um baralho, uma mão e uma pilha de descarte (próx. página). Durante um conflito, você pode usar uma ação e gastar até (10 + (NP × 5)) PM (mínimo de 10 PM). Se fizer isso, use o efeito de uma das cartas na sua mão para cada 5 PM gastos dessa forma (máximo de 5 cartas, que formam um conjunto). Após usar o efeito do conjunto (se houver), descarte as cartas usadas e compre a mesma quantidade de cartas do seu baralho.",
+          "repeticoes": 1
+        },
+        {
+          "id": "dobro_ou_nada",
+          "nome": "DOBRO OU NADA",
+          "custo": null,
+          "descricao": "Antes de fazer um teste de Precisão, teste de Magia para um feitiço ofensivo (O) ou um teste para afetar um relógio, você pode declarar o dobro ou nada. Se fizer isso e rolar um sucesso crítico, dobre o dano causado pelo ataque ou feitiço ou o número de seções preenchidas ou apagadas no relógio. No entanto, qualquer outro resultado é considerado uma falha.",
+          "repeticoes": 1
+        },
+        {
+          "id": "mulligan",
+          "nome": "MULLIGAN",
+          "custo": "(ç5)",
+          "descricao": "No final do seu turno em um conflito, você pode descartar (NP) cartas da sua mão. Se fizer isso, compre a mesma quantidade de cartas do seu baralho. gerenciando o baralho Seu baralho é um conjunto de cartas na vida real, que você pode montar da forma que preferir, desde que tenha versos idênticos e que respeite essas restrições: Deve ter exatamente 30 cartas: 2 curingas e 28 cartas divididas em 4 tipos chamados de naipes — por exemplo, um baralho padrão de pôquer é dividido nos naipes de paus (¨), ouros (©), copas (ª) e espadas («). Ao criar seu baralho, associe cada naipe a um dano diferente entre: ar, fogo, gelo e terra. Cada naipe do baralho é composto por 7 cartas com valores de 1 a 7. O mais fácil é usar o baralho de pôquer — removendo cartas de corte e cartas de número 8 a 10 —, mas você pode usar arcanos menores do tarô, cartas colecionáveis e muito mais; só garanta que as combinações sejam fáceis de identificar. No início do conflito, embaralhe as 30 cartas do baralho e as coloque à sua frente com face para baixo. Então compre 5 cartas para formar sua mão inicial. Se precisar comprar cartas do baralho e não houver o suficiente, compre o máximo possível, embaralhe a pilha de descarte, ponha as cartas de volta à sua frente com face para baixo e, então, continue comprando. Ao comprar cartas do baralho, elas vão para a sua mão. Em geral, apenas você pode ver sua mão, mas você pode mostrá-la a outras pessoas se quiser. Ao descartar cartas da mão, coloque-as com face para cima na sua pilha de descarte na ordem que preferir. Mas a ordem das cartas na pilha de descarte não pode ser modificada. Seu baralho, mão e pilha de descarte (assim como quaisquer poderes e efeitos relacionados a eles) só podem ser usados durante cenas de conflito. No final de cada conflito, embaralhe as 30 cartas de volta ao seu baralho e deixe-o de lado.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "cavaleiro_magico",
+      "nome": "Cavaleiro Mágico",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 48,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PM máximos em 5.",
+        "Você pode equipar armaduras e escudos marciais."
+      ],
+      "poderes": [
+        {
+          "id": "alma_ferida",
+          "nome": "ALMA FERIDA",
+          "custo": "(ç5)",
+          "descricao": "Uma vez por cena, quando entra em crise, você pode criar um Laço de desconfiança com um número de inimigos igual a (NP) que você possa ver. Laços criados dessa forma duram até o fim da cena e não precisam apagar Laços pré-existentes para serem criados. Se precisaria fazer isso para criar um ou mais Laços deste poder, em vez disso escolha um número dos seus Laços atuais equivalente ao número de Laços excedentes. Os Laços esco- lhidos deixam de existir até o fim da cena.",
+          "repeticoes": 1
+        },
+        {
+          "id": "coracao_ardente",
+          "nome": "CORAÇÃO ARDENTE",
+          "custo": "(ç3)",
+          "descricao": "Enquanto estiver sob o efeito de uma forma mágica, quando evoca um Laço de desconfiança, inferioridade e/ou ódio num teste de Precisão ou Magia para causar dano, você causa (NP × 2) de dano adicional do mesmo tipo.",
+          "repeticoes": 1
+        },
+        {
+          "id": "impulso_do_coracao",
+          "nome": "IMPULSO DO CORAÇÃO",
+          "custo": null,
+          "descricao": "O custo para usar Magitransformação é reduzido em um número de PM igual à quantidade de Laços com emoções de admiração, lealdade e/ou afeto que você possui (mínimo de 20 PM).",
+          "repeticoes": 1
+        },
+        {
+          "id": "magitransformacao",
+          "nome": "MAGITRANSFORMAÇÃO",
+          "custo": "(ç3)",
+          "descricao": "Sempre que adquirir este poder, você deve criar uma nova forma mágica. Você pode usar uma ação e gastar 25 PM para assumir uma forma mágica que possui. Detalhes para criar formas mágicas estão na próxima página.",
+          "repeticoes": 1
+        },
+        {
+          "id": "transformacao_aprimorada",
+          "nome": "TRANSFORMAÇÃO APRIMORADA",
+          "custo": "(ç3)",
+          "descricao": "Sempre que adquirir este poder, escolha a arma ou armadura de uma das suas formas mágicas. No fim de cada descanso, para cada item escolhido, você pode substituir sua característica ou aplicar uma nova (se o item não tiver características) como se fosse um item raro (Livro Básico, a partir da página 266). A característica escolhida deve ser aprovada pelo mestre e ter valor em zênites igual ou menor que (40 x seu nível). forma mágica Todo cavaleiro mágico tem uma relíquia mágica que lhe concede transformações com efeitos especiais. Cada transformação é uma forma mágica. A maneira como essa transformação acontece e a aparência da sua forma mágica ficam à sua escolha, mas há sugestões gerais de aparência na página ao lado. Para criar uma forma mágica, combine uma motivação, uma aura e dois focos. Após fazer essa escolha, ela só pode ser mudada por poderes específicos. A motivação determina o sentimento que move sua transformação e os alvos afetados pela aura da sua forma mágica. A aura causa um efeito diferente nos alvos da motivação. Efeitos de afeto duram até o fim da cena, ou enquanto os efeitos do foco durarem. Cada foco causa um efeito diferente em você. Você pode escolher no máximo uma arma e uma armadura entre as opções descritas em seus focos. Se algum dos itens escolhidos for pior do que o item equipado no respectivo espaço, você não precisa substituí-lo ao usar Magitransformação. Em vez disso, se necessário, mude somente o tipo de dano causado pela arma. Os efeitos do foco duram até o fim da cena, mas também se encerram se você morrer, ficar inconsciente ou sair de sua forma mágica. Você pode encerrar os efeitos de uma forma mágica a qualquer momento, mas em um conflito só pode fazê-lo no seu turno, antes ou depois de uma ação. Você pode combinar aspectos entre focos (por exemplo, pode escolher focos ardente e congelante para usar um arco curto que causa dano de gelo).",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "forjador_de_almas",
+      "nome": "Forjador de Almas",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 52,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PI máximos em 2."
+      ],
+      "poderes": [
+        {
+          "id": "animar_arma",
+          "nome": "ANIMAR ARMA",
+          "custo": "(ç4)",
+          "descricao": "No seu turno, você pode usar uma ação e gastar 1 Ponto de Alma para animar uma arma equipada, que libera o espaço de mão ocupado por ela. A arma flutua, como se empunhada por uma mão invisível, perde a propriedade multi (se a tinha) e não pode recebê-la de nenhuma forma. No fim de cada rodada, essa arma faz um único ataque usando seu teste de Precisão, mas deve considerar a RA como 0 ao calcular o dano causado por ela. A arma permanece animada por um número de rodadas igual a (NP) ou até você animar outra arma.",
+          "repeticoes": 1
+        },
+        {
+          "id": "coletar_almas",
+          "nome": "COLETAR ALMAS",
+          "custo": "(ç5)",
+          "descricao": "Você pode coletar Pontos de Alma de inimigos derrotados e usá-los para fortalecer seus poderes. Você não pode ter mais de (NP + 1) Pontos de Alma. Detalhes do uso de Pontos de Alma estão na próxima página.",
+          "repeticoes": 1
+        },
+        {
+          "id": "forjar_caracteristica",
+          "nome": "FORJAR CARACTERÍSTICA",
+          "custo": null,
+          "descricao": "Você pode usar a ação Inventário e gastar 10 PM ou 1 Ponto de Alma para moldar uma característica de arma (Livro Básico, página 269) com custo de até (500z + (seu nível × 40z)) em uma arma que esteja ao seu alcance. Uma característica fica moldada até o fim da cena e um mesmo item só pode ter uma característica moldada por vez.",
+          "repeticoes": 1
+        },
+        {
+          "id": "forjar_feitico",
+          "nome": "FORJAR FEITIÇO",
+          "custo": "(ç5)",
+          "descricao": "Sempre que adquirir este poder, escolha um dos feitiços ofensivos (O) de ele- mentalista (Livro Básico, páginas 188 e 189). Você pode usar a ação Inventário e gastar 10 PM ou 1 Ponto de Alma para infundir um desses feitiços numa arma ao seu alcance. Até o fim da cena, um PJ equipado com uma arma com um feitiço infundido pode fazer a ação Feitiço para lançar esse feitiço uma úni- ca vez, usando a fórmula do teste de Precisão da arma para o teste de Magia.",
+          "repeticoes": 1
+        },
+        {
+          "id": "manifestar_arma",
+          "nome": "MANIFESTAR ARMA",
+          "custo": null,
+          "descricao": "No seu turno em um conflito, você pode usar a ação Equipamento e gastar 10 PM ou 1 Ponto de Alma para manifestar uma arma básica, destruindo qual- quer arma já manifestada dessa forma. Se tiver espaços de mão livres, você pode imediatamente equipar esta arma. Com ela, você pode trocar um Atributo do teste de Precisão por Vontade (como (VON + DES) para um arco curto).",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "lamina_carmesim",
+      "nome": "Lâmina Carmesim",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 56,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV máximos em 5.",
+        "Você pode equipar armas corpo a corpo e escudos marciais."
+      ],
+      "poderes": [
+        {
+          "id": "arsenal_vermelho",
+          "nome": "ARSENAL VERMELHO",
+          "custo": null,
+          "descricao": "Você pode usar uma ação e gastar 5 PV para cobrir uma arma corpo a corpo equipada com uma camada do seu próprio sangue até o fim da cena. Se fizer isso, a arma passa a disparar cortes de sangue em alta velocidade, atingindo alvos que não podem ser acertados por ataques corpo a corpo. Um alvo que esteja voando e seja atingido por um ataque desta arma é imediatamente forçado a pousar. Quando está em crise, você não gasta PV ao usar este poder e pode fazer um ataque livre como parte da mesma ação que usou para fazer isso.",
+          "repeticoes": 1
+        },
+        {
+          "id": "dobrar_sangue",
+          "nome": "DOBRAR SANGUE",
+          "custo": null,
+          "descricao": "Você pode usar uma ação e gastar 20 PM para escolher um ataque básico ou feitiço conhecido de um inimigo que você possa ver. Então faça um teste oposto contra ele de (VON + VIG). Se você vencer, o alvo é obrigado a usar a ação escolhida no próximo turno dele contra um alvo à sua escolha.",
+          "repeticoes": 1
+        },
+        {
+          "id": "escudo_escarlate",
+          "nome": "ESCUDO ESCARLATE",
+          "custo": "(ç2)",
+          "descricao": "Enquanto estiver em crise, sua Defesa e Defesa mágica aumentam em (NP).",
+          "repeticoes": 1
+        },
+        {
+          "id": "frenesi_sanguinolento",
+          "nome": "FRENESI SANGUINOLENTO",
+          "custo": "(ç4)",
+          "descricao": "Quando rola um sucesso crítico ao fazer um ataque corpo a corpo, você pode gastar a oportunidade gerada para recuperar (NP × 10) PV.",
+          "repeticoes": 1
+        },
+        {
+          "id": "hemofagia",
+          "nome": "HEMOFAGIA",
+          "custo": "(ç5)",
+          "descricao": "Uma vez por rodada, quando outra criatura faz você perder PV, você pode gastar 10 PV para fazer um ataque livre contra essa criatura (depois que a ação dela for resolvida). Se acertar, não causa o dano da arma; em vez disso causa (NP + RA do teste de Precisão) de dano físico.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "malandro",
+      "nome": "Malandro",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 58,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PI máximos em 2.",
+        "Você pode equipar armas à distância marciais."
+      ],
+      "poderes": [
+        {
+          "id": "engabelar",
+          "nome": "ENGABELAR",
+          "custo": "(ç3)",
+          "descricao": "Uma vez por cena, quando um aliado ou inimigo que você possa ver faz um teste, você pode gastar 10 PM para \"convencer\" o destino a brincar com a sorte e o azar dele. Se fizer isso, faça o mesmo teste, mas com bônus ou penalidade (escolha qual) igual a (NP). Então, você pode escolher trocar seu resultado com o resultado do alvo. Até o fim da cena, você pode usar o resultado trocado como a rolagem de um dos seus testes.",
+          "repeticoes": 1
+        },
+        {
+          "id": "explorar_fraqueza",
+          "nome": "EXPLORAR FRAQUEZA",
+          "custo": null,
+          "descricao": "No começo do seu turno, você pode gastar 10 PM para usar a ação Estudo sem custo de ação, antes ou depois da sua ação, usando (AST + DES) como fórmula do seu teste aberto.",
+          "repeticoes": 1
+        },
+        {
+          "id": "gambiarra",
+          "nome": "GAMBIARRA",
+          "custo": "(ç4)",
+          "descricao": "Uma vez por cena, você pode usar a ação Inventário e gastar até (NP x 2) PI para fazer uma modificação improvisada em uma arma equipada, usando os materiais que estiverem à disposição na cena. Para cada 2 PI gastos, escolha uma modificação: a arma fornece +1 em testes de Precisão; ou a arma causa 2 pontos de dano adicional; ou a arma fornece um bônus de +1 em testes da ação Objetivo; ou ataques com a arma causam dano de veneno. Todas as modificações improvisadas duram até o fim da cena, quando se quebram em vários pedacinhos de material inútil.",
+          "repeticoes": 1
+        },
+        {
+          "id": "golpe_aproveitador",
+          "nome": "GOLPE APROVEITADOR",
+          "custo": "(ç3)",
+          "descricao": "Quando faz um ataque contra uma única criatura que esteja sofrendo uma ou mais condições, você pode trocar um dos atributos do teste de Precisão da arma usada por DES e recebe um bônus de (NP) nesse teste.",
+          "repeticoes": 1
+        },
+        {
+          "id": "jeitinho",
+          "nome": "JEITINHO",
+          "custo": "(ç2)",
+          "descricao": "Quando um aliado passar em um teste para preencher ou apagar as seções de um relógio, você pode gastar até (NP x 20) PM. Se fizer isso, você não pode fazer testes para influenciar o relógio até o fim do seu próximo turno, mas pre- enche ou apaga uma seção desse relógio a cada 20 PM gastos dessa forma.",
+          "repeticoes": 1
+        }
+      ]
+    },
+    {
+      "id": "necromante",
+      "nome": "Necromante",
+      "sourceBook": "Codex Extra",
+      "sourcePage": 60,
+      "beneficiosIniciais": [
+        "Aumente permanentemente seus PV ou PM máximos em 5 (à sua escolha)."
+      ],
+      "poderes": [
+        {
+          "id": "alem_do_reino_da_morte",
+          "nome": "ALÉM DO REINO DA MORTE",
+          "custo": "(ç5)",
+          "descricao": "Quando outra criatura que você possa ver perde PV enquanto estiver em crise, se não for um morto-vivo, você recebe 1 Ponto de Túmulo. Você não pode ter mais de (NP + 1) Pontos de Túmulo. Ao ser reduzido a 0 PV, você perde todos os Pontos de Túmulo; em seguida, se tiver perdido ao menos 1 Ponto de Túmulo dessa forma e for a primeira vez a ficar com 0 PV na cena, você não se rende nem se sacrifica: em vez disso, recupera uma quantidade de PV igual a (NP × a quantidade de Pontos de Túmulo que você perdeu dessa forma).",
+          "repeticoes": 1
+        },
+        {
+          "id": "filhos_da_sepultura",
+          "nome": "FILHOS DA SEPULTURA",
+          "custo": null,
+          "descricao": "Você pode se comunicar verbalmente com mortos-vivos. Uma vez por cena, pode fazer uma pergunta a um morto-vivo, que deve responder sinceramente.",
+          "repeticoes": 1
+        },
+        {
+          "id": "medo_e_a_chave",
+          "nome": "MEDO É A CHAVE",
+          "custo": "(ç3)",
+          "descricao": "Após fazer um ou mais inimigos perderem PV, se você tiver Além do Reino da Morte e ao menos um desses inimigos estiver abalado e/ou fraco, você recebe 1 Ponto de Túmulo e recupera (NP × 2) PV e PM.",
+          "repeticoes": 1
+        },
+        {
+          "id": "por_quem_os_sinos_dobram",
+          "nome": "POR QUEM OS SINOS DOBRAM",
+          "custo": "(ç3)",
+          "descricao": "Quando causa dano com um feitiço a uma criatura, se o feitiço causar dano apenas a ela, você pode gastar 1 Ponto de Túmulo. Se o fizer, escolha um: se a criatura estiver sofrendo uma ou mais condições, o feitiço causa dano adicional igual a ((NP × 2) + o número de condições da criatura); ou se a criatura não estiver sofrendo condições, ela fica abalada.",
+          "repeticoes": 1
+        },
+        {
+          "id": "rondo_do_pesadelo",
+          "nome": "RONDÓ DO PESADELO",
+          "custo": null,
+          "descricao": "Ao lançar um feitiço ofensivo (O) com alvo \"uma criatura\", você pode gastar 2 Pontos de Túmulo para atingir todas as criaturas presentes na cena que você possa ver (faça um único teste de Magia e compare-o à Def.M de cada alvo). Se o fizer, todo dano causado pelo feitiço torna-se de trevas e seu tipo não pode ser alterado.",
+          "repeticoes": 1
+        }
+      ]
+    }
+  ],
+  "erros": [],
+  "avisos": []
+}

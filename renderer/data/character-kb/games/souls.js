@@ -1,0 +1,98 @@
+// Souls / FromSoftware — Character KB
+// Fonte: Dark Souls, Bloodborne, Elden Ring
+
+const SOULS_CHARACTERS = [
+
+  { id: 'souls-solaire',
+    nome: 'Solaire de Astora',
+    aliases: ['Solaire', 'Solaire of Astora', 'Praise the Sun'],
+    arquetipo: 'paladino-curandeiro',
+    source: { franchise: 'Dark Souls', work: 'Dark Souls (2011)', category: 'video-game' },
+    tema: 'Alegria inabalável à beira do abismo',
+    origem: 'Guerreiro Luminoso de Astora',
+    atributos: { des: 'd8', vig: 'd10', ast: 'd6', von: 'd12' },
+    lacos: [
+      { alvo: 'Sol (conceito)', emocoes: ['devoção', 'busca sagrada'] },
+      { alvo: 'Chosen Undead', emocoes: ['camaradagem', 'esperança'] },
+      { alvo: 'Hollow (própria queda)', emocoes: ['medo', 'resistência'] },
+    ],
+    descricao: 'Cavaleiro que atravessou o mundo em busca do seu próprio Sol — algum propósito luminoso que justifique a jornada. Solaire é o contraponto da escuridão de Lordran: não ignora o horror, mas recusa deixá-lo vencer. Seu "Praise the Sun!" é genuíno, não irônico, e é isso que o torna tão amado.',
+    keyTraits: ['Alegria genuína como ato de resistência', 'Espada e escudo com Lightning Spear divino', 'Ajuda outros como prioridade antes de si', 'Arco trágico de queda em insanidade', 'Símbolo do Sol como identidade e missão'],
+    suggestedQuirks: ['glorioso_destino', 'heranca'],
+    bondHints: ['Sol que procura como propósito de vida (conceito)', 'Viajante que merece ser acompanhado (Chosen Undead)', 'Escuridão que pode consumir qualquer um (Hollow)'] },
+
+  { id: 'souls-artorias',
+    nome: 'Artorias, o Caminhante do Abismo',
+    aliases: ['Artorias', 'Artorias the Abysswalker', 'Sir Artorias'],
+    arquetipo: 'guerreiro-versatil',
+    source: { franchise: 'Dark Souls', work: 'Dark Souls: Artorias of the Abyss (2012)', category: 'video-game' },
+    tema: 'O herói que não sobreviveu ao que prometeu vencer',
+    origem: 'Cavaleiro de Gwyn, Senhor da Luz Solar',
+    atributos: { des: 'd10', vig: 'd10', ast: 'd8', von: 'd10' },
+    lacos: [
+      { alvo: 'Sif (lobo)', emocoes: ['amor de companheiro de vida'] },
+      { alvo: 'O Abismo', emocoes: ['derrota consumidora'] },
+      { alvo: 'Gwyn', emocoes: ['lealdade além da vida'] },
+    ],
+    descricao: 'O mais poderoso dos Quatro Cavaleiros de Gwyn, Artorias foi o único capaz de atravessar o Abismo — mas o Abismo o consumiu. O braço esquerdo quebrado, a mente corrompida, ele ainda luta com intensidade sobrenatural mesmo possuído. Sif, seu lobo, guarda o túmulo dele com a espada para que ninguém precise saber.',
+    keyTraits: ['Poder lendário mesmo corrompido e com um braço', 'Greatsword com moveset fluido e ameaçador', 'Pacto com o Abismo que o destruiu', 'Companion bond com Sif que sobrevive à morte', 'Legado que inspira gerações de guerreiros'],
+    suggestedQuirks: ['glorioso_destino', 'sobrevivente_nf'],
+    bondHints: ['Lobo que guarda o que resta (Sif)', 'Força que consumiu em vez de ser consumida (Abismo)', 'Rei por quem morreria e morreu (Gwyn)'] },
+
+  { id: 'souls-lady-maria',
+    nome: 'Lady Maria of the Astral Clocktower',
+    aliases: ['Lady Maria', 'Maria', 'Lady Maria of the Astral Clocktower'],
+    arquetipo: 'dançarino',
+    source: { franchise: 'Bloodborne', work: 'Bloodborne: The Old Hunters (2015)', category: 'video-game' },
+    tema: 'Elegância que não apaga o sangue',
+    origem: 'Descendente do Clan Cainhurst, aluna de Gehrman',
+    atributos: { des: 'd12', vig: 'd8', ast: 'd8', von: 'd10' },
+    lacos: [
+      { alvo: 'Gehrman', emocoes: ['respeito de aluna', 'cumplicidade'] },
+      { alvo: 'Fishing Hamlet', emocoes: ['culpa', 'segredo guardado a força'] },
+      { alvo: 'Rakuyo (arma)', emocoes: ['identidade', 'extensão do corpo'] },
+    ],
+    descricao: 'A melhor aluna de Gehrman combina o sangue nobre de Cainhurst com o treinamento implacável dos Hunters. Seus movimentos com o Rakuyo dual-wielded são elegância sangrenta — a comunidade a chama de "dança do valso ensanguentado". Abandonou o título de caçadora por culpa de Fishing Hamlet, mas o segredo a aprisionou na Clocktower.',
+    keyTraits: ['Rakuyo dual-wielding como dança de combate', 'Mobilidade e Quickenings que parecem coreografia', 'Elegância Cainhurst intacta mesmo em batalha', 'Culpa de Fishing Hamlet como prisão autoimposta', 'Padrão para todos os Hunters que vieram depois'],
+    suggestedQuirks: ['heranca', 'sobrevivente_nf'],
+    bondHints: ['Mestre que a ensinou a dançar a morte (Gehrman)', 'Crime que não consegue esquecer (Fishing Hamlet)', 'Arma que é extensão da alma (Rakuyo)'] },
+
+  { id: 'souls-malenia',
+    nome: 'Malenia, Blade of Miquella',
+    aliases: ['Malenia', 'Malenia Blade of Miquella', 'Goddess of Rot'],
+    arquetipo: 'espadachim-sombrio',
+    source: { franchise: 'Elden Ring', work: 'Elden Ring (2022)', category: 'video-game' },
+    tema: 'Perfeição forjada sobre maldição que nunca cura',
+    origem: 'Semideusa de Caelid',
+    atributos: { des: 'd12', vig: 'd8', ast: 'd8', von: 'd10' },
+    lacos: [
+      { alvo: 'Miquella', emocoes: ['amor fraternal absoluto', 'devoção'] },
+      { alvo: 'Scarlet Rot', emocoes: ['maldição de nascença', 'identidade involuntária'] },
+      { alvo: 'Radahn', emocoes: ['rival digno', 'batalha que definiu ambos'] },
+    ],
+    descricao: 'Nunca derrotada em batalha, nasceu com Scarlet Rot nos olhos e sem cura possível. Cada golpe que sofre drena vida dos inimigos para se regenerar; sua lâmina é cirúrgica, rápida e implacável. A batalha com Radahn condenou Caelid mas foi o pico de ambos — dois guerreiros perfeitos se destruindo mutuamente.',
+    keyTraits: ['Nunca derrotada em combate na lore', 'Scarlet Rot como maldição e arma', 'Roubo de vida que regenera a cada golpe sofrido', 'Amor fraternal por Miquella como único soft spot', 'Fase 2 onde se torna Deusa da Podridão'],
+    suggestedQuirks: ['glorioso_destino', 'heranca'],
+    bondHints: ['Irmão amado acima de tudo (Miquella)', 'Maldição que é parte de si mesmo (Scarlet Rot)', 'Rival que foi o único digno da batalha definitiva (Radahn)'] },
+
+  { id: 'souls-ranni',
+    nome: 'Ranni the Witch',
+    aliases: ['Ranni', 'Ranni the Witch', 'Lunar Princess', 'Dark Moon Witch'],
+    arquetipo: 'mago-sombrio',
+    source: { franchise: 'Elden Ring', work: 'Elden Ring (2022)', category: 'video-game' },
+    tema: 'Liberdade da ordem cósmica ao custo de tudo',
+    origem: 'Semideusa, filha de Radagon e Rennala',
+    atributos: { des: 'd6', vig: 'd6', ast: 'd12', von: 'd12' },
+    lacos: [
+      { alvo: 'Tarnished (jogador)', emocoes: ['recrutamento', 'confiança calculada'] },
+      { alvo: 'Elden Ring (ordem)', emocoes: ['rejeição deliberada'] },
+      { alvo: 'Lua Escura', emocoes: ['afinidade', 'destino escolhido'] },
+    ],
+    descricao: 'Abandonou sua forma de carne séculos atrás para escapar do destino que os Outer Gods planejaram para ela. Ranni orquestra eventos ao longo de gerações com paciência de divindade — cada peça do Tarnished no tabuleiro é parte do plano. Sua magia é lunar e fria; sua vontade, absoluta.',
+    keyTraits: ['Manipulação de longo prazo com motivação genuína', 'Magia lunar de alcance e precisão divinos', 'Rejeição de toda ordem divina imposta', 'Forma de boneca de porcelana como escolha, não punição', 'Endgame que reescreve o cosmos'],
+    suggestedQuirks: ['grimorio_misterioso', 'de_um_mundo_distante_af'],
+    bondHints: ['Peão que merece ser mais que peão (Tarnished)', 'Grilhão que se recusa a usar (Elden Ring)', 'Destino que escolheu em vez de receber (Lua Escura)'] },
+
+];
+
+if (typeof module !== 'undefined') module.exports = SOULS_CHARACTERS;
