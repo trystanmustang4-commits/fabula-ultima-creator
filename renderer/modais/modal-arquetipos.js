@@ -43,7 +43,7 @@ const ModalArquetipos = (() => {
     return `
       <button class="arq-card" onclick="ModalArquetipos.escolher('${_esc(arq.id)}')">
         <div class="arq-card-topo">
-          <span class="arq-card-icone">${arq.icone || '⚔'}</span>
+          <span class="arq-card-icone">${arq.icone || ''}</span>
           <span class="arq-card-nome">${_esc(arq.displayName)}</span>
         </div>
         <p class="arq-card-desc">${_esc(arq.descricaoCurta || '')}</p>

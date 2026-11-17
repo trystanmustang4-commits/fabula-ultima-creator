@@ -58,14 +58,14 @@ const Estado = {
 
 // Definição dos passos do wizard
 const PASSOS = [
-  { id: 'identidade',  titulo: 'Identidade',   icone: '👤' },
-  { id: 'origem',      titulo: 'Origem',        icone: '🏘' },
-  { id: 'tema',        titulo: 'Tema',          icone: '💡' },
-  { id: 'classes',     titulo: 'Classes',       icone: '⚔' },
-  { id: 'atributos',   titulo: 'Atributos',     icone: '🎲' },
-  { id: 'estatisticas',titulo: 'Estatísticas',  icone: '📊' },
-  { id: 'equipamento', titulo: 'Equipamento',   icone: '🛡' },
-  { id: 'finalizacao', titulo: 'Personagem',    icone: '✨' }
+  { id: 'identidade',  titulo: 'Identidade',   icone: '' },
+  { id: 'origem',      titulo: 'Origem',        icone: '' },
+  { id: 'tema',        titulo: 'Tema',          icone: '' },
+  { id: 'classes',     titulo: 'Classes',       icone: '' },
+  { id: 'atributos',   titulo: 'Atributos',     icone: '' },
+  { id: 'estatisticas',titulo: 'Estatísticas',  icone: '' },
+  { id: 'equipamento', titulo: 'Equipamento',   icone: '' },
+  { id: 'finalizacao', titulo: 'Personagem',    icone: '' }
 ];
 
 // Biblioteca de nomes de fantasia (300 masculinos + 300 femininos)
@@ -158,41 +158,41 @@ const NOMES_FEM = [
 
 // Tabela de ícones por classe
 const ICONES_CLASSES = {
-  andarilho:       '🧭',
-  arcanista:       '🔮',
-  atirador:        '🏹',
-  elementalista:   '🌪️',
-  entropista:      '🎲',
-  erudito:         '📚',
-  espiritualista:  '✨',
-  furioso:         '🔥',
-  guerreiro_sombrio: '🌑',
-  guardiao:        '🛡️',
-  inventor:        '⚙️',
-  ladino:          '🗡️',
-  mestre_de_armas: '⚔️',
-  orador:          '📜',
-  quimerista:      '🐉',
+  andarilho:       '',
+  arcanista:       '',
+  atirador:        '',
+  elementalista:   '',
+  entropista:      '',
+  erudito:         '',
+  espiritualista:  '',
+  furioso:         '',
+  guerreiro_sombrio: '',
+  guardiao:        '',
+  inventor:        '',
+  ladino:          '',
+  mestre_de_armas: '',
+  orador:          '',
+  quimerista:      '',
   // Expansões
-  comandante:       '🎖️',
-  dancarino:        '💃',
-  simbolista:       '🔯',
-  virtuoso:         '🎵',
-  floralista:       '🌸',
-  gourmet:          '🍳',
-  invocador:        '🌀',
-  mercador:         '💰',
-  esper:            '🧠',
-  mutante:          '🧬',
-  piloto:           '🚀',
-  astrologo:        '🔭',
-  bandoleiro:       '🤠',
-  carteador:        '🃏',
-  cavaleiro_magico: '🦸',
-  forjador_de_almas:'⚒️',
-  lamina_carmesim:  '🩸',
-  malandro:         '🎭',
-  necromante:       '💀'
+  comandante:       '',
+  dancarino:        '',
+  simbolista:       '',
+  virtuoso:         '',
+  floralista:       '',
+  gourmet:          '',
+  invocador:        '',
+  mercador:         '',
+  esper:            '',
+  mutante:          '',
+  piloto:           '',
+  astrologo:        '',
+  bandoleiro:       '',
+  carteador:        '',
+  cavaleiro_magico: '',
+  forjador_de_almas:'',
+  lamina_carmesim:  '',
+  malandro:         '',
+  necromante:       ''
 };
 
 // Mapeamento: classe → atributos primário/secundário (para sugestão de perfis)
@@ -425,7 +425,7 @@ const App = {
         <div class="sessao-avatar">
           ${p.imagem
             ? `<img src="${p.imagem}" class="sessao-avatar-img" />`
-            : `<span>${ICONES_CLASSES[Object.keys(p.classes)[0]] || '⚔'}</span>`}
+            : `<span>${ICONES_CLASSES[Object.keys(p.classes)[0]] || ''}</span>`}
         </div>
         <div>
           <div class="sessao-nome">${p.nome || 'Sem Nome'}</div>
@@ -436,12 +436,12 @@ const App = {
         </div>
       </div>
 
-      ${emCrise ? `<div class="sessao-crise-alerta">⚠ EM CRISE! PV abaixo de ${stats.crise}</div>` : ''}
+      ${emCrise ? `<div class="sessao-crise-alerta">EM CRISE! PV abaixo de ${stats.crise}</div>` : ''}
 
       <div class="sessao-stats-grid">
-        ${statBar('❤ PV', 'pvAtual', s.pvAtual, stats.pvMax, 'var(--cor-sucesso)', pvPct)}
-        ${statBar('💙 PM', 'pmAtual', s.pmAtual, stats.pmMax, 'var(--cor-info)', pmPct)}
-        ${statBar('✨ PI', 'piAtual', s.piAtual, stats.piMax, 'var(--cor-dourado)', piPct)}
+        ${statBar('PV', 'pvAtual', s.pvAtual, stats.pvMax, 'var(--cor-sucesso)', pvPct)}
+        ${statBar('PM', 'pmAtual', s.pmAtual, stats.pmMax, 'var(--cor-info)', pmPct)}
+        ${statBar('PI', 'piAtual', s.piAtual, stats.piMax, 'var(--cor-dourado)', piPct)}
       </div>
 
       <div class="sessao-info-rapida">
@@ -452,7 +452,7 @@ const App = {
       </div>
 
       <div class="sessao-notas-bloco">
-        <label class="sessao-notas-label">📝 Notas da Sessão</label>
+        <label class="sessao-notas-label">Notas da Sessão</label>
         <textarea class="sessao-notas-input" rows="6"
           placeholder="Anotações rápidas: iniciativa dos NPCs, lembretes, condições ativas..."
           oninput="App.setSessaoNotas(this.value)">${s.notas || ''}</textarea>
@@ -496,8 +496,8 @@ const App = {
     const acoes = document.getElementById('npc-header-acoes');
     if (acoes) {
       acoes.innerHTML = tab === 'gerador'
-        ? `<button class="btn-primario" onclick="App.gerarNPC()">🎲 Gerar NPC</button>`
-        : `<button class="btn-primario" onclick="App.gerarEncontro()">⚔ Gerar Encontro</button>`;
+        ? `<button class="btn-primario" onclick="App.gerarNPC()">Gerar NPC</button>`
+        : `<button class="btn-primario" onclick="App.gerarEncontro()">Gerar Encontro</button>`;
     }
     if (tab === 'gerador') this.renderNPCGenerator();
     else this.renderEncontro();
@@ -510,7 +510,7 @@ const App = {
     div.innerHTML = `
       <div class="npc-painel">
         <div class="npc-config card">
-          <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">⚙ Configurações</h4>
+          <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">Configurações</h4>
           <div class="campo-grupo">
             <label class="campo-label">Nível do NPC</label>
             <div class="npc-nivel-ctrl">
@@ -535,10 +535,10 @@ const App = {
               ${GAMEDATA.classes.map(cl => `<option value="${cl.id}" ${(this._npcClasse||'') === cl.id ? 'selected' : ''}>${cl.nome}</option>`).join('')}
             </select>
           </div>
-          <button class="btn-primario" style="width:100%;" onclick="App.gerarNPC()">🎲 Gerar NPC</button>
+          <button class="btn-primario" style="width:100%;" onclick="App.gerarNPC()">Gerar NPC</button>
         </div>
         <div class="npc-resultado card">
-          ${npc ? this._renderNPCResultado(npc) : '<div class="npc-vazio"><p>Clique em "Gerar NPC" para criar um personagem não-jogador.</p><p style="font-size:2rem;opacity:0.3">👤</p></div>'}
+          ${npc ? this._renderNPCResultado(npc) : '<div class="npc-vazio"><p>Clique em "Gerar NPC" para criar um personagem não-jogador.</p><p style="font-size:2rem;opacity:0.3"></p></div>'}
         </div>
       </div>
     `;
@@ -708,7 +708,7 @@ const App = {
       }).join('');
       return `
         <div class="npc-poderes">
-          <div class="npc-poderes-titulo">${ICONES_CLASSES[c.id] || '⚔'} ${c.nome} <span style="color:var(--cor-texto-muted);font-size:0.8em;font-weight:400">Nv${nv}</span></div>
+          <div class="npc-poderes-titulo">${ICONES_CLASSES[c.id] || ''} ${c.nome} <span style="color:var(--cor-texto-muted);font-size:0.8em;font-weight:400">Nv${nv}</span></div>
           <div class="ficha-poderes-lista">${pH || '<em style="color:var(--cor-texto-muted)">Nenhum</em>'}</div>
         </div>
         ${pdH ? `<div class="npc-poderes-desc">${pdH}</div>` : ''}`;
@@ -717,7 +717,7 @@ const App = {
     // Linha de meta: lista todas as classes ou espécie do monstro
     const metaClasses = npc.isMonstro
       ? `<span>${cl.nome}</span>`
-      : `<span>${(npc.classes || [{ cl, niveis: nivel }]).map(({ cl: c, niveis: nv }) => `${ICONES_CLASSES[c.id] || '⚔'} ${c.nome} Nv${nv}`).join(' / ')}</span>`;
+      : `<span>${(npc.classes || [{ cl, niveis: nivel }]).map(({ cl: c, niveis: nv }) => `${ICONES_CLASSES[c.id] || ''} ${c.nome} Nv${nv}`).join(' / ')}</span>`;
 
     return `
       <div class="npc-nome-header">
@@ -746,7 +746,7 @@ const App = {
       </div>
       ${npc.isMonstro ? `
       <div class="npc-equip">
-        <div class="npc-poderes-titulo" style="margin-bottom:0.4rem">⚔ Ataques</div>
+        <div class="npc-poderes-titulo" style="margin-bottom:0.4rem">Ataques</div>
         ${(npc.armas || []).map(a => `<div class="npc-equip-item" style="display:block;margin-bottom:0.25rem">${a.nome}</div>`).join('') || '<span class="npc-equip-item">—</span>'}
       </div>
       <div class="npc-poderes">
@@ -756,27 +756,27 @@ const App = {
       ${npc.tracos ? `<div style="font-size:0.78rem;color:var(--cor-texto-muted);margin-top:0.3rem">Traços: ${npc.tracos}</div>` : ''}
       ${npc.fonte ? `<div style="font-size:0.72rem;color:var(--cor-texto-muted);margin-top:0.2rem;opacity:0.7">Fonte: ${npc.fonte}</div>` : ''}
       <div class="campo-grupo" style="margin-top:0.8rem;">
-        <label class="campo-label">📝 Notas</label>
+        <label class="campo-label">Notas</label>
         <textarea class="campo-input" rows="2"
           placeholder="Notas adicionais..."
           oninput="${onInputNotas}">${npc.notas || ''}</textarea>
       </div>` : `
       <div class="npc-equip">
-        <span class="npc-equip-item">⚔ ${armaStr}</span>
-        <span class="npc-equip-item">🛡 ${armStr}</span>
-        ${escStr ? `<span class="npc-equip-item">🔰 ${escStr}</span>` : ''}
+        <span class="npc-equip-item">${armaStr}</span>
+        <span class="npc-equip-item">${armStr}</span>
+        ${escStr ? `<span class="npc-equip-item">${escStr}</span>` : ''}
       </div>
       ${poderesSection}
       <div class="campo-grupo" style="margin-top:0.8rem;">
-        <label class="campo-label">📝 Notas e Habilidades Especiais</label>
+        <label class="campo-label">Notas e Habilidades Especiais</label>
         <textarea class="campo-input" rows="2"
           placeholder="Táticas, condições especiais, habilidades únicas..."
           oninput="${onInputNotas}">${npc.notas || ''}</textarea>
       </div>`}
       <div class="npc-export-btns">
-        ${npcIdx === undefined ? `<button class="btn-secundario" onclick="App.copiarNPC()">📋 Copiar</button>` : ''}
-        <button class="btn-secundario" onclick="${jsonFn}">📥 JSON Foundry</button>
-        <button class="btn-primario" onclick="${pdfFn}">📄 PDF</button>
+        ${npcIdx === undefined ? `<button class="btn-secundario" onclick="App.copiarNPC()">Copiar</button>` : ''}
+        <button class="btn-secundario" onclick="${jsonFn}">JSON Foundry</button>
+        <button class="btn-primario" onclick="${pdfFn}">PDF</button>
       </div>
     `;
   },
@@ -793,7 +793,7 @@ const App = {
         `DEF: ${def ?? desVal} | DefM: ${defM ?? astVal}`,
         `Atribs: DES ${atribs.des} | VIG ${atribs.vig} | AST ${atribs.ast} | VON ${atribs.von}`,
         ...(npc.tracos ? [`Traços: ${npc.tracos}`] : []),
-        ...(armas || []).map(a => `⚔ ${a.nome}`),
+        ...(armas || []).map(a => `${a.nome}`),
         ...(npc.especial || []).map(s => `• ${s}`),
         ...(npc.fonte ? [`Fonte: ${npc.fonte}`] : [])
       ];
@@ -911,11 +911,11 @@ const App = {
     const difLabel = { Facil:'Fácil', Medio:'Médio', Dificil:'Difícil', Epico:'Épico' };
     const difChefe = { Facil:'Fácil (nv-2)', Medio:'Médio (nv)', Dificil:'Difícil (nv+2)', Epico:'Épico (nv+5)' };
     const npcsHTML = e.npcs.length === 0
-      ? `<div class="npc-vazio" style="grid-column:1/-1"><p>Configure e clique em "⚔ Gerar Encontro".</p><p style="font-size:2rem;opacity:0.3">⚔</p></div>`
+      ? `<div class="npc-vazio" style="grid-column:1/-1"><p>Configure e clique em "Gerar Encontro".</p><p style="font-size:2rem;opacity:0.3"></p></div>`
       : e.npcs.map((npc, idx) => this._renderEncontroNPCCard(npc, idx)).join('');
 
     const especies = [...new Set((GAMEDATA.monstros || []).map(m => m.especie))].sort();
-    const especieIcone = { Construto:'⚙', Demônio:'👿', Elemental:'🌊', Fera:'🐺', Humanoide:'🧝', Monstro:'🐉', 'Morto-Vivo':'💀', Planta:'🌿' };
+    const especieIcone = { Construto:'', Demônio:'', Elemental:'', Fera:'', Humanoide:'', Monstro:'', 'Morto-Vivo':'', Planta:'' };
     const especieFiltroHTML = e.fonteMonstros === 'bestiario' ? `
       <div class="campo-grupo">
         <label class="campo-label">Espécie</label>
@@ -924,22 +924,22 @@ const App = {
             <label class="especie-check" title="${esp}">
               <input type="checkbox" value="${esp}" ${e.especieFiltro.includes(esp) ? 'checked' : ''}
                 onchange="App._toggleEspecieFiltro('${esp}')">
-              ${especieIcone[esp] || '🔮'} ${esp}
+              ${especieIcone[esp] || ''} ${esp}
             </label>
           `).join('')}
         </div>
-        ${e.especieFiltro.length ? `<button class="btn-mini" style="margin-top:0.3rem" onclick="Estado.encontro.especieFiltro=[];App.renderEncontro()">✕ Limpar filtro</button>` : ''}
+        ${e.especieFiltro.length ? `<button class="btn-mini" style="margin-top:0.3rem" onclick="Estado.encontro.especieFiltro=[];App.renderEncontro()">Limpar filtro</button>` : ''}
       </div>` : '';
 
     div.innerHTML = `
       <div class="encontro-layout">
         <div class="encontro-config card">
-          <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">⚙ Configurações</h4>
+          <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">Configurações</h4>
           <div class="campo-grupo">
             <label class="campo-label">Fonte</label>
             <div class="npc-tipo-btns">
-              <button class="gen-btn ${e.fonteMonstros==='npcs'?'ativo':''}" onclick="Estado.encontro.fonteMonstros='npcs';App.renderEncontro()">🎲 NPCs</button>
-              <button class="gen-btn ${e.fonteMonstros==='bestiario'?'ativo':''}" onclick="Estado.encontro.fonteMonstros='bestiario';App.renderEncontro()">📖 Bestiário</button>
+              <button class="gen-btn ${e.fonteMonstros==='npcs'?'ativo':''}" onclick="Estado.encontro.fonteMonstros='npcs';App.renderEncontro()">NPCs</button>
+              <button class="gen-btn ${e.fonteMonstros==='bestiario'?'ativo':''}" onclick="Estado.encontro.fonteMonstros='bestiario';App.renderEncontro()">Bestiário</button>
             </div>
           </div>
           ${especieFiltroHTML}
@@ -978,11 +978,11 @@ const App = {
               ${difs.map(d => `<button class="gen-btn ${e.dificuldadeChefe===d?'ativo':''}" style="font-size:0.74rem;" onclick="Estado.encontro.dificuldadeChefe='${d}';App.renderEncontro()">${difChefe[d]}</button>`).join('')}
             </div>
           </div>` : ''}
-          <button class="btn-primario" style="width:100%;margin-top:0.5rem;" onclick="App.gerarEncontro()">⚔ Gerar Encontro</button>
+          <button class="btn-primario" style="width:100%;margin-top:0.5rem;" onclick="App.gerarEncontro()">Gerar Encontro</button>
           ${e.npcs.length > 0 ? `
           <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
-            <button class="btn-secundario" style="flex:1;font-size:0.8rem;" onclick="App.exportarEncontroJSON()">📥 JSON Foundry</button>
-            <button class="btn-secundario" style="flex:1;font-size:0.8rem;" onclick="App.exportarEncontroPDF()">📄 PDFs</button>
+            <button class="btn-secundario" style="flex:1;font-size:0.8rem;" onclick="App.exportarEncontroJSON()">JSON Foundry</button>
+            <button class="btn-secundario" style="flex:1;font-size:0.8rem;" onclick="App.exportarEncontroPDF()">PDFs</button>
           </div>` : ''}
         </div>
         <div class="encontro-npcs-grid">${npcsHTML}</div>
@@ -1066,8 +1066,8 @@ const App = {
     const { nome, tipo, nivel, cl, pv, pm, pi, crise, def, defM, desVal, astVal, armas } = npc;
     const defVal = def ?? desVal;
     const defMVal = defM ?? astVal;
-    const especieIcone = { Construto:'⚙', Demônio:'👿', Elemental:'🌊', Fera:'🐺', Humanoide:'🧝', Monstro:'🐉', 'Morto-Vivo':'💀', Planta:'🌿' };
-    const icone = npc.isMonstro ? (especieIcone[cl.nome] || '🔮') : (ICONES_CLASSES[cl.id] || '⚔');
+    const especieIcone = { Construto:'', Demônio:'', Elemental:'', Fera:'', Humanoide:'', Monstro:'', 'Morto-Vivo':'', Planta:'' };
+    const icone = npc.isMonstro ? (especieIcone[cl.nome] || '') : (ICONES_CLASSES[cl.id] || '');
     const classeLabel = npc.isMonstro
       ? `${cl.nome} · Nv${nivel}`
       : (npc.classes || [{ cl, niveis: nivel }]).map(({ cl: c, niveis: nv }) => `${c.nome} Nv${nv}`).join(' / ');
@@ -1093,13 +1093,13 @@ const App = {
           <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defVal}</span><span style="font-size:0.62rem">DEF</span></div>
           <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defMVal}</span><span style="font-size:0.62rem">DefM</span></div>
         </div>
-        <div style="font-size:0.75rem;color:var(--cor-texto-muted);margin-bottom:0.4rem">⚔ ${armaStr}</div>
+        <div style="font-size:0.75rem;color:var(--cor-texto-muted);margin-bottom:0.4rem">${armaStr}</div>
         <div class="encontro-npc-actions">
-          <button class="btn-mini" title="Ver ficha completa" onclick="App.verNPCEncontro(${idx})">👁 Ver</button>
-          <button class="btn-mini" title="Regenerar" onclick="App.regenerarNPCEncontro(${idx})">🔄</button>
-          <button class="btn-mini" title="JSON" onclick="App.exportarNPCJSON(Estado.encontro.npcs[${idx}])">📥</button>
-          <button class="btn-mini" title="PDF" onclick="App.exportarNPCPDF(Estado.encontro.npcs[${idx}])">📄</button>
-          <button class="btn-mini btn-perigo" title="Remover" onclick="App.removerNPCEncontro(${idx})">✕</button>
+          <button class="btn-mini" title="Ver ficha completa" onclick="App.verNPCEncontro(${idx})">Ver</button>
+          <button class="btn-mini" title="Regenerar" onclick="App.regenerarNPCEncontro(${idx})">Regenerar</button>
+          <button class="btn-mini" title="JSON" onclick="App.exportarNPCJSON(Estado.encontro.npcs[${idx}])">JSON</button>
+          <button class="btn-mini" title="PDF" onclick="App.exportarNPCPDF(Estado.encontro.npcs[${idx}])">PDF</button>
+          <button class="btn-mini btn-perigo" title="Remover" onclick="App.removerNPCEncontro(${idx})">Remover</button>
         </div>
       </div>
     `;
@@ -1169,27 +1169,24 @@ const App = {
     const temRasc = this.temRascunho();
     const recentes = this.obterRecentes();
 
+    const item = (acao, rotulo, desc, extra = '') =>
+      `<button class="home-item ${extra}" onclick="${acao}"><span class="home-item-rot">${rotulo}</span><span class="home-item-desc">${desc}</span></button>`;
     let html = `
-      <div class="home-botoes-principais">
-        <button class="btn-primario btn-grande" onclick="App.iniciarCriacao()">
-          <span class="btn-icone">⚔</span> Criar Novo Personagem
-        </button>
-        <button class="btn-secundario btn-grande" onclick="App.carregarPersonagem()">
-          <span class="btn-icone">📂</span> Carregar Personagem
-        </button>
-      </div>
-      <div style="text-align:center;margin-bottom:0.8rem;display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;">
-        <button class="btn-exemplos" onclick="App.mostrarExemplos()">✨ Ver Exemplos de Personagens</button>
-        <button class="btn-exemplos" onclick="App.mostrarNPC()" style="background:rgba(124,92,191,0.15);border-color:var(--cor-borda);">👤 Gerador de NPC</button>
-        <button class="btn-exemplos" onclick="App.mostrarGeradorPJ()" style="background:rgba(232,197,106,0.12);border-color:rgba(232,197,106,0.4);color:var(--cor-dourado);">⚡ Gerador de PJ</button>
-      </div>
+      <nav class="home-menu" aria-label="Menu principal">
+        ${item('App.iniciarCriacao()', 'Criar personagem', 'Monte seu herói etapa por etapa', 'principal')}
+        ${item('App.mostrarGeradorPJ()', 'Gerar personagem', 'A partir de um arquétipo ou de um herói famoso')}
+        ${item('App.carregarPersonagem()', 'Carregar personagem', 'Abrir um arquivo salvo')}
+        ${item('App.mostrarExemplos()', 'Personagens de exemplo', 'Comece de um modelo pronto do livro')}
+        ${item('App.mostrarNPC()', 'Gerador de NPC', 'Inimigos, aliados e encontros para o mestre')}
+      </nav>
     `;
+    if (this.renderizarVitrine) this.renderizarVitrine();
 
     if (temRasc) {
       const rascInfo = this._obterInfoRascunho();
       html += `
         <div class="rascunho-banner">
-          <span class="rascunho-texto">📝 Rascunho encontrado${rascInfo ? ` — ${rascInfo}` : ''}</span>
+          <span class="rascunho-texto">Rascunho encontrado${rascInfo ? ` — ${rascInfo}` : ''}</span>
           <div class="rascunho-acoes">
             <button class="btn-rascunho" onclick="App.carregarRascunho()">Continuar</button>
             <button class="btn-rascunho-descartar" onclick="App.confirmarDescartarRascunho()">Descartar</button>
@@ -1204,7 +1201,7 @@ const App = {
           <div class="recentes-titulo">Abertos Recentemente</div>
           ${recentes.map(r => `
             <div class="recente-item" onclick="App.carregarRecente('${r.caminho.replace(/'/g, "\\'")}')">
-              <span class="recente-icone">📄</span>
+              <span class="recente-icone"></span>
               <div class="recente-info">
                 <div class="recente-nome">${r.nome}</div>
                 <div class="recente-data">${r.data}</div>
@@ -1451,6 +1448,7 @@ const App = {
   // ------ STATS AO VIVO ------
 
   atualizarStatsVivo() {
+    if (this.renderizarPalco) this.renderizarPalco();
     const painel = document.getElementById('stats-vivo');
     if (!painel) return;
     const stats = this.calcularStats();
@@ -1539,13 +1537,13 @@ const App = {
       .map(([id, d]) => `${GAMEDATA.classes.find(c => c.id === id)?.nome || id} Nv${d.niveis}`)
       .join(' + ');
     const texto = [
-      `⚔ ${p.nome || 'Personagem sem nome'} — Nível ${p.nivel}`,
+      `${p.nome || 'Personagem sem nome'} — Nível ${p.nivel}`,
       p.identidade ? `Identidade: ${p.identidade}` : '',
       classesList ? `Classes: ${classesList}` : '',
       `DES ${p.atributos.des} | VIG ${p.atributos.vig} | AST ${p.atributos.ast} | VON ${p.atributos.von}`,
       `PV: ${stats.pvMax} (Crise ≤ ${stats.crise}) | PM: ${stats.pmMax} | PI: ${stats.piMax}`,
       `DEF: ${stats.defesa} | DefM: ${stats.defMagica} | Init: ${stats.iniciativa >= 0 ? '+' : ''}${stats.iniciativa}`,
-      `✦ ${p.pontosFabula} Pontos de Fábula`,
+      `${p.pontosFabula} Pontos de Fábula`,
     ].filter(Boolean).join('\n');
 
     navigator.clipboard.writeText(texto)
@@ -1743,11 +1741,7 @@ const App = {
       const classes = ['passo-indicador'];
       if (i < Estado.passoAtual) classes.push('concluido');
       if (i === Estado.passoAtual) classes.push('ativo');
-      const checkmark = i < Estado.passoAtual ? '✓' : (i + 1);
-      return `<div class="${classes.join(' ')}" onclick="App.irParaPasso(${i})">
-        <span class="passo-num">${checkmark}</span>
-        <span>${p.titulo}</span>
-      </div>`;
+      return `<button type="button" class="${classes.join(' ')}" onclick="App.irParaPasso(${i})"${i === Estado.passoAtual ? ' aria-current="step"' : ''}>${p.titulo}</button>`;
     }).join('');
 
     const pct = (Estado.passoAtual / (PASSOS.length - 1)) * 100;
@@ -1760,10 +1754,9 @@ const App = {
     const info = document.getElementById('passo-info');
 
     btnAnt.disabled = Estado.passoAtual === 0;
-    btnPrx.textContent = Estado.passoAtual === PASSOS.length - 1 ? 'Concluir ✨' : 'Próximo →';
-
-    const total = PASSOS.length;
-    info.textContent = `Passo ${Estado.passoAtual + 1} de ${total} — ${PASSOS[Estado.passoAtual].titulo}`;
+    const ultimo = Estado.passoAtual === PASSOS.length - 1;
+    btnPrx.textContent = ultimo ? 'Concluir personagem' : 'Próximo';
+    info.textContent = ultimo ? 'Última etapa' : `A seguir: ${PASSOS[Estado.passoAtual + 1].titulo}`;
   },
 
   // =============================================
@@ -1773,13 +1766,13 @@ const App = {
     const p = Estado.personagem;
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>👤 Identidade</h2>
+        <h2>Identidade</h2>
         <p>Configure o nível inicial e a identidade do personagem.</p>
       </div>
 
       <div class="nivel-inicio-card card">
         <div class="nivel-inicio-pergunta">
-          <span class="nivel-inicio-icone">⚔</span>
+          <span class="nivel-inicio-icone"></span>
           <div>
             <div class="nivel-inicio-titulo">Em que nível a aventura começa?</div>
             <div class="nivel-inicio-dica">Nível 5 é o padrão recomendado para personagens novos. Campanhas avançadas podem começar em nível maior.</div>
@@ -1814,7 +1807,7 @@ const App = {
       </div>
 
       <div class="separador"></div>
-      <p style="font-size:0.85rem; color:var(--cor-texto-muted); margin-bottom:0.8rem;">💡 Clique em qualquer conceito abaixo para usar como base:</p>
+      <p style="font-size:0.85rem; color:var(--cor-texto-muted); margin-bottom:0.8rem;">Clique em qualquer conceito abaixo para usar como base:</p>
 
       <div class="tabela-identidade">
         <div class="tabela-col">
@@ -1859,7 +1852,7 @@ const App = {
     const p = Estado.personagem;
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>🏘 Origem</h2>
+        <h2>Origem</h2>
         <p>Todos os heróis vêm de algum lugar. Sua Origem pode ser evocada para rolar novamente um ou ambos os dados de um teste.</p>
       </div>
 
@@ -1880,7 +1873,7 @@ const App = {
 
       <div class="card" style="margin-top:1rem;">
         <p style="font-size:0.85rem; color:var(--cor-texto-muted); line-height:1.6;">
-          <strong style="color:var(--cor-dourado);">🌍 Dica de criação:</strong> Em Fabula Ultima, a espécie do personagem
+          <strong style="color:var(--cor-dourado);">Dica de criação:</strong> Em Fabula Ultima, a espécie do personagem
           <em>não oferece benefícios mecânicos</em> por padrão — elfo, anão, meio-dragão, saurício ou qualquer
           outra espécie é apenas parte da narrativa. Você pode mencionar a espécie na sua Identidade ou Origem!
         </p>
@@ -1898,7 +1891,7 @@ const App = {
     const p = Estado.personagem;
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>💡 Tema</h2>
+        <h2>Tema</h2>
         <p>Cada PJ é definido por um Tema — um ideal ou emoção forte que dita suas ações. Se construísse uma cena inteira ao redor do seu personagem, o Tema seria o ponto central.</p>
       </div>
 
@@ -1956,17 +1949,17 @@ const App = {
 
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>⚔ Classes</h2>
+        <h2>Classes</h2>
         <p>Distribua ${p.nivel} níveis entre 2 a 3 classes. Para cada nível investido, escolha um poder da classe.</p>
       </div>
       <div class="aviso-classes">
-        ⚠ Níveis usados: <strong>${nivelUsado}/${p.nivel}</strong> &nbsp;|&nbsp;
+        Níveis usados: <strong>${nivelUsado}/${p.nivel}</strong> &nbsp;|&nbsp;
         Classes: <strong>${numClasses}</strong> de 2 a 3 necessárias
       </div>
 
       <div class="filtro-poderes-container">
         <div class="filtro-poderes-wrap">
-          <span class="filtro-poderes-icone">🔍</span>
+          <span class="filtro-poderes-icone"></span>
           <input type="text" class="filtro-poderes-input" id="filtro-poderes"
             placeholder="Buscar poder por nome ou descrição..."
             value="${this._filtroPoderes}"
@@ -2067,14 +2060,14 @@ const App = {
       ).join('');
 
       const marcialTags = cl.marcialEquip.map(m => {
-        const nomes = { armas_corpo_a_corpo: '⚔ Armas C.C.', armas_distancia: '🏹 Armas Dist.', armaduras: '🛡 Armaduras', escudos: '🛡 Escudos' };
+        const nomes = { armas_corpo_a_corpo: 'Armas C.C.', armas_distancia: 'Armas Dist.', armaduras: 'Armaduras', escudos: 'Escudos' };
         return `<span class="tag marcial">${nomes[m] || m}</span>`;
       }).join('');
 
       div.innerHTML = `
         <div class="classe-header">
           <div style="display:flex;align-items:center;gap:0.5rem;">
-            <span class="classe-icone">${ICONES_CLASSES[cl.id] || '⚔'}</span>
+            <span class="classe-icone">${ICONES_CLASSES[cl.id] || ''}</span>
             <div>
               <div class="classe-nome">${cl.nome}</div>
               <div class="classe-outros-nomes">${cl.outrosNomes}</div>
@@ -2305,7 +2298,7 @@ const App = {
     const p = Estado.personagem;
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>🎲 Atributos</h2>
+        <h2>Atributos</h2>
         <p>Escolha um perfil e distribua os dados entre os quatro atributos. Atributos influenciam PV, PM, Defesa e Defesa Mágica.</p>
       </div>
 
@@ -2336,7 +2329,7 @@ const App = {
       div.className = 'perfil-card' + (p.perfilAtrib === pf.id ? ' selecionado' : '') + (pf._sugerido ? ' perfil-sugerido' : '');
       div.onclick = () => App.selecionarPerfil(pf.id);
       div.innerHTML = `
-        ${pf._sugerido ? '<div class="perfil-sugerido-tag">✨ Recomendado para suas classes</div>' : ''}
+        ${pf._sugerido ? '<div class="perfil-sugerido-tag">Recomendado para suas classes</div>' : ''}
         <div class="perfil-nome">${pf.nome}</div>
         <div class="perfil-dados">${pf.dados.map(d => `<span class="dado-badge">${d}</span>`).join('')}</div>
         <div class="perfil-desc">${pf.descricao}</div>
@@ -2523,7 +2516,7 @@ const App = {
 
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>📊 Estatísticas</h2>
+        <h2>Estatísticas</h2>
         <p>Suas estatísticas são calculadas automaticamente com base em atributos e classes escolhidas.</p>
       </div>
 
@@ -2561,13 +2554,13 @@ const App = {
       </div>
 
       <div class="crise-info">
-        ⚠ <strong>Crise</strong>: ${stats.crise} PV — você está em crise quando seus PV caem abaixo desse valor. Alguns poderes ficam mais fortes em crise!
+        <strong>Crise</strong>: ${stats.crise} PV — você está em crise quando seus PV caem abaixo desse valor. Alguns poderes ficam mais fortes em crise!
       </div>
 
       <div class="card" style="margin-bottom:1rem;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
           <p style="font-size:0.85rem;color:var(--cor-texto-muted);line-height:1.5;margin:0;">
-            <strong style="color:var(--cor-dourado);">Pontos de Fábula iniciais: 3 ✦</strong><br>
+            <strong style="color:var(--cor-dourado);">Pontos de Fábula iniciais: 3 </strong><br>
             Pontos de Fábula permitem alterar a história, evocar Traços e Laços, usar poderes especiais e ganhar experiência!
           </p>
           <div style="font-size:0.8rem;color:var(--cor-texto-muted);text-align:right;">
@@ -2672,7 +2665,7 @@ const App = {
           <input type="text" class="campo-input" style="flex:1"
             placeholder="Nome da pessoa, nação ou organização..."
             value="${laco.alvo}" oninput="App.setLacoAlvo(${i}, this.value)" />
-          ${i >= 1 ? `<button class="btn-perigo" onclick="App.removerLaco(${i})">✕</button>` : ''}
+          ${i >= 1 ? `<button class="btn-perigo" onclick="App.removerLaco(${i})">Remover</button>` : ''}
         </div>
         ${laco.alvo ? `
           <p style="font-size:0.78rem;color:var(--cor-texto-dim);margin:0 0 0.4rem 25px;">Emoções (um de cada par):</p>
@@ -2742,8 +2735,8 @@ const App = {
 
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>🛡 Equipamento</h2>
-        <p>Você tem 500 zênites para equipar seu personagem. Armas marciais (⚔) requerem classes específicas.</p>
+        <h2>Equipamento</h2>
+        <p>Você tem 500 zênites para equipar seu personagem. Armas com a marca Marcial exigem classes específicas.</p>
       </div>
 
       <div class="equip-layout">
@@ -2767,12 +2760,12 @@ const App = {
           </div>
           <div class="card" style="margin-top:0.8rem;">
             <p style="font-size:0.78rem;color:var(--cor-texto-muted);line-height:1.5;">
-              <strong style="color:var(--cor-dourado);">💰 Dinheiro inicial</strong><br>
+              <strong style="color:var(--cor-dourado);">Dinheiro inicial</strong><br>
               O valor restante (${Math.max(0, restante)}z) + rolagem de 2d6×10 será seu dinheiro inicial.
             </p>
           </div>
           <div class="card" style="margin-top:0.8rem;">
-            <label class="form-label" style="font-size:0.82rem;color:var(--cor-dourado);display:block;margin-bottom:0.5rem;">📦 Itens e Anotações Livres</label>
+            <label class="form-label" style="font-size:0.82rem;color:var(--cor-dourado);display:block;margin-bottom:0.5rem;">Itens e Anotações Livres</label>
             <textarea class="form-input" rows="4" placeholder="Itens especiais, troca de equipamento, moedas encontradas, notas da mestra…" oninput="App.setItensLivres(this.value)" style="width:100%;font-size:0.82rem;resize:vertical;">${p.equipamento.itensLivres || ''}</textarea>
           </div>
         </div>
@@ -2793,7 +2786,7 @@ const App = {
     // ARMAS
     const divArmas = document.createElement('div');
     divArmas.className = 'equip-categoria';
-    divArmas.innerHTML = `<h4>⚔ Armas</h4>`;
+    divArmas.innerHTML = `<h4>Armas</h4>`;
 
     const categorias = [...new Set(GAMEDATA.armas.map(a => a.categoria))];
     categorias.forEach(cat => {
@@ -2840,7 +2833,7 @@ const App = {
     // ARMADURAS
     const divArmaduras = document.createElement('div');
     divArmaduras.className = 'equip-categoria';
-    divArmaduras.innerHTML = `<h4>🛡 Armaduras</h4>`;
+    divArmaduras.innerHTML = `<h4>Armaduras</h4>`;
     GAMEDATA.armaduras.forEach(arm => {
       const selecionada = p.equipamento.armadura === arm.id;
       const bloqueada = arm.marcial && !podeMarcial.armaduras;
@@ -2868,7 +2861,7 @@ const App = {
     // ESCUDOS
     const divEscudos = document.createElement('div');
     divEscudos.className = 'equip-categoria';
-    divEscudos.innerHTML = `<h4>🛡 Escudos (opcional)</h4>`;
+    divEscudos.innerHTML = `<h4>Escudos (opcional)</h4>`;
     GAMEDATA.escudos.forEach(esc => {
       const selecionado = p.equipamento.escudo === esc.id;
       const bloqueado = esc.marcial && !podeMarcial.escudos;
@@ -3054,7 +3047,7 @@ const App = {
 
     container.innerHTML = `
       <div class="passo-titulo">
-        <h2>✨ Nome e Toques Finais</h2>
+        <h2>Nome e Toques Finais</h2>
         <p>Dê um nome ao personagem e descreva sua aparência. É mais fácil escolher um nome depois de entender bem o personagem!</p>
       </div>
 
@@ -3072,9 +3065,9 @@ const App = {
             <div class="gen-nomes-ctrl">
               <div class="gen-nomes-filtros">
                 <div class="gen-grupo">
-                  <button class="gen-btn ${g==='m'?'ativo':''}" onclick="App.setGenNomeGenero('m')">♂ Masc.</button>
-                  <button class="gen-btn ${g==='f'?'ativo':''}" onclick="App.setGenNomeGenero('f')">♀ Fem.</button>
-                  <button class="gen-btn ${g==='q'?'ativo':''}" onclick="App.setGenNomeGenero('q')">⚡ Qualquer</button>
+                  <button class="gen-btn ${g==='m'?'ativo':''}" onclick="App.setGenNomeGenero('m')">Masc.</button>
+                  <button class="gen-btn ${g==='f'?'ativo':''}" onclick="App.setGenNomeGenero('f')">Fem.</button>
+                  <button class="gen-btn ${g==='q'?'ativo':''}" onclick="App.setGenNomeGenero('q')">Qualquer</button>
                 </div>
                 <div class="gen-grupo">
                   <button class="gen-btn ${t==='s'?'ativo':''}" onclick="App.setGenNomeTipo('s')">Simples</button>
@@ -3082,9 +3075,9 @@ const App = {
                 </div>
               </div>
               <div class="gen-acoes">
-                <button class="btn-primario gen-gerar-btn" onclick="App.gerarNome()">🎲 Gerar Nome</button>
-                <button class="btn-secundario gen-gerar-btn" onclick="App.gerarSobrenome()">🎲 Gerar Sobrenome</button>
-                <button class="btn-secundario gen-gerar-btn" onclick="App.gerarNomeCompleto()">🎲 Nome + Sobrenome</button>
+                <button class="btn-primario gen-gerar-btn" onclick="App.gerarNome()">Gerar Nome</button>
+                <button class="btn-secundario gen-gerar-btn" onclick="App.gerarSobrenome()">Gerar Sobrenome</button>
+                <button class="btn-secundario gen-gerar-btn" onclick="App.gerarNomeCompleto()">Nome + Sobrenome</button>
               </div>
             </div>
           </div>
@@ -3104,7 +3097,7 @@ const App = {
             <div class="imagem-upload-area" onclick="document.getElementById('inp-imagem').click()">
               ${p.imagem
                 ? `<img src="${p.imagem}" class="preview-imagem" alt="Personagem" /><div class="imagem-trocar">Trocar imagem</div>`
-                : `<div class="imagem-placeholder">🖼️<br><span>Clique para adicionar imagem</span></div>`
+                : `<div class="imagem-placeholder"><br><span>Clique para adicionar imagem</span></div>`
               }
             </div>
             <input type="file" id="inp-imagem" accept="image/*" style="display:none"
@@ -3161,12 +3154,12 @@ const App = {
       ${this._gerarPerguntasRoleplay()}
 
       <div class="card resumo-build-card">
-        <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">📊 Resumo de Build</h4>
+        <h4 style="color:var(--cor-dourado);margin-bottom:1rem;">Resumo de Build</h4>
         ${this._gerarResumoBuild()}
       </div>
 
       <div class="card">
-        <h4 style="color:var(--cor-dourado);margin-bottom:0.8rem;">📋 Revisão Completa</h4>
+        <h4 style="color:var(--cor-dourado);margin-bottom:0.8rem;">Revisão Completa</h4>
         ${this.gerarResumoTexto()}
       </div>
     `;
@@ -3181,7 +3174,7 @@ const App = {
     const c = Estado.personagem.companheiro;
     return `
       <div class="companheiro-bloco card">
-        <h4 style="color:var(--cor-dourado);margin-bottom:0.8rem;">🐾 Companheiro Fiel</h4>
+        <h4 style="color:var(--cor-dourado);margin-bottom:0.8rem;">Companheiro Fiel</h4>
         <div class="grid-2">
           <div class="campo-grupo">
             <label class="campo-label">Nome do Companheiro</label>
@@ -3232,7 +3225,7 @@ const App = {
       return `
         <div class="resumo-classe">
           <div class="resumo-classe-header">
-            <span class="resumo-classe-icone">${ICONES_CLASSES[id] || '⚔'}</span>
+            <span class="resumo-classe-icone">${ICONES_CLASSES[id] || ''}</span>
             <span class="resumo-classe-nome">${cl.nome}</span>
             <span class="resumo-classe-nivel">Nv ${d.niveis}</span>
           </div>
@@ -3402,7 +3395,7 @@ const App = {
 
     const blocos = classesSelecionadas.map(cl => `
       <div class="rp-bloco">
-        <div class="rp-classe-nome">${ICONES_CLASSES[cl.id] || '⚔'} ${cl.nome}</div>
+        <div class="rp-classe-nome">${ICONES_CLASSES[cl.id] || ''} ${cl.nome}</div>
         <ul class="rp-perguntas">
           ${cl.perguntas.map(q => `<li>${q}</li>`).join('')}
         </ul>
@@ -3411,7 +3404,7 @@ const App = {
 
     return `
       <details class="rp-prompts">
-        <summary class="rp-prompts-titulo">💬 Perguntas de Roleplay — use como inspiração para escrever a história</summary>
+        <summary class="rp-prompts-titulo">Perguntas de Roleplay — use como inspiração para escrever a história</summary>
         <div class="rp-prompts-corpo">${blocos}</div>
       </details>
     `;
@@ -3547,7 +3540,7 @@ const App = {
         return `
           <div class="ficha-classe">
             <div class="ficha-classe-header">
-              <span class="ficha-classe-icone">${ICONES_CLASSES[id] || '⚔'}</span>
+              <span class="ficha-classe-icone">${ICONES_CLASSES[id] || ''}</span>
               <div class="ficha-classe-nome">${cl.nome}</div>
               <span class="ficha-classe-nivel">${d.niveis} nível${d.niveis > 1 ? 'is' : ''}</span>
             </div>
@@ -3610,16 +3603,16 @@ const App = {
         <div class="ficha-avatar">
           ${p.imagem
             ? `<img src="${p.imagem}" class="ficha-avatar-img" alt="${p.nome}" />`
-            : `<span>${ICONES_CLASSES[Object.keys(p.classes)[0]] || '⚔'}</span>`}
+            : `<span>${ICONES_CLASSES[Object.keys(p.classes)[0]] || ''}</span>`}
         </div>
         <div class="ficha-id">
           <h1>${p.nome || 'Sem Nome'}</h1>
           ${p.pronomes ? `<div class="pronomes">${p.pronomes}</div>` : ''}
           ${p.identidade ? `<div class="identidade">"${p.identidade}"</div>` : ''}
           <div class="tema-origem">
-            ${tema !== '—' ? `<span class="ficha-tag">🌟 ${tema}</span>` : ''}
-            ${p.origem ? `<span class="ficha-tag">🏘 ${p.origem}</span>` : ''}
-            <span class="ficha-tag">✦ ${p.pontosFabula} Pts. de Fábula</span>
+            ${tema !== '—' ? `<span class="ficha-tag">${tema}</span>` : ''}
+            ${p.origem ? `<span class="ficha-tag">${p.origem}</span>` : ''}
+            <span class="ficha-tag">${p.pontosFabula} Pts. de Fábula</span>
           </div>
         </div>
         <div class="ficha-nivel">
@@ -3669,18 +3662,18 @@ const App = {
       </div>
 
       <div class="ficha-secao">
-        <div class="ficha-secao-titulo">⚔ Classes e Poderes</div>
+        <div class="ficha-secao-titulo">Classes e Poderes</div>
         ${classesHTML || '<p style="color:var(--cor-texto-muted);font-size:0.85rem;">Nenhuma classe selecionada</p>'}
       </div>
 
       <div class="ficha-secao">
-        <div class="ficha-secao-titulo">🛡 Equipamento &nbsp;<span style="font-size:0.75rem;font-weight:normal;color:var(--cor-texto-muted);">${gasto}z gastos de 500z &nbsp;|&nbsp; ${Math.max(0, restante)}z restantes</span></div>
+        <div class="ficha-secao-titulo">Equipamento &nbsp;<span style="font-size:0.75rem;font-weight:normal;color:var(--cor-texto-muted);">${gasto}z gastos de 500z &nbsp;|&nbsp; ${Math.max(0, restante)}z restantes</span></div>
         <div class="ficha-equip-grid">
           ${armasHTML}${armaduraHTML}${escudoHTML}
         </div>
         ${p.equipamento.itensLivres ? `
           <div class="ficha-itens-livres">
-            <div class="ficha-itens-livres-titulo">📦 Itens e Anotações</div>
+            <div class="ficha-itens-livres-titulo">Itens e Anotações</div>
             <div class="ficha-descricao" style="margin-top:0.4rem;">${p.equipamento.itensLivres}</div>
           </div>
         ` : ''}
@@ -3688,7 +3681,7 @@ const App = {
 
       ${this._temCompanheiroFiel() && (p.companheiro.nome || p.companheiro.descricao) ? `
         <div class="ficha-secao">
-          <div class="ficha-secao-titulo">🐾 Companheiro Fiel</div>
+          <div class="ficha-secao-titulo">Companheiro Fiel</div>
           <div class="ficha-companheiro">
             <div class="ficha-comp-header">
               <span class="ficha-comp-nome">${p.companheiro.nome || '(sem nome)'}</span>
@@ -3700,24 +3693,24 @@ const App = {
       ` : ''}
 
       <div class="ficha-secao">
-        <div class="ficha-secao-titulo">🔗 Laços</div>
+        <div class="ficha-secao-titulo">Laços</div>
         ${lacosHTML
           ? `<div class="ficha-lacos">${lacosHTML}</div>`
           : `<div class="ficha-secao-vazia">
                <p>Nenhum laço definido.</p>
                <p class="ficha-secao-vazia-dica">Laços dão bônus em testes e Pontos de Fábula quando evocados. Defina-os no passo Estatísticas do Wizard.</p>
-               <button class="btn-secundario" onclick="App.voltarWizard();App.irParaPasso(5)">✏️ Adicionar Laços no Wizard</button>
+               <button class="btn-secundario" onclick="App.voltarWizard();App.irParaPasso(5)">Adicionar Laços no Wizard</button>
              </div>`
         }
       </div>
 
       ${(p.aparencia || p.descricao || p.origemDesc || p.temaDescricao) ? `
         <div class="ficha-secao">
-          <div class="ficha-secao-titulo">📖 Aparência e Personalidade</div>
+          <div class="ficha-secao-titulo">Aparência e Personalidade</div>
           ${p.aparencia ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">Aparência</p><div class="ficha-descricao">${p.aparencia}</div></div>` : ''}
           ${p.descricao ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">Personalidade e História</p><div class="ficha-descricao">${p.descricao}</div></div>` : ''}
-          ${p.origemDesc ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">🏘 Sobre a Origem — ${p.origem || ''}</p><div class="ficha-descricao">${p.origemDesc}</div></div>` : ''}
-          ${p.temaDescricao ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">🌟 Tema — ${tema !== '—' ? tema : ''}</p><div class="ficha-descricao">${p.temaDescricao}</div></div>` : ''}
+          ${p.origemDesc ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">Sobre a Origem — ${p.origem || ''}</p><div class="ficha-descricao">${p.origemDesc}</div></div>` : ''}
+          ${p.temaDescricao ? `<div class="ficha-sub-bloco"><p class="ficha-sub-label">Tema — ${tema !== '—' ? tema : ''}</p><div class="ficha-descricao">${p.temaDescricao}</div></div>` : ''}
         </div>
       ` : ''}
     `;
@@ -3819,7 +3812,7 @@ const App = {
         this.mostrarToast('Erro ao exportar: ' + resultado.erro, 'erro');
       }
     } finally {
-      if (btn) { btn.disabled = false; btn.innerHTML = '📄 PDF'; }
+      if (btn) { btn.disabled = false; btn.innerHTML = 'PDF'; }
     }
   },
 

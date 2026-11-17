@@ -10,61 +10,52 @@
 
 <!-- TELA INICIAL -->
 <div id="tela-inicio" class="tela ativa">
-  <div class="inicio-bg"></div>
-  <div class="inicio-conteudo">
+  <div class="inicio-menu">
     <div class="logo-area">
-      <div class="logo-ornamento">✦ ✦ ✦</div>
-      <h1 class="logo-titulo">FABULA ULTIMA</h1>
-      <p class="logo-subtitulo">Criador de Personagens</p>
-      <div class="logo-ornamento">✦ ✦ ✦</div>
+      <h1 class="logo-titulo">Fabula Ultima</h1>
+      <p class="logo-subtitulo">Criador de personagens da edição brasileira</p>
     </div>
-    <!-- Conteúdo dinâmico: botões, rascunho, recentes — gerado por App.renderizarHomeScreen() -->
+    <!-- Conteúdo dinâmico: menu, rascunho, recentes — gerado por App.renderizarHomeScreen() -->
     <div id="home-dinamico"></div>
-    <p class="inicio-dica">Baseado no Livro Básico de Fabula Ultima (pt-BR)</p>
+    <p class="inicio-dica">Regras do Livro Básico e das expansões Alta Fantasia, Fantasia Natural, Tecno-Fantasia e Codex Extra.</p>
   </div>
+  <!-- Vitrine: o brasão de um herói de exemplo, sorteado a cada abertura -->
+  <div class="inicio-vitrine" id="inicio-vitrine"></div>
 </div>
 
 <!-- WIZARD DE CRIAÇÃO -->
 <div id="tela-wizard" class="tela">
 
-  <!-- Barra de progresso e navegação -->
+  <!-- Barra superior: etapas como abas de criação de personagem -->
   <header class="wizard-header">
-    <button class="btn-voltar-inicio" onclick="App.voltarInicio()" title="Voltar ao início">⟵ Início</button>
-    <div class="progresso-container">
+    <button class="btn-voltar-inicio" onclick="App.voltarInicio()" title="Voltar ao início">Início</button>
+    <nav class="progresso-container" aria-label="Etapas da criação">
       <div class="passos-lista" id="passos-lista"></div>
       <div class="barra-progresso">
         <div class="barra-preenchida" id="barra-preenchida"></div>
       </div>
-    </div>
+    </nav>
     <div class="header-acoes">
-      <button class="btn-mini" onclick="App.mostrarFichaRapida()" title="Ver ficha atual" id="btn-ver-ficha">📋</button>
-      <button class="btn-mini" onclick="App.salvarPersonagem()" title="Salvar">💾</button>
+      <button class="btn-mini" onclick="App.mostrarFichaRapida()" title="Ver ficha atual" id="btn-ver-ficha">Ficha</button>
+      <button class="btn-mini" onclick="App.salvarPersonagem()" title="Salvar">Salvar</button>
     </div>
   </header>
 
-  <!-- Conteúdo do passo atual -->
-  <main class="wizard-main" id="wizard-main">
-    <!-- Preenchido dinamicamente -->
-  </main>
+  <div class="wizard-corpo">
+    <!-- Palco do herói: o personagem toma forma a cada escolha (preenchido por App.renderizarPalco) -->
+    <aside class="palco" id="palco-heroi" aria-label="Seu personagem"></aside>
 
-  <!-- Painel de stats ao vivo -->
-  <div id="stats-vivo" class="stats-vivo-painel" style="display:none">
-    <div class="sv-titulo">Stats</div>
-    <div class="sv-grid">
-      <div class="sv-item"><span id="sv-pv" class="sv-val sv-pv">—</span><span class="sv-label">PV</span></div>
-      <div class="sv-item"><span id="sv-pm" class="sv-val sv-pm">—</span><span class="sv-label">PM</span></div>
-      <div class="sv-item"><span id="sv-pi" class="sv-val sv-pi">—</span><span class="sv-label">PI</span></div>
-      <div class="sv-item"><span id="sv-def" class="sv-val sv-def">—</span><span class="sv-label">DEF</span></div>
-      <div class="sv-item"><span id="sv-defm" class="sv-val sv-defm">—</span><span class="sv-label">DefM</span></div>
-      <div class="sv-item"><span id="sv-ini" class="sv-val sv-ini">—</span><span class="sv-label">Init</span></div>
-    </div>
+    <!-- Opções do passo atual -->
+    <main class="wizard-main" id="wizard-main">
+      <!-- Preenchido dinamicamente -->
+    </main>
   </div>
 
   <!-- Rodapé com navegação -->
   <footer class="wizard-footer">
-    <button class="btn-secundario" id="btn-anterior" onclick="App.passoAnterior()">← Anterior</button>
+    <button class="btn-secundario" id="btn-anterior" onclick="App.passoAnterior()">Anterior</button>
     <div class="passo-info" id="passo-info"></div>
-    <button class="btn-primario" id="btn-proximo" onclick="App.proximoPasso()">Próximo →</button>
+    <button class="btn-primario" id="btn-proximo" onclick="App.proximoPasso()">Próximo</button>
   </footer>
 
 </div>
@@ -75,10 +66,10 @@
     <button class="btn-voltar-inicio" onclick="App.voltarWizard()">⟵ Editar</button>
     <h2>Ficha do Personagem</h2>
     <div class="ficha-acoes">
-      <button class="btn-mini" onclick="App.copiarStats()" title="Copiar stats para área de transferência">📋 Copiar</button>
-      <button class="btn-secundario" onclick="App.mostrarSessao()" title="Modo Sessão">🎯 Sessão</button>
-      <button class="btn-secundario" onclick="App.salvarPersonagem()">💾 Salvar</button>
-      <button id="btn-exportar-pdf" class="btn-secundario" onclick="App.exportarPDF()">📄 PDF</button>
+      <button class="btn-mini" onclick="App.copiarStats()" title="Copiar stats para área de transferência">Copiar</button>
+      <button class="btn-secundario" onclick="App.mostrarSessao()" title="Modo Sessão">Sessão</button>
+      <button class="btn-secundario" onclick="App.salvarPersonagem()">Salvar</button>
+      <button id="btn-exportar-pdf" class="btn-secundario" onclick="App.exportarPDF()">PDF</button>
       <button class="btn-primario" onclick="App.novoCriacao()">+ Novo</button>
     </div>
   </header>
@@ -105,7 +96,7 @@
     <div class="modal-grande-header">
       <h3>Personagens de Exemplo</h3>
       <p>Escolha um template para começar. Você ainda poderá editar todos os detalhes.</p>
-      <button class="btn-fechar-modal" onclick="App.fecharExemplos()">✕</button>
+      <button class="btn-fechar-modal" onclick="App.fecharExemplos()">Fechar</button>
     </div>
     <div class="modal-grande-corpo" id="exemplos-lista">
       <!-- Gerado dinamicamente -->
@@ -119,7 +110,7 @@
     <div class="modal-grande-header">
       <h3>Ficha Atual</h3>
       <p>Prévia do personagem em construção</p>
-      <button class="btn-fechar-modal" onclick="App.fecharFichaRapida()">✕</button>
+      <button class="btn-fechar-modal" onclick="App.fecharFichaRapida()">Fechar</button>
     </div>
     <div class="modal-grande-corpo" id="ficha-rapida-conteudo">
       <!-- Gerado dinamicamente -->
@@ -135,7 +126,7 @@
         <h2 id="mpj-nome">—</h2>
         <span id="mpj-arq" class="mpj-arq-badge">—</span>
       </div>
-      <button class="btn-fechar-modal" onclick="ModalPersonagem.fechar()">✕</button>
+      <button class="btn-fechar-modal" onclick="ModalPersonagem.fechar()">Fechar</button>
     </div>
     <div class="modal-personagem-body">
       <div class="mpj-meta-row">
@@ -164,7 +155,7 @@
     </div>
     <div class="modal-personagem-footer">
       <button class="btn-secundario" onclick="ModalPersonagem.fechar()">Fechar</button>
-      <button class="btn-primario" onclick="ModalPersonagem.gerarDeste()">✨ Gerar PJ inspirado neste</button>
+      <button class="btn-primario" onclick="ModalPersonagem.gerarDeste()">Gerar PJ inspirado neste</button>
     </div>
   </div>
 </div>
@@ -174,7 +165,7 @@
   <div class="modal-arquetipos-conteudo" onclick="event.stopPropagation()">
     <div class="modal-arquetipos-header">
       <h2>Escolha um arquétipo</h2>
-      <button class="btn-fechar-modal" onclick="ModalArquetipos.fechar()">✕</button>
+      <button class="btn-fechar-modal" onclick="ModalArquetipos.fechar()">Fechar</button>
     </div>
     <div class="modal-arquetipos-body">
       <p class="modal-arquetipos-subtitulo">Selecione o conceito que melhor representa seu personagem:</p>
@@ -194,7 +185,7 @@
   <div class="modal-desambiguacao-conteudo" onclick="event.stopPropagation()">
     <div class="modal-desambiguacao-header">
       <h2 id="modal-desamb-titulo">Qual deles?</h2>
-      <button class="btn-fechar-modal" onclick="ModalDesambiguacao.cancelar()">✕</button>
+      <button class="btn-fechar-modal" onclick="ModalDesambiguacao.cancelar()">Fechar</button>
     </div>
     <div class="modal-desambiguacao-body">
       <p id="modal-desamb-subtitulo" class="modal-desambiguacao-subtitulo"></p>
@@ -210,7 +201,7 @@
 <div id="tela-sessao" class="tela">
   <header class="sessao-header">
     <button class="btn-voltar-inicio" onclick="App.fecharSessao()">⟵ Ficha</button>
-    <h2>🎯 Modo Sessão</h2>
+    <h2>Modo Sessão</h2>
     <div class="ficha-acoes">
       <button class="btn-mini" onclick="App.resetarSessao()" title="Resetar para máximo">⟳ Reset</button>
     </div>
@@ -225,8 +216,8 @@
   <header class="sessao-header">
     <button class="btn-voltar-inicio" onclick="App.fecharNPC()">⟵ Início</button>
     <div class="npc-tabs">
-      <button class="npc-tab ativo" id="tab-gerador" onclick="App.switchNPCTab('gerador')">🎲 Gerador</button>
-      <button class="npc-tab" id="tab-encontro" onclick="App.switchNPCTab('encontro')">⚔ Encontro</button>
+      <button class="npc-tab ativo" id="tab-gerador" onclick="App.switchNPCTab('gerador')">Gerador</button>
+      <button class="npc-tab" id="tab-encontro" onclick="App.switchNPCTab('encontro')">Encontro</button>
     </div>
     <div class="ficha-acoes" id="npc-header-acoes"></div>
   </header>
@@ -239,7 +230,7 @@
 <div id="tela-gerador-pj" class="tela">
   <header class="sessao-header">
     <button class="btn-voltar-inicio" onclick="App.fecharGeradorPJ()">⟵ Início</button>
-    <h2>⚡ Gerador de Personagem</h2>
+    <h2>Gerador de Personagem</h2>
     <div class="ficha-acoes" id="gpj-header-acoes"></div>
   </header>
   <div class="gpj-wrapper" id="gpj-conteudo">
@@ -342,5 +333,6 @@
 <script src="modais/modal-desambiguacao.js"></script>
 <script src="gerador-pj.js"></script>
 <script src="app.js"></script>
+<script src="palco.js"></script>
 </body>
 </html>

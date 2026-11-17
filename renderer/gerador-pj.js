@@ -172,7 +172,7 @@ const GeradorPJ = (() => {
         niveis: c.niveis,
         poderes: c.poderes,
         nome: cl ? cl.nome : id,
-        icone: (typeof ICONES_CLASSES !== 'undefined' ? (ICONES_CLASSES[id] || '⚔') : '⚔'),
+        icone: (typeof ICONES_CLASSES !== 'undefined' ? (ICONES_CLASSES[id] || '') : ''),
         poderesData: cl ? cl.poderes : []
       };
     }).sort((a, b) => b.niveis - a.niveis);
@@ -386,9 +386,9 @@ const GeradorPJ = (() => {
       const arqNome = _estado.pjGerado && _estado.pjGerado.arquetipo
         ? _esc(_estado.pjGerado.arquetipo.nome) : '?';
       banner.innerHTML = `
-        <span class="gpj-wizard-banner-icone">✨</span>
+        <span class="gpj-wizard-banner-icone"></span>
         <span class="gpj-wizard-banner-texto">Personagem gerado${ref} — arquétipo <strong>${arqNome}</strong>. Complete os detalhes abaixo.</span>
-        <button class="gpj-banner-fechar" onclick="this.parentElement.remove()" title="Fechar">✕</button>`;
+        <button class="gpj-banner-fechar" onclick="this.parentElement.remove()" title="Fechar">Fechar</button>`;
       wizardMain.insertAdjacentElement('beforebegin', banner);
     }, 0);
   }
@@ -463,22 +463,22 @@ const GeradorPJ = (() => {
   function _htmlViewModo() {
     return `
       <div class="gpj-view-modo">
-        <h2 class="gpj-modo-titulo">✦ Criar Personagem</h2>
+        <h2 class="gpj-modo-titulo">Criar Personagem</h2>
         <p class="gpj-modo-subtitulo">Como você quer começar?</p>
         <div class="gpj-modo-cards">
           <div class="gpj-modo-card" onclick="GeradorPJ.setModo('aleatorio')">
-            <span class="gpj-modo-icone">🎲</span>
+            <span class="gpj-modo-icone"></span>
             <strong class="gpj-modo-card-nome">Aleatório</strong>
             <p class="gpj-modo-card-desc">Escolha um arquétipo ou deixe o sistema sortear. Gera um PJ completo instantaneamente.</p>
           </div>
           <div class="gpj-modo-card" onclick="GeradorPJ.setModo('inspirado')">
-            <span class="gpj-modo-icone">✨</span>
+            <span class="gpj-modo-icone"></span>
             <strong class="gpj-modo-card-nome">Inspirado</strong>
             <p class="gpj-modo-card-desc">Baseie o personagem em um herói famoso e adapte para o mundo de Fabula Ultima.</p>
           </div>
         </div>
         <div class="gpj-modo-card gpj-modo-card-banco" onclick="GeradorPJ.mostrarNavegacao()">
-          <span class="gpj-modo-icone">📚</span>
+          <span class="gpj-modo-icone"></span>
           <div class="gpj-modo-card-banco-texto">
             <strong class="gpj-modo-card-nome">Navegar Banco</strong>
             <p class="gpj-modo-card-desc">Explore todos os personagens do banco, filtre por franquia, arquétipo ou categoria e escolha o que inspirará seu PJ.</p>
@@ -503,7 +503,7 @@ const GeradorPJ = (() => {
       <div class="gpj-painel">
         <div class="gpj-view-header">
           <button class="gpj-btn-voltar" onclick="GeradorPJ.voltar()">&#8592; Voltar</button>
-          <span class="gpj-view-titulo">🎲 Aleatório</span>
+          <span class="gpj-view-titulo">Aleatório</span>
         </div>
 
         <div class="gpj-nivel-row">
@@ -522,7 +522,7 @@ const GeradorPJ = (() => {
           <p class="gpj-hint">Escolha um arquétipo ou deixe em branco para sortear um aleatório.</p>
           <div class="gpj-arq-grid">${cards}</div>
           <button class="btn-primario gpj-btn-gerar" onclick="GeradorPJ.gerarAleatorio()">
-            🎲 Gerar Personagem
+            Gerar Personagem
           </button>
         </div>
       </div>`;
@@ -543,7 +543,7 @@ const GeradorPJ = (() => {
       <div class="gpj-painel">
         <div class="gpj-view-header">
           <button class="gpj-btn-voltar" onclick="GeradorPJ.voltar()">&#8592; Voltar</button>
-          <span class="gpj-view-titulo">✨ Inspirado</span>
+          <span class="gpj-view-titulo">Inspirado</span>
         </div>
 
         <div class="gpj-nivel-row">
@@ -567,12 +567,12 @@ const GeradorPJ = (() => {
               placeholder="Ex: Cloud, Geralt, Aragorn, Frieren…"
               value="${_esc(_estado.buscaTexto)}"
               onkeydown="if(event.key==='Enter') GeradorPJ.buscarInspiracao()" />
-            <button class="btn-primario" onclick="GeradorPJ.buscarInspiracao()">🔍 Buscar</button>
+            <button class="btn-primario" onclick="GeradorPJ.buscarInspiracao()">Buscar</button>
           </div>
           <div id="gpj-busca-resultado">${resultadoHtml}</div>
 
           <button class="gpj-btn-explorar-banco" onclick="GeradorPJ.mostrarNavegacao()">
-            📚 Explorar banco completo (${total} personagens) →
+            Explorar banco completo (${total} personagens) →
           </button>
         </div>
       </div>`;
@@ -627,7 +627,7 @@ const GeradorPJ = (() => {
           <span class="gpj-label-mini">Origem:</span> ${_esc(entry.origem)}
         </div>
         <button class="btn-primario gpj-btn-gerar-insp" onclick="GeradorPJ.gerarInspiracao()">
-          ✨ Gerar como ${_esc(entry.nome)}
+          Gerar como ${_esc(entry.nome)}
         </button>
       </div>`;
   }
@@ -652,7 +652,7 @@ const GeradorPJ = (() => {
           <span class="gpj-label-mini">Origem:</span> ${_esc(entry.origem)}
         </div>
         <button class="btn-primario gpj-btn-gerar-insp" onclick="GeradorPJ.gerarInspiracao()">
-          ✨ Gerar como ${_esc(entry.nome)}
+          Gerar como ${_esc(entry.nome)}
         </button>
       </div>`;
   }
@@ -660,7 +660,7 @@ const GeradorPJ = (() => {
   function _htmlResultadoArquetipo(candidatos) {
     const cards = candidatos.map(arq => `
       <div class="gpj-arq-sugerido" onclick="GeradorPJ.gerarDeArquetipo('${_esc(arq.id)}')">
-        <span class="gpj-arq-sugerido-icone">${arq.icone || '⚔'}</span>
+        <span class="gpj-arq-sugerido-icone">${arq.icone || ''}</span>
         <div class="gpj-arq-sugerido-info">
           <div class="gpj-arq-sugerido-nome">${_esc(arq.nome)}</div>
           <div class="gpj-arq-sugerido-tags">${(arq.tags || []).slice(0,2).join(' · ')}</div>
@@ -684,7 +684,7 @@ const GeradorPJ = (() => {
       <div class="gpj-match-card gpj-sem-match-card">
         <p class="gpj-match-nf-msg">${_esc(msg)}</p>
         <button class="btn-primario gpj-btn-abrir-arqs" onclick="GeradorPJ.abrirModalArquetipos()">
-          🎭 Escolher um arquétipo
+          Escolher um arquétipo
         </button>
         <p class="gpj-sem-match-dica">Ou tente outro nome no campo de busca acima.</p>
       </div>`;
@@ -716,7 +716,7 @@ const GeradorPJ = (() => {
 
     const classesHtml = Object.entries(p.classes).map(([id, c]) => {
       const cl = GAMEDATA.classes.find(x => x.id === id);
-      const icone = typeof ICONES_CLASSES !== 'undefined' ? (ICONES_CLASSES[id] || '⚔') : '⚔';
+      const icone = typeof ICONES_CLASSES !== 'undefined' ? (ICONES_CLASSES[id] || '') : '';
       const poderesNomes = c.poderes.map(pid => {
         if (!cl) return pid;
         const pd = cl.poderes.find(po => po.id === pid);
@@ -755,7 +755,7 @@ const GeradorPJ = (() => {
             <div>
               <div class="gpj-preview-nome-row">
                 <h3 class="gpj-preview-nome">${_esc(p.nome)}</h3>
-                <button class="btn-mini gpj-btn-sugerir-nome" onclick="GeradorPJ.sugerirNome()" title="Sugerir outro nome">🎲</button>
+                <button class="btn-mini gpj-btn-sugerir-nome" onclick="GeradorPJ.sugerirNome()" title="Sugerir outro nome">Outro nome</button>
               </div>
               <div class="gpj-resultado-meta">
                 ${_htmlBadgeFonte(badge)}
@@ -835,11 +835,11 @@ const GeradorPJ = (() => {
 
   function _htmlBadgeFonte(tipo) {
     const badges = {
-      aleatorio:        { icone: '🎲', label: 'Aleatório',    cls: 'badge-aleatorio', title: 'Gerado aleatoriamente' },
-      exato:            { icone: '📚', label: 'Banco curado', cls: 'badge-exato',     title: 'Match exato no banco de personagens' },
-      fuzzy_personagem: { icone: '🎯', label: 'Match aprox.', cls: 'badge-fuzzy',     title: 'Match aproximado por busca fuzzy' },
-      fuzzy_arquetipo:  { icone: '🎭', label: 'Arquétipo',    cls: 'badge-arquetipo', title: 'Arquétipo sugerido por similaridade' },
-      escolha_manual:   { icone: '👤', label: 'Manual',       cls: 'badge-manual',    title: 'Arquétipo escolhido manualmente' },
+      aleatorio:        { icone: '', label: 'Aleatório',    cls: 'badge-aleatorio', title: 'Gerado aleatoriamente' },
+      exato:            { icone: '', label: 'Banco curado', cls: 'badge-exato',     title: 'Match exato no banco de personagens' },
+      fuzzy_personagem: { icone: '', label: 'Match aprox.', cls: 'badge-fuzzy',     title: 'Match aproximado por busca fuzzy' },
+      fuzzy_arquetipo:  { icone: '', label: 'Arquétipo',    cls: 'badge-arquetipo', title: 'Arquétipo sugerido por similaridade' },
+      escolha_manual:   { icone: '', label: 'Manual',       cls: 'badge-manual',    title: 'Arquétipo escolhido manualmente' },
     };
     const b = badges[tipo] || badges.aleatorio;
     return `<span class="gpj-badge ${b.cls}" title="${b.title}">${b.icone} ${b.label}</span>`;
@@ -932,7 +932,7 @@ const GeradorPJ = (() => {
     return `
       <div class="nav-card">
         <div class="nav-card-topo">
-          <span class="nav-card-icone">${arq ? arq.icone : '⚔'}</span>
+          <span class="nav-card-icone">${arq ? arq.icone : ''}</span>
           <div class="nav-card-info">
             <div class="nav-card-nome">${_esc(e.nome)}</div>
             <div class="nav-card-franquia">${_esc(obra)}</div>
@@ -984,7 +984,7 @@ const GeradorPJ = (() => {
 
     const hasFilter = filtroCategoria || filtroFranquia || filtroArquetipo || _estado.navegacao.termoBusca;
     const limparBtn = hasFilter
-      ? `<button class="nav-banco-limpar-btn" onclick="GeradorPJ.limparFiltrosNavegacao()">✕ Limpar filtros</button>`
+      ? `<button class="nav-banco-limpar-btn" onclick="GeradorPJ.limparFiltrosNavegacao()">Limpar filtros</button>`
       : '';
 
     const cards = pagina.map(e => _htmlCardPersonagemMini(e)).join('');
@@ -994,7 +994,7 @@ const GeradorPJ = (() => {
       <div class="gpj-painel">
         <div class="gpj-view-header">
           <button class="gpj-btn-voltar" onclick="GeradorPJ.voltar()">&#8592; Voltar</button>
-          <span class="gpj-view-titulo">📚 Banco de Personagens</span>
+          <span class="gpj-view-titulo">Banco de Personagens</span>
         </div>
 
         <div class="nav-banco-filtros">
@@ -1023,7 +1023,7 @@ const GeradorPJ = (() => {
 
         <div class="nav-banco-grid">${cards || `
           <div class="nav-banco-vazio">
-            <span class="nav-banco-vazio-icone">🔍</span>
+            <span class="nav-banco-vazio-icone"></span>
             <p class="nav-banco-vazio-msg">Nenhum personagem encontrado.</p>
             <p class="nav-banco-vazio-dica">Tente outros filtros ou <button class="nav-link-btn" onclick="GeradorPJ.limparFiltrosNavegacao()">limpe os filtros</button>.</p>
           </div>`}</div>

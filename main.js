@@ -21,7 +21,8 @@ function createWindow() {
       nodeIntegration: false
     },
     title: 'Fabula Ultima — Criador de Personagens',
-    backgroundColor: '#1a1a2e',
+    backgroundColor: '#0c0b17',
+    icon: path.join(__dirname, 'assets', 'icon.png'),
     show: false
   });
 
