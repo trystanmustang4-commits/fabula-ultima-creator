@@ -8,7 +8,7 @@ import fs from 'fs';
 
 const dir = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const OUT = path.resolve(dir, process.argv[2] || 'tools/test-output/audit-mobile');
-const larguras = (process.argv[3] || '360,412').split(',').map(Number);
+const larguras = (process.argv[3] || '360,412').split(',');
 fs.mkdirSync(OUT, { recursive: true });
 
 // Cada estado: [nome, código a executar na página antes da medição]
@@ -98,8 +98,9 @@ function medir() {
 
 const browser = await chromium.launch({ channel: 'chrome' });
 const relatorio = {};
-for (const W of larguras) {
-  const H = W < 400 ? 780 : 915;
+for (const tam of larguras) {
+  const [W, Hx] = tam.split('x').map(Number);
+  const H = Hx || (W < 400 ? 780 : 915);
   for (const [nome, codigo] of ESTADOS) {
     const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
     const page = await ctx.newPage();

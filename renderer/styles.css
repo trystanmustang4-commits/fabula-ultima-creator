@@ -4553,11 +4553,11 @@ option:disabled { color: #555 !important; }
 /* ── Grid de cards ── */
 .nav-banco-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
 }
-@media (max-width: 800px) { .nav-banco-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 580px) { .nav-banco-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) { .nav-banco-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .nav-banco-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 360px) { .nav-banco-grid { grid-template-columns: 1fr; } }
 
 .nav-banco-vazio {
@@ -4569,6 +4569,7 @@ option:disabled { color: #555 !important; }
 }
 
 /* ── Card mini de personagem ── */
+.nav-card { min-width: 0; }
 .nav-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--cor-borda);
@@ -5383,4 +5384,45 @@ textarea:focus-visible {
   .nav-card-btn { min-height: 36px; }
   .encontro-npc-card .campo-input, .campo-input { min-height: 40px; }
   label.campo-label:has(input[type="checkbox"]) { min-height: 40px; }
+}
+
+/* Áreas seguras (barra de status, entalhe e barra de navegação) — no Android 15+ o
+   Capacitor já aplica margens; isto cobre WebViews que expõem os insets ao CSS. */
+.plataforma-movel .tela {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* ---------- Paisagem baixa (tablet/BlueStacks ~960×540, janelas baixas) ---------- */
+.inicio-menu { justify-content: safe center; }
+@media (min-width: 761px) and (max-height: 640px) {
+  .logo-titulo { font-size: 44px; }
+  .logo-subtitulo { margin-top: 6px; font-size: 15px; }
+  .inicio-menu { gap: 18px; padding: 24px 32px 24px 48px; }
+  .home-item { padding: 8px 14px; }
+  .home-item-rot { font-size: 17px; }
+  .home-item-desc { font-size: 13px; }
+
+  .wizard-header { height: 48px; }
+  .passos-lista { height: 48px; }
+  .passo-indicador, .passo-indicador.ativo, .passo-indicador.concluido { padding: 0 9px; font-size: 13px; }
+
+  .wizard-corpo { grid-template-columns: 260px 1fr; }
+  .palco { gap: 10px; padding: 14px 16px 20px; }
+  .palco-brasao { max-width: 120px; }
+  .palco-retrato img { max-height: 160px; }
+  .palco-retrato-acao { padding: 4px 10px; font-size: 12px; }
+  .palco-nome { font-size: 22px; }
+  .palco-identidade { font-size: 14px; margin-top: 2px; }
+  .palco-classes { font-size: 13px; }
+  .palco-dado { padding: 0; }
+  .palco-dado-val { font-size: 18px; }
+  .palco-stat { padding: 7px 8px 6px; gap: 3px; }
+  .palco-stat-val { font-size: 17px; }
+  .palco-linha { padding: 3px 0; font-size: 13px; }
+  .wizard-main { padding: 20px 28px 32px; }
+  .passo-titulo h2 { font-size: 26px; }
+  .wizard-footer { padding: 8px 16px; }
 }
