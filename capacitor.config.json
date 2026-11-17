@@ -1,0 +1,11 @@
+{
+  "appId": "com.danyel.fabulaultima.creator",
+  "appName": "Fabula Ultima Creator",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#0c0b17"
+  },
+  "plugins": {
+    "StatusBar": { "backgroundColor": "#0c0b17", "style": "DARK", "overlaysWebView": false }
+  }
+}

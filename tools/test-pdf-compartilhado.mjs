@@ -1,0 +1,22 @@
+// Gera uma ficha PDF com o módulo compartilhado (renderer/lib/preencher-ficha.js) a partir de um personagem exemplo.
+import { _electron as electron } from 'playwright-core';
+import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+import path from 'path';
+import fs from 'fs';
+const dir = path.resolve(fileURLToPath(import.meta.url), '..', '..');
+const require = createRequire(import.meta.url);
+const app = await electron.launch({ executablePath: path.join(dir, 'node_modules/electron/dist/electron.exe'), args: [dir], env: { ...process.env, ELECTRON_RUN_AS_NODE: undefined } });
+const page = await app.firstWindow();
+await page.waitForTimeout(2000);
+const payload = await page.evaluate(() => { App.carregarPersonagemClassico(0); Estado.personagem.nome = 'Teste PDF'; return App.prepararDadosPDF(); });
+await app.close();
+const preencher = require(path.join(dir, 'renderer/lib/preencher-ficha.js'));
+const bytes = await preencher(require('pdf-lib'), fs.readFileSync(path.join(dir, 'assets/ficha-template.pdf')), payload);
+const out = path.join(dir, 'tools/test-output/ficha-compartilhado.pdf');
+fs.mkdirSync(path.dirname(out), { recursive: true });
+fs.writeFileSync(out, bytes);
+const { PDFDocument } = require('pdf-lib');
+const doc = await PDFDocument.load(bytes);
+const f = doc.getForm();
+console.log('bytes', bytes.length, '| Nome =', f.getTextField('Nome').getText(), '| Difesa =', f.getTextField('Difesa').getText());

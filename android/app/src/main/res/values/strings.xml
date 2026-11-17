@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Fabula Ultima Creator</string>
+    <string name="title_activity_main">Fabula Ultima Creator</string>
+    <string name="package_name">com.danyel.fabulaultima.creator</string>
+    <string name="custom_url_scheme">com.danyel.fabulaultima.creator</string>
+</resources>

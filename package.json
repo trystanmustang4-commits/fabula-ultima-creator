@@ -1,6 +1,6 @@
 {
   "name": "fabula-ultima-creator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Criador de Personagens de Fabula Ultima",
   "main": "main.js",
   "scripts": {
@@ -13,7 +13,11 @@
     "parse-zero-powers": "node tools/extract-rulebooks/parse-zero-powers.js",
     "sync-gamedata": "node tools/extract-rulebooks/sync-gamedata-classes.js && node tools/extract-rulebooks/generate-gamedata-quirks-zero.js",
     "extract-rulebooks": "npm run extract-pdfs && npm run parse-classes && npm run parse-quirks && npm run parse-zero-powers && npm run sync-gamedata",
-    "validate": "node tools/validate-data.js"
+    "validate": "node tools/validate-data.js",
+    "android:www": "node tools/build-www.mjs",
+    "android:sync": "node tools/build-www.mjs && npx cap sync android",
+    "android:apk": "npm run android:sync && cd android && gradlew.bat assembleRelease",
+    "android:open": "npx cap open android"
   },
   "build": {
     "appId": "com.danyel.fabula-ultima-creator",
@@ -34,7 +38,12 @@
       "!tools/**",
       "!docs/**",
       "!data/**",
-      "!*.md"
+      "!*.md",
+      "!node_modules/@capacitor/**",
+      "!node_modules/playwright-core/**",
+      "!android/**",
+      "!www/**",
+      "!mobile/**"
     ],
     "win": {
       "target": "nsis",
@@ -50,6 +59,7 @@
     }
   },
   "devDependencies": {
+    "@capacitor/cli": "7.6.10",
     "electron": "^28.3.3",
     "electron-builder": "^26.8.1",
     "playwright-core": "^1.60.0"
@@ -57,6 +67,12 @@
   "author": "Danyel",
   "license": "ISC",
   "dependencies": {
+    "@capacitor/android": "7.6.10",
+    "@capacitor/app": "7.1.2",
+    "@capacitor/core": "7.6.10",
+    "@capacitor/filesystem": "7.1.9",
+    "@capacitor/share": "7.0.4",
+    "@capacitor/status-bar": "7.0.6",
     "fuse.js": "^7.3.0",
     "pdf-lib": "^1.17.1"
   }

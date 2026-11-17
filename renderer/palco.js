@@ -107,7 +107,10 @@
         ? `<div class="palco-retrato"><img src="${p.imagem}" alt="Retrato de ${esc(p.nome || 'seu personagem')}"></div>`
         : `<div class="palco-brasao">${brasaoSVG(p, classesOrd)}</div>`;
 
+      const aberto = el.classList.contains('expandido');
       el.innerHTML = `
+        <button type="button" class="palco-alternar" aria-expanded="${aberto}"
+          onclick="document.getElementById('palco-heroi').classList.toggle('expandido'); App.renderizarPalco()">${aberto ? 'Recolher' : 'Ver herói'}</button>
         <div class="palco-figura ${f('brasao')}">
           ${figura}
           <label class="palco-retrato-acao">
@@ -207,6 +210,16 @@
     if (!main) return;
     ['input', 'change', 'click'].forEach(t => main.addEventListener(t, agendar));
   });
+
+  // Na barra de etapas com rolagem (celular), mantém a aba atual à vista
+  const origProgresso = App.atualizarProgressoBar;
+  App.atualizarProgressoBar = function () {
+    origProgresso.call(this);
+    const ativa = document.querySelector('.passo-indicador.ativo');
+    if (ativa && ativa.parentElement.scrollWidth > ativa.parentElement.clientWidth) {
+      ativa.scrollIntoView({ inline: 'center', block: 'nearest' });
+    }
+  };
 
   // Retrato carregado/removido pelo passo final também atualiza o palco
   const origRemover = App.removerImagem;

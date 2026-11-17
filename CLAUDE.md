@@ -381,3 +381,24 @@ env -u ELECTRON_RUN_AS_NODE node_modules/electron/dist/electron.exe .
 ```
 
 > **Atenção**: O ambiente do Claude Code define `ELECTRON_RUN_AS_NODE=1`, que faz o Electron se comportar como Node.js puro. Sempre usar `env -u ELECTRON_RUN_AS_NODE` ao abrir pelo terminal interno.
+
+## Versão Android (Capacitor)
+
+O mesmo `renderer/` roda no Android dentro de uma WebView do Capacitor 7. Não existe código de UI separado.
+
+- `tools/build-www.mjs` copia `renderer/` para `www/` (ignorado no git) e injeta `lib/pdf-lib.min.js`, `lib/preencher-ficha.js`, `plataforma-android.js` e `ficha-template.pdf`.
+- `mobile/plataforma-android.js` implementa `window.electronAPI` (mesma API do `preload.js`) com os plugins Filesystem e Share. Grava em Documentos/FabulaUltima e cai para a pasta interna do app se não houver permissão. Também trata o botão voltar do Android.
+- `renderer/lib/preencher-ficha.js` preenche a ficha PDF. É compartilhado: o `main.js` faz `require` e o Android usa `window.preencherFicha`. Mudou o mapeamento de campos? Mude só ali.
+- Layout de celular: bloco `@media (max-width: 760px)` no fim de `styles.css`. Ali o palco do herói vira faixa compacta, expansível pelo botão "Ver herói".
+- `android/` é o projeto nativo (versionado). Ícones: `node tools/gen-android-res.mjs`. Assinatura de release: `android/keystore.properties` (fora do git) aponta para a chave em `C:/Users/tryst/.fabula-ultima-keystore/`.
+
+Comandos (JAVA_HOME = JDK 21, ANDROID_HOME = SDK):
+
+```bash
+npm run android:sync        # monta www/ e copia para android/
+npm run android:apk         # APK de release assinado → android/app/build/outputs/apk/release/
+node tools/shots-mobile.mjs <saida>   # screenshots em viewport de celular (Chrome)
+node tools/test-android-cdp.mjs       # testa a ponte no APK de debug instalado (ver cabeçalho do arquivo)
+```
+
+Teste em emulador: o BlueStacks (instância Pie64, Android 9) aceita ADB em `127.0.0.1:5555`. O BlueStacks às vezes mata apps com "permissions revoked" logo após instalar. Isso não é crash: basta reabrir o app.
