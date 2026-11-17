@@ -5378,3 +5378,9 @@ textarea:focus-visible {
   .tabela-item { display: flex; }
   input[type="checkbox"], input[type="radio"] { width: 22px; height: 22px; min-height: 0; }
 }
+@media (max-width: 760px) {
+  .classe-niveis-ctrl button { min-width: 36px; min-height: 36px; }
+  .nav-card-btn { min-height: 36px; }
+  .encontro-npc-card .campo-input, .campo-input { min-height: 40px; }
+  label.campo-label:has(input[type="checkbox"]) { min-height: 40px; }
+}
