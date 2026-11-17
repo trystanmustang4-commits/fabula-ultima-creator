@@ -29,7 +29,7 @@ Exporta a ficha preenchida para PDF editável usando o template oficial do jogo 
 
 ### Windows
 
-1. Baixe `Fabula Ultima Creator Setup 1.1.0.exe`
+1. Baixe `Fabula Ultima Creator Setup 1.0.0.exe`
 2. Execute o instalador — pode escolher a pasta de destino
 3. Abra pelo atalho na área de trabalho ou no Menu Iniciar
 
@@ -37,7 +37,7 @@ Não requer Node.js, Python nem nenhuma dependência adicional.
 
 ### Android
 
-1. Baixe `fabula-ultima-creator-1.1.0.apk` na página de releases do GitHub
+1. Baixe `fabula-ultima-creator-1.1.1.apk` na página de releases do GitHub
 2. No celular, permita instalar apps de fontes desconhecidas para o navegador ou gerenciador de arquivos
 3. Abra o APK e instale (Android 6.0 ou superior)
 

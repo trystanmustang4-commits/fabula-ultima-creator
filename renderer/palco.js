@@ -100,7 +100,7 @@
       ATRIBS.forEach(a => { valores[a.id] = p.atributos[a.id] || 'd8'; });
       const mudou = k => (this._palcoPrev[k] !== undefined && this._palcoPrev[k] !== valores[k]) ? ' mudou' : '';
 
-      const stat = (k, rotulo) => `<div class="palco-stat"><span class="palco-stat-val${mudou(k)}">${esc(valores[k])}</span><span class="palco-stat-rot">${rotulo}</span></div>`;
+      const stat = (k, rotulo, curto) => `<div class="palco-stat" title="${rotulo}"><span class="palco-stat-val${mudou(k)}">${esc(valores[k])}</span><span class="palco-stat-rot"><span class="rot-longo">${rotulo}</span><span class="rot-curto">${curto || rotulo}</span></span></div>`;
       const linha = (rot, val) => `<div class="palco-linha"><span class="palco-linha-rot">${rot}</span><span class="palco-linha-val${val ? '' : ' vazio'}">${val ? esc(val) : 'a escolher'}</span></div>`;
 
       const figura = p.imagem
@@ -139,7 +139,7 @@
 
         <div class="palco-bloco palco-stats ${f('stats')}">
           ${stat('pv', 'PV')}${stat('pm', 'PM')}${stat('pi', 'PI')}
-          ${stat('def', 'Defesa')}${stat('defm', 'Def. mágica')}${stat('ini', 'Iniciativa')}
+          ${stat('def', 'Defesa', 'DEF')}${stat('defm', 'Def. mágica', 'D.MÁG')}${stat('ini', 'Iniciativa', 'INIC')}
         </div>
 
         <div class="palco-bloco palco-detalhes">
@@ -215,6 +215,13 @@
   const origProgresso = App.atualizarProgressoBar;
   App.atualizarProgressoBar = function () {
     origProgresso.call(this);
+    // Seletor de etapa do celular
+    const sel = document.getElementById('passo-select');
+    if (sel) {
+      sel.innerHTML = PASSOS.map((p, i) =>
+        `<option value="${i}"${i === Estado.passoAtual ? ' selected' : ''}>${i < Estado.passoAtual ? '✓ ' : ''}${p.titulo}</option>`).join('');
+      sel.value = String(Estado.passoAtual);
+    }
     const ativa = document.querySelector('.passo-indicador.ativo');
     if (ativa && ativa.parentElement.scrollWidth > ativa.parentElement.clientWidth) {
       ativa.scrollIntoView({ inline: 'center', block: 'nearest' });

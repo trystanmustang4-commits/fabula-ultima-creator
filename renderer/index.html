@@ -29,6 +29,11 @@
   <!-- Barra superior: etapas como abas de criação de personagem -->
   <header class="wizard-header">
     <button class="btn-voltar-inicio" onclick="App.voltarInicio()" title="Voltar ao início">Início</button>
+    <!-- Celular: etapa atual como seletor nativo (preenchido por palco.js) -->
+    <label class="passo-seletor">
+      <span class="sr-only">Etapa</span>
+      <select id="passo-select" onchange="App.irParaPasso(Number(this.value))"></select>
+    </label>
     <nav class="progresso-container" aria-label="Etapas da criação">
       <div class="passos-lista" id="passos-lista"></div>
       <div class="barra-progresso">

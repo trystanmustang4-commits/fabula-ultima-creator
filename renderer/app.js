@@ -753,8 +753,8 @@ const App = {
         <div class="npc-poderes-titulo">Habilidades Especiais</div>
         <div>${(npc.especial || []).map(s => `<div class="npc-poder-desc-item"><span style="color:var(--cor-texto-muted);font-size:0.82em">${s}</span></div>`).join('') || '<em style="color:var(--cor-texto-muted)">Nenhuma</em>'}</div>
       </div>
-      ${npc.tracos ? `<div style="font-size:0.78rem;color:var(--cor-texto-muted);margin-top:0.3rem">Traços: ${npc.tracos}</div>` : ''}
-      ${npc.fonte ? `<div style="font-size:0.72rem;color:var(--cor-texto-muted);margin-top:0.2rem;opacity:0.7">Fonte: ${npc.fonte}</div>` : ''}
+      ${npc.tracos ? `<div style="font-size:0.8rem;color:var(--cor-texto-muted);margin-top:0.3rem">Traços: ${npc.tracos}</div>` : ''}
+      ${npc.fonte ? `<div style="font-size:0.8rem;color:var(--cor-texto-muted);margin-top:0.2rem;opacity:0.7">Fonte: ${npc.fonte}</div>` : ''}
       <div class="campo-grupo" style="margin-top:0.8rem;">
         <label class="campo-label">Notas</label>
         <textarea class="campo-input" rows="2"
@@ -975,7 +975,7 @@ const App = {
           <div class="campo-grupo">
             <label class="campo-label">Poder do Chefe</label>
             <div class="npc-tipo-btns" style="flex-wrap:wrap;">
-              ${difs.map(d => `<button class="gen-btn ${e.dificuldadeChefe===d?'ativo':''}" style="font-size:0.74rem;" onclick="Estado.encontro.dificuldadeChefe='${d}';App.renderEncontro()">${difChefe[d]}</button>`).join('')}
+              ${difs.map(d => `<button class="gen-btn ${e.dificuldadeChefe===d?'ativo':''}" style="font-size:0.8rem;" onclick="Estado.encontro.dificuldadeChefe='${d}';App.renderEncontro()">${difChefe[d]}</button>`).join('')}
             </div>
           </div>` : ''}
           <button class="btn-primario" style="width:100%;margin-top:0.5rem;" onclick="App.gerarEncontro()">Gerar Encontro</button>
@@ -1080,20 +1080,20 @@ const App = {
           <div style="flex:1;min-width:0;">
             <input class="campo-input" style="font-weight:700;font-size:0.85rem;padding:0.2rem 0.4rem;width:100%;"
               value="${nome}" oninput="App._encontroNPCEdit(${idx},'nome',this.value)" />
-            <div style="font-size:0.72rem;color:var(--cor-texto-muted);margin-top:0.1rem">
+            <div style="font-size:0.8rem;color:var(--cor-texto-muted);margin-top:0.1rem">
               ${subtitulo}
             </div>
           </div>
         </div>
         <div class="npc-stats-row" style="gap:0.25rem;margin:0.4rem 0;">
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-sucesso);font-size:0.85rem">${pv}</span><span style="font-size:0.62rem">PV</span></div>
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-aviso);font-size:0.85rem">${crise}</span><span style="font-size:0.62rem">Crise</span></div>
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-info);font-size:0.85rem">${pm}</span><span style="font-size:0.62rem">PM</span></div>
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-dourado);font-size:0.85rem">${pi}</span><span style="font-size:0.62rem">PI</span></div>
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defVal}</span><span style="font-size:0.62rem">DEF</span></div>
-          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defMVal}</span><span style="font-size:0.62rem">DefM</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-sucesso);font-size:0.85rem">${pv}</span><span style="font-size:0.8rem">PV</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-aviso);font-size:0.85rem">${crise}</span><span style="font-size:0.8rem">Crise</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-info);font-size:0.85rem">${pm}</span><span style="font-size:0.8rem">PM</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-dourado);font-size:0.85rem">${pi}</span><span style="font-size:0.8rem">PI</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defVal}</span><span style="font-size:0.8rem">DEF</span></div>
+          <div class="npc-stat"><span class="npc-sv" style="color:var(--cor-primaria-clara);font-size:0.85rem">${defMVal}</span><span style="font-size:0.8rem">DefM</span></div>
         </div>
-        <div style="font-size:0.75rem;color:var(--cor-texto-muted);margin-bottom:0.4rem">${armaStr}</div>
+        <div style="font-size:0.8rem;color:var(--cor-texto-muted);margin-bottom:0.4rem">${armaStr}</div>
         <div class="encontro-npc-actions">
           <button class="btn-mini" title="Ver ficha completa" onclick="App.verNPCEncontro(${idx})">Ver</button>
           <button class="btn-mini" title="Regenerar" onclick="App.regenerarNPCEncontro(${idx})">Regenerar</button>
@@ -1630,7 +1630,7 @@ const App = {
         </div>`;
       }).join('')}
       <div class="comp-separador"></div>
-      <div style="font-size:0.68rem;color:var(--cor-texto-dim);text-align:center;">atual → novo</div>
+      <div style="font-size:0.8rem;color:var(--cor-texto-dim);text-align:center;">atual → novo</div>
     `;
 
     const x = Math.min(evt.clientX + 12, window.innerWidth - 320);
@@ -1791,7 +1791,7 @@ const App = {
               `<button class="nivel-preset ${p.nivel === n ? 'ativo' : ''}" onclick="App.setNivelIdentidade(${n})">Nv.${n}</button>`
             ).join('')}
           </div>
-          <div style="font-size:0.7rem;color:var(--cor-texto-dim);text-align:center;margin-top:0.2rem;">
+          <div style="font-size:0.8rem;color:var(--cor-texto-dim);text-align:center;margin-top:0.2rem;">
             Você distribuirá <strong style="color:var(--cor-dourado)">${p.nivel}</strong> níveis entre as classes
           </div>
         </div>
@@ -1953,8 +1953,8 @@ const App = {
         <p>Distribua ${p.nivel} níveis entre 2 a 3 classes. Para cada nível investido, escolha um poder da classe.</p>
       </div>
       <div class="aviso-classes">
-        Níveis usados: <strong>${nivelUsado}/${p.nivel}</strong> &nbsp;|&nbsp;
-        Classes: <strong>${numClasses}</strong> de 2 a 3 necessárias
+        <span>Níveis usados: <strong>${nivelUsado}/${p.nivel}</strong></span>
+        <span>Classes: <strong>${numClasses}</strong> de 2 a 3 necessárias</span>
       </div>
 
       <div class="filtro-poderes-container">
@@ -2031,7 +2031,7 @@ const App = {
           <div class="busca-poder-item">
             <span class="busca-poder-classe-tag">${cl.nome}</span>
             <div class="busca-poder-info">
-              <div class="busca-poder-nome">${pod.nome}${pod.repeticoes > 1 ? ` <span style="font-size:0.72rem;color:var(--cor-texto-dim);">(máx ${pod.repeticoes}×)</span>` : ''}</div>
+              <div class="busca-poder-nome">${pod.nome}${pod.repeticoes > 1 ? ` <span style="font-size:0.8rem;color:var(--cor-texto-dim);">(máx ${pod.repeticoes}×)</span>` : ''}</div>
               <div class="busca-poder-desc">${pod.descricao}</div>
             </div>
           </div>
@@ -2165,7 +2165,7 @@ const App = {
         <div class="niveis-label">nível${restante !== 1 ? 'is' : ''} restante${restante !== 1 ? 's' : ''}</div>
       </div>
       <div class="classes-resumo">${resumoClasses || '<p style="font-size:0.8rem;color:var(--cor-texto-dim);text-align:center;">Nenhuma classe escolhida</p>'}</div>
-      <div style="font-size:0.78rem;color:var(--cor-texto-muted);padding-top:0.5rem;border-top:1px solid var(--cor-borda);">
+      <div style="font-size:0.8rem;color:var(--cor-texto-muted);padding-top:0.5rem;border-top:1px solid var(--cor-borda);">
         <p>• Escolha 2 a 3 classes</p>
         <p>• Máximo ${p.nivel} níveis totais (Nível ${p.nivel})</p>
         <p>• Escolha 1 poder por nível</p>
@@ -2309,7 +2309,7 @@ const App = {
           <h4>Distribua os dados entre os atributos</h4>
           <div id="atribs-linhas"></div>
           <div class="dado-disponivel-info">
-            <p style="font-size:0.78rem;color:var(--cor-texto-muted);margin-bottom:0.4rem;">Dados disponíveis no perfil selecionado:</p>
+            <p style="font-size:0.8rem;color:var(--cor-texto-muted);margin-bottom:0.4rem;">Dados disponíveis no perfil selecionado:</p>
             <div class="dados-disponiveis" id="dados-disponiveis"></div>
           </div>
         </div>
@@ -2333,7 +2333,7 @@ const App = {
         <div class="perfil-nome">${pf.nome}</div>
         <div class="perfil-dados">${pf.dados.map(d => `<span class="dado-badge">${d}</span>`).join('')}</div>
         <div class="perfil-desc">${pf.descricao}</div>
-        <div style="font-size:0.75rem;color:var(--cor-texto-dim);margin-top:0.4rem;">${pf.exemplo}</div>
+        <div style="font-size:0.8rem;color:var(--cor-texto-dim);margin-top:0.4rem;">${pf.exemplo}</div>
       `;
       grid.appendChild(div);
     });
@@ -2565,7 +2565,7 @@ const App = {
           </p>
           <div style="font-size:0.8rem;color:var(--cor-texto-muted);text-align:right;">
             Nível do personagem: <strong style="color:var(--cor-dourado);">${p.nivel}</strong><br>
-            <span style="font-size:0.72rem;color:var(--cor-texto-dim);">(configurado no passo 1)</span>
+            <span style="font-size:0.8rem;color:var(--cor-texto-dim);">(configurado no passo 1)</span>
           </div>
         </div>
       </div>
@@ -2668,7 +2668,7 @@ const App = {
           ${i >= 1 ? `<button class="btn-perigo" onclick="App.removerLaco(${i})">Remover</button>` : ''}
         </div>
         ${laco.alvo ? `
-          <p style="font-size:0.78rem;color:var(--cor-texto-dim);margin:0 0 0.4rem 25px;">Emoções (um de cada par):</p>
+          <p style="font-size:0.8rem;color:var(--cor-texto-dim);margin:0 0 0.4rem 25px;">Emoções (um de cada par):</p>
           <div class="emocoes-lista" style="margin-left:25px;">
             ${GAMEDATA.emocoes.map(em => {
               const ativa = laco.emocoes.includes(em.id);
@@ -2759,7 +2759,7 @@ const App = {
             <div id="inventario-selecionado"></div>
           </div>
           <div class="card" style="margin-top:0.8rem;">
-            <p style="font-size:0.78rem;color:var(--cor-texto-muted);line-height:1.5;">
+            <p style="font-size:0.8rem;color:var(--cor-texto-muted);line-height:1.5;">
               <strong style="color:var(--cor-dourado);">Dinheiro inicial</strong><br>
               O valor restante (${Math.max(0, restante)}z) + rolagem de 2d6×10 será seu dinheiro inicial.
             </p>
@@ -2791,7 +2791,7 @@ const App = {
     const categorias = [...new Set(GAMEDATA.armas.map(a => a.categoria))];
     categorias.forEach(cat => {
       const catDiv = document.createElement('div');
-      catDiv.innerHTML = `<p style="font-size:0.75rem;color:var(--cor-texto-dim);margin:0.4rem 0 0.2rem;text-transform:uppercase;">${cat}</p>`;
+      catDiv.innerHTML = `<p style="font-size:0.8rem;color:var(--cor-texto-dim);margin:0.4rem 0 0.2rem;text-transform:uppercase;">${cat}</p>`;
       GAMEDATA.armas.forEach(arma => {
         if (arma.categoria !== cat) return;
         const qtd = p.equipamento.armas.filter(id => id === arma.id).length;
@@ -2905,7 +2905,7 @@ const App = {
       if (!arma) return;
       linhas.push(`
         <div class="inventario-item">
-          <span style="font-size:0.72rem;color:var(--cor-texto-dim);">Arma</span>
+          <span style="font-size:0.8rem;color:var(--cor-texto-dim);">Arma</span>
           <span class="inventario-item-nome">${arma.nome}${qtd > 1 ? ` <span class="inv-qtd">×${qtd}</span>` : ''}</span>
           <span class="inventario-item-custo">${arma.custo === 0 ? 'Grátis' : (arma.custo * qtd) + 'z'}</span>
           <button class="inv-remover" onclick="App.removerArmaUm('${id}')" title="Remover uma unidade">−</button>
@@ -2917,7 +2917,7 @@ const App = {
       const arm = GAMEDATA.armaduras.find(a => a.id === p.equipamento.armadura);
       if (arm) linhas.push(`
         <div class="inventario-item">
-          <span style="font-size:0.72rem;color:var(--cor-texto-dim);">Armadura</span>
+          <span style="font-size:0.8rem;color:var(--cor-texto-dim);">Armadura</span>
           <span class="inventario-item-nome">${arm.nome}</span>
           <span class="inventario-item-custo">${arm.custo === 0 ? 'Grátis' : arm.custo + 'z'}</span>
           <button class="inv-remover" onclick="App.selecionarArmadura('sem_armadura')" title="Remover">−</button>
@@ -2929,7 +2929,7 @@ const App = {
       const esc = GAMEDATA.escudos.find(e => e.id === p.equipamento.escudo);
       if (esc) linhas.push(`
         <div class="inventario-item">
-          <span style="font-size:0.72rem;color:var(--cor-texto-dim);">Escudo</span>
+          <span style="font-size:0.8rem;color:var(--cor-texto-dim);">Escudo</span>
           <span class="inventario-item-nome">${esc.nome}</span>
           <span class="inventario-item-custo">${esc.custo + 'z'}</span>
           <button class="inv-remover" onclick="App.toggleEscudo('${esc.id}')" title="Remover">−</button>
@@ -3103,9 +3103,9 @@ const App = {
             <input type="file" id="inp-imagem" accept="image/*" style="display:none"
               onchange="App.carregarImagem(this)" />
             <div style="display:flex;gap:0.4rem;margin-top:0.4rem;flex-wrap:wrap;">
-              <button class="btn-secundario" style="flex:1;font-size:0.78rem;"
+              <button class="btn-secundario" style="flex:1;font-size:0.8rem;"
                 onclick="App._toggleImagemURL()">Carregar de URL</button>
-              ${p.imagem ? `<button class="btn-secundario" style="flex:1;font-size:0.78rem;"
+              ${p.imagem ? `<button class="btn-secundario" style="flex:1;font-size:0.8rem;"
                 onclick="App.removerImagem()">&#x2715; Remover imagem</button>` : ''}
             </div>
             <div id="imagem-url-bloco" style="display:none;margin-top:0.5rem;">
@@ -3422,7 +3422,7 @@ const App = {
         const poderes = d.poderes.map(pid => cl?.poderes.find(po => po.id === pid)?.nome || pid).join(', ');
         return `<div class="review-linha">
           <span class="review-chave">${cl?.nome || id} (${d.niveis}nv):</span>
-          <span class="review-valor" style="font-size:0.78rem;">${poderes || '—'}</span>
+          <span class="review-valor" style="font-size:0.8rem;">${poderes || '—'}</span>
         </div>`;
       }).join('') || '<span style="color:var(--cor-texto-dim);">Nenhuma</span>';
 
@@ -3466,7 +3466,7 @@ const App = {
         </div>
         <div class="review-secao">
           <div class="review-secao-titulo">Equipamento</div>
-          <div class="review-linha"><span class="review-chave">Armas:</span><span class="review-valor" style="font-size:0.78rem;">${armasNomes}</span></div>
+          <div class="review-linha"><span class="review-chave">Armas:</span><span class="review-valor" style="font-size:0.8rem;">${armasNomes}</span></div>
           <div class="review-linha"><span class="review-chave">Armadura:</span><span class="review-valor">${armNome}</span></div>
           <div class="review-linha"><span class="review-chave">Escudo:</span><span class="review-valor">${escNome}</span></div>
           <div class="review-linha"><span class="review-chave">Gasto:</span><span class="review-valor">${this.calcularGastoEquip()}z / 500z</span></div>
@@ -3481,7 +3481,7 @@ const App = {
           ${lacosAtivos.map(l => `
             <div class="review-linha">
               <span class="review-chave">${l.alvo}:</span>
-              <span class="review-valor" style="font-size:0.78rem;">${l.emocoes.map(eId => GAMEDATA.emocoes.find(e => e.id === eId)?.nome || eId).join(', ') || 'sem emoções'}</span>
+              <span class="review-valor" style="font-size:0.8rem;">${l.emocoes.map(eId => GAMEDATA.emocoes.find(e => e.id === eId)?.nome || eId).join(', ') || 'sem emoções'}</span>
             </div>`).join('')}
         </div>
         ` : ''}
@@ -3535,7 +3535,7 @@ const App = {
         const poderesHTML = Object.entries(poderMap).map(([pid, cnt]) => {
           const pod = cl.poderes.find(po => po.id === pid);
           const nome = pod ? pod.nome : pid;
-          return `<span class="ficha-poder-tag" title="${pod?.descricao || ''}">${nome}${cnt > 1 ? ` <em style="font-size:0.7em;opacity:0.75">(NP ${cnt})</em>` : ''}</span>`;
+          return `<span class="ficha-poder-tag" title="${pod?.descricao || ''}">${nome}${cnt > 1 ? ` <em style="font-size:0.8em;opacity:0.75">(NP ${cnt})</em>` : ''}</span>`;
         }).join('');
         return `
           <div class="ficha-classe">
@@ -3592,7 +3592,7 @@ const App = {
       return `
         <div class="ficha-laco">
           <div class="ficha-laco-alvo">${l.alvo}</div>
-          ${emHTML ? `<div class="ficha-laco-emocoes">${emHTML}</div>` : '<div style="font-size:0.75rem;color:var(--cor-texto-dim);">Sem emoções ainda</div>'}
+          ${emHTML ? `<div class="ficha-laco-emocoes">${emHTML}</div>` : '<div style="font-size:0.8rem;color:var(--cor-texto-dim);">Sem emoções ainda</div>'}
           <div class="ficha-laco-forca">${dotsHTML}</div>
         </div>
       `;
@@ -3667,7 +3667,7 @@ const App = {
       </div>
 
       <div class="ficha-secao">
-        <div class="ficha-secao-titulo">Equipamento &nbsp;<span style="font-size:0.75rem;font-weight:normal;color:var(--cor-texto-muted);">${gasto}z gastos de 500z &nbsp;|&nbsp; ${Math.max(0, restante)}z restantes</span></div>
+        <div class="ficha-secao-titulo">Equipamento &nbsp;<span style="font-size:0.8rem;font-weight:normal;color:var(--cor-texto-muted);">${gasto}z gastos de 500z &nbsp;|&nbsp; ${Math.max(0, restante)}z restantes</span></div>
         <div class="ficha-equip-grid">
           ${armasHTML}${armaduraHTML}${escudoHTML}
         </div>
