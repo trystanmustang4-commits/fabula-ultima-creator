@@ -29,7 +29,7 @@ Exporta a ficha preenchida para PDF editável usando o template oficial do jogo 
 
 ### Windows
 
-1. Baixe `Fabula Ultima Creator Setup 1.1.2.exe` na página de releases do GitHub
+1. Baixe `Fabula.Ultima.Creator.Setup.1.1.2.exe` na página de releases do GitHub
 2. Execute o instalador — pode escolher a pasta de destino
 3. Abra pelo atalho na área de trabalho ou no Menu Iniciar
 
